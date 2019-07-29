@@ -1,0 +1,264 @@
+/* TODO: Add transitions and animations where necessary. */
+
+/* Default Theme (dark) */
+html {
+	--primaryBackground: #282c34;
+	--secondaryBackground: #1d1d20;
+	--textDisplay: #2d313a;
+	--primaryAccent: #ddb866;
+	--secondaryAccent: rgb(12, 22, 53);
+	--primaryTextColor: #ffffff;
+	--secondaryTextColor: #e2b458;
+
+	--editorBackground: #36373a;
+	--editorForground: #ece3e3;
+	--editorSelection: #d8dc4bc2;
+	--editorComment: #228b22;
+	--editorKeyword: #ddd670;
+	--editorNumber: #9181da;
+	--editorString: #df2e2e;
+	--editorVariable1: #9c6db3;
+	--editorVariable2: #4ca0a5;
+	--editorHeader: #538fd4;
+
+	--buttonHover: #ece3e37a;
+	--secondaryContrast: #ece49dbe;
+
+	--mobileStep: #7c93b370;
+}
+
+html[data-theme="light"] {
+	/* main background */
+	--primaryBackground: #ffffff;
+	/* Background of text */
+	--textDisplay: #f0e8e8;
+	/* Other large coloured elements */
+	--secondaryBackground: #dd3030;
+	--primaryAccent: #cf5743;
+	--secondaryAccent: rgb(219, 93, 93);
+	/* Text */
+	--primaryTextColor: #000000;
+	/* Other styles related to text, (selection, hover, etc.) */
+	--secondaryTextColor: #67735c;
+
+	--editorBackground: #ece8e8;
+	--editorForground: #000000;
+	--editorSelection: #d8dc4bc2;
+	--editorComment: #3f4fe6;
+	--editorKeyword: #df2e2e;
+	--editorNumber: #df2e2e;
+	--editorString: #5bd1e6;
+	--editorVariable1: #2961c0;
+	--editorVariable2: #c74040;
+	--editorHeader: #8b223b;
+
+	--buttonHover: #0e0d0d83;
+	--secondaryContrast: #ee8787a1;
+
+	--mobileStep: #b37c7c70;
+}
+
+/* Some other themes here */
+html[data-theme="femme"] {
+	--primaryBackground: #f4e0f6;
+	--secondaryBackground: rgb(138, 15, 155);
+	--textDisplay: #fbfbfb;
+	--primaryAccent: rgb(153, 63, 165);
+	--secondaryAccent: rgb(117, 45, 224);
+	--primaryTextColor: #000000;
+	--secondaryTextColor: rgb(143, 108, 158);
+
+	--editorBackground: #f8f8f8;
+	--editorForground: #5b0881;
+	--editorSelection: #d8dc4bc2;
+	--editorComment: #2f99d6;
+	--editorKeyword: #a61cbe;
+	--editorNumber: #e78989;
+	--editorString: #af169a;
+	--editorVariable1: #9c6db3;
+	--editorVariable2: #4ca0a5;
+	--editorHeader: #538fd4;
+
+	--buttonHover: #ece3e37a;
+	--secondaryContrast: #4abfcabe;
+
+	--mobileStep: #b37ca770;
+}
+
+html[data-theme="office"] {
+	--primaryBackground: #ffffff;
+	--secondaryBackground: rgb(22, 62, 194);
+	--textDisplay: #f0eaea;
+	--primaryAccent: rgb(31, 77, 184);
+	--secondaryAccent: rgb(19, 126, 24);
+	--primaryTextColor: #000000;
+	--secondaryTextColor: rgb(48, 70, 195);
+
+	--editorBackground: #f8f8f8;
+	--editorForground: #000000;
+	--editorSelection: #d8dc4bc2;
+	--editorComment: #2f99d6;
+	--editorKeyword: #31d855;
+	--editorNumber: #0e78aa;
+	--editorString: #1b7a0a;
+	--editorVariable1: #9c6db3;
+	--editorVariable2: #4ca0a5;
+	--editorHeader: #538fd4;
+
+	--buttonHover: #ece3e37a;
+	--secondaryContrast: #3b3b3bf3;
+
+	--mobileStep: #807cb370;
+}
+
+html {
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+/* Theme Transition */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+	transition: all 700ms !important;
+	transition-delay: 0 !important;
+}
+
+/* Theme Icon Buttons Styles */
+
+.themeIcon {
+	float: right;
+	margin: 10px;
+	padding: 1px 6px 1px 6px;
+	width: 55px;
+	max-height: 25px;
+
+	border: 1px solid var(--primaryAccent);
+	border-radius: 20px;
+
+	overflow: hidden;
+	-webkit-transition: width 1.3s; /* Safari */
+	transition: width 0.9s;
+}
+
+.themeIcon * {
+	transition: display 0.5s;
+	transition-delay: 0.7s;
+	display: none !important;
+	/* overflow: hidden; */
+}
+
+.themeIcon::before {
+	color: var(--primaryTextColor);
+	content: "Themes";
+}
+
+.themeIcon:hover {
+	width: 115px;
+}
+
+.themeIcon:hover * {
+	display: inline !important;
+	/* overflow: hidden; */
+}
+.themeIcon:hover::before {
+	content: "";
+}
+
+.dark-theme,
+.light-theme,
+.femme-theme,
+.office-theme {
+	cursor: pointer;
+	padding: 1px;
+	margin-left: 2px;
+	/* padding-right: 2px; */
+	border-radius: 25px;
+}
+
+.light-theme {
+	color: #ddb866;
+}
+.dark-theme {
+	color: rgb(60, 108, 136);
+}
+
+.femme-theme {
+	color: #d11488;
+}
+
+.office-theme {
+	vertical-align: -0.55em !important;
+	color: #4c69e9;
+}
+
+.light-theme:hover {
+	color: rgb(209, 115, 8);
+	background-color: rgba(241, 232, 149, 0.733);
+	border-radius: 25px;
+	-webkit-box-shadow: -1px 2px 8px 3px rgba(168, 162, 104, 0.733);
+	box-shadow: -1px 2px 8px 3px rgba(168, 162, 104, 0.733);
+}
+.dark-theme:hover {
+	background-color: rgb(48, 115, 179);
+	color: var(--primaryAccent);
+	border-radius: 25px;
+	-webkit-box-shadow: -1px 2px 8px 3px rgb(70, 101, 185);
+	box-shadow: -1px 3px 8px 2px rgb(76, 103, 179);
+}
+
+.femme-theme:hover {
+	background-color: rgb(217, 174, 230);
+	color: rgb(151, 21, 64);
+	border-radius: 25px;
+	-webkit-box-shadow: -1px 2px 8px 3px rgb(129, 96, 139);
+	box-shadow: -1px 3px 8px 2px rgb(129, 96, 139);
+}
+
+.office-theme:hover {
+	background-color: rgb(83, 160, 115);
+	color: rgb(17, 78, 177);
+	border-radius: 25px;
+	-webkit-box-shadow: -1px 2px 8px 3px rgb(48, 87, 64);
+	box-shadow: -1px 2px 8px 3px rgb(48, 87, 64);
+}
+
+.dark-theme,
+.light-theme,
+.femme-theme,
+.office-theme {
+	transition: color 0.5s;
+	transition: background-color 0.5s;
+}
+
+.App {
+	text-align: center;
+	/* overflow-y: hidden; */
+}
+
+/* background of app.js */
+.App {
+	background-color: var(--primaryBackground);
+	min-height: 100vh;
+	max-height: 100vh;
+	color: var(--primaryTextColor);
+}
+.App-link {
+	color: var(--secondaryTextColor);
+}
+
+.sidenav---sidenav---_2tBP {
+	background-color: var(--primaryBackground);
+}
+
+.iconContainer {
+	float: right;
+}
+
+.loader-hidden {
+	display: none;
+}
+.loader-active {
+	display: block;
+}
