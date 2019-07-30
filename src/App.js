@@ -1,14 +1,17 @@
-import './vendor/App.css'
 import React, { Component } from 'react'
-import NoteDisplayContainer from './components/NoteDisplayContainer'
-import NavigatorContainer from './components/Navigator-Container'
-import TopNav from './components/TopNav'
-import BottomBar from './components/BottomBar'
+import NoteDisplayContainer from './components/NoteDisplayContainer/NoteDisplayContainer'
+import NavigatorContainer from './components/NavigatorContainer/Navigator-Container'
+import TopNav from './components/TopNav/TopNav'
+import BottomBar from './components/BottomNav/BottomBar'
+
 import { Moon } from 'styled-icons/boxicons-regular/Moon'
 import { Sun } from 'styled-icons/boxicons-regular/Sun'
 import { Heart } from 'styled-icons/boxicons-regular/Heart'
 import { Glasses } from 'styled-icons/fa-solid/Glasses'
+
 import 'react-notifications/lib/notifications.css'
+import '../src/vendor/App.css'
+
 const notifications = require('react-notifications') // TODO: write typed definitions for this package.
 const { NotificationContainer, NotificationManager } = notifications
 const Dropbox = require('dropbox').Dropbox
@@ -111,6 +114,16 @@ class App extends Component {
       })
   };
 
+     // ----This function removes view of the note that was just deleted------//
+     deletedNote = viewState => {
+      this.setState({
+        view: viewState
+      })
+      NotificationManager.info('Note Deleted')
+      this.updateFiles() // signal re download
+    };
+  
+
   savedNote = () => {
     NotificationManager.success(
       'Note saved',
@@ -186,6 +199,7 @@ class App extends Component {
                   getLink = {this.getLink}
                   getContent = {this.getContent}
                   savedNote = {this.savedNote}
+                  deletedNote = {this.deletedNote}
                 />
               )
             }
@@ -217,7 +231,7 @@ class App extends Component {
                   newNote={this.newNote}
                 />
                 {this.DownloadDisplay}
-                <BottomBar layoutChange = {this.layoutChange} onExit={this.onExit} />
+                <BottomBar view={this.state.view} layoutChange = {this.layoutChange} onExit={this.onExit} />
               </div>
             )
           }

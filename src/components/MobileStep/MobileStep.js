@@ -4,7 +4,7 @@ import MobileStepper from '@material-ui/core/MobileStepper'
 import Button from '@material-ui/core/Button'
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
-import '../vendor/mobileStepStyles.css'
+import '../../components/MobileStep/mobileStepStyles.css'
 
 const useStyles = makeStyles({
   root: {

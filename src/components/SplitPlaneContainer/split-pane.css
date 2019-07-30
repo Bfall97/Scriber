@@ -1,5 +1,4 @@
-@import url(App.css);
-
+@import url(../../vendor/App.css);
 .Resizer {
 	background: var(--secondaryAccent);
 	opacity: 0.8;

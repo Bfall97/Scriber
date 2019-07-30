@@ -1,4 +1,4 @@
-@import url(App.css);
+@import url('../../vendor/App.css');
 
 @media screen and (min-width: 320px) {
 	.display-container {
@@ -30,4 +30,31 @@
 
 .displayContainer link:visited {
 	color: var(--secondaryTextColor);
+}
+
+.crud-buttons{
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	float: right;
+	width: 100px;
+	padding: 5px;
+	z-index: 101;
+	opacity: 0.3;
+	transition: opacity 1s;
+}
+
+.crud-buttons:hover {
+	opacity: 1;
+}
+
+.save,
+.delete {
+	cursor: pointer;
+	padding-left: 20px;
+}
+
+.delete:hover {
+	-webkit-animation: wobble-hor-bottom 1s both;
+	animation: wobble-hor-bottom 1s both;
 }

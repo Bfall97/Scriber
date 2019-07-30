@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navigator from './Navigator'
+import Navigator from './../Navigator/Navigator.js'
 
 const notifications = require('react-notifications')
 const { NotificationManager } = notifications
@@ -22,27 +22,6 @@ export default class NavigatorContainer extends Component {
        subsetNum: this.state.subsetNum + numChange
      })
    };
-
-   // ----This function removes view of the note that was just deleted------//
-  deletedNote = viewState => {
-    this.setState({
-      view: viewState
-    })
-    NotificationManager.info('Note Deleted')
-    this.updateFiles() // signal re download
-  };
-
-  // -------This function detects if the note has been successfully saved-----//
-  savedNote = () => {
-    NotificationManager.success(
-      'Note saved',
-      'Save Successful',
-      1500,
-      null,
-      true
-    )
-    this.updateFiles() // signal re download
-  };
 
     // TODO: Either fix this function or use them individually as you are now.
     createNotification = type => {

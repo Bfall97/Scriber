@@ -6,7 +6,7 @@ require('codemirror/mode/python/python')
 require('codemirror/mode/xml/xml')
 require('codemirror/mode/markdown/markdown')
 require('codemirror/theme/base16-light.css')
-require('../vendor/custom-editor.css')
+require('../../components/Editor/custom-editor.css')
 require('codemirror/keymap/sublime.js')
 
 export default class Editor extends Component {

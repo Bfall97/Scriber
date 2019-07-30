@@ -125,8 +125,11 @@ html.theme-transition *:after {
 	transition-delay: 0 !important;
 }
 
-/* Theme Icon Buttons Styles */
+.App{
+	border-right: 2px solid var(--secondaryBackground)
+}
 
+/* Theme Icon Buttons Styles */
 .themeIcon {
 	float: right;
 	margin: 10px;
