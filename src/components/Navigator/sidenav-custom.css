@@ -1,5 +1,5 @@
 /*! react-sidenav v0.4.5 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
-@import "App.css";
+@import "../../vendor/App.css";
 
 .sidenav---sidenav---_2tBP {
 	position: absolute;
@@ -480,10 +480,11 @@
 	overflow-y: auto;
 }
 
+
 /* TODO: fix  hovering opacity */
 /* Note Icon Styles */
 
-.notes-layout-buttons {
+/* .notes-layout-buttons {
 	padding: 2px;
 	float: right;
 	padding-top: 0;
@@ -492,9 +493,6 @@
 }
 
 .note-buttons:hover,
-.crud-buttons:hover {
-	opacity: 1;
-}
 
 .notes-layout-buttons:hover {
 	opacity: 1;
@@ -513,20 +511,9 @@
 
 .note-buttons:hover {
 	opacity: 1;
-}
+} */
 
-.crud-buttons {
-	width: 50%;
-	margin-left: 50%;
-	text-align: right;
-	opacity: 0.3;
-	transition: opacity 1s;
-}
-
-.crud-buttons:hover {
-	opacity: 1;
-}
-
+/* 
 .save,
 .delete {
 	cursor: pointer;
@@ -543,20 +530,6 @@
 	animation: wobble-hor-bottom 1s both;
 }
 
-.close-o,
-.edit,
-.pre,
-.book-content {
-	padding: 5px;
-	margin: 5px;
-	margin-bottom: 0;
-	padding-bottom: 0;
-	padding-top: 0;
-	margin-top: 0;
-
-	cursor: pointer;
-}
-
 .edit:hover,
 .pre:hover,
 .book-content:hover {
@@ -565,7 +538,7 @@
 
 .close-o:hover {
 	color: #da2424cc;
-}
+} */
 
 .new-note {
 	margin: 5px;
@@ -582,7 +555,7 @@
  * animation wobble-hor-bottom
  * ----------------------------------------
  */
-@-webkit-keyframes wobble-hor-bottom {
+/* @-webkit-keyframes wobble-hor-bottom {
 	0%,
 	100% {
 		-webkit-transform: translateX(0%);
@@ -639,4 +612,4 @@
 		-webkit-transform: translateX(-1px) rotate(-0.6deg);
 		transform: translateX(-1px) rotate(-0.6deg);
 	}
-}
+} */

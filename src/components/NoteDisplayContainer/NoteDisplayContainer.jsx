@@ -4,10 +4,10 @@ import { Save } from 'styled-icons/boxicons-regular/Save'
 import { Trash } from 'styled-icons/boxicons-regular/Trash'
 import { Checkmark } from 'styled-icons/icomoon/Checkmark'
 import { SpinLoader } from 'react-css-loaders'
-import NotePreview from './NotePreview.js'
-import '../vendor/NoteDisplayContainer.css'
-import '../vendor/split-pane.css'
-import '../vendor/Styles.css'
+import SplitPaneContainer from '../../components/SplitPlaneContainer/SplitPaneContainer'
+import '../NoteDisplayContainer/NoteDisplayContainer.css'
+import '../SplitPlaneContainer/split-pane.css'
+import '../../vendor/Styles.css'
 
 const Dropbox = require('dropbox').Dropbox
 
@@ -18,7 +18,6 @@ export default class NoteDisplayContainer extends Component {
     this.state = {
       content: '',
       contentDisplay: '',
-      link: '',
       isLoading: true,
       toBeSaved: false,
       latestResponse: '',
@@ -32,7 +31,7 @@ export default class NoteDisplayContainer extends Component {
             content: md,
             toBeSaved: true
           })
-          this.props.getContent(this.state.content) // Passes content back to App.hs
+          this.props.getContent(this.state.content) // Passes content back to App.js
         }
 
         // -------Download again when new link is clicked-------//
@@ -181,8 +180,18 @@ export default class NoteDisplayContainer extends Component {
       // Loader
         this.state.isLoading ? <SpinLoader color={primaryAccent} background={primaryBack} size={7} /> // Loader goes here
           : <div className='split-pane-container'>
+            <SplitPaneContainer
+              getTitle={this.getTitle}
+              onSave={() => this.onSave()}
+              viewHeight={this.props.viewHeight}
+              link={this.props.link}
+              content={this.state.content}
+              onMarkdownChange ={this.onMarkdownChange}
+              layout={this.props.layout}
+              toBeSaved={this.state.toBeSaved}
+              title={this.state.title}
+            />
             <div className='crud-buttons'>
-
               {/* Crud Buttons */}
               <Tooltip title='Save File' aria-label="save" >
                 { this.state.toBeSaved ? <Save size='20' className='save' onClick={this.onSave} /> : <Checkmark size='20' className='check' /> }
@@ -192,15 +201,7 @@ export default class NoteDisplayContainer extends Component {
                 <Trash size='20' className='delete'/>
               </Tooltip>
             </div>
-            <NotePreview
-              getTitle={this.getTitle}
-              onSave={() => this.onSave()}
-              viewHeight={this.props.viewHeight}
-              link={this.props.link}
-              content={this.state.content}
-              onMarkdownChange ={this.onMarkdownChange}
-              layout={this.props.layout}
-            />
+
           </div>
       )
     }

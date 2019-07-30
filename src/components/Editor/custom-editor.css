@@ -1,4 +1,4 @@
-@import url(App.css);
+@import url(../../vendor/App.css);
 
 .cm-s-base16-light.CodeMirror {
 	background: var(--editorBackground);

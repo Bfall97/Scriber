@@ -1,11 +1,11 @@
 // sidenav from https://reactjsexample.com/react-side-nav-component/
 import React, { Component } from 'react'
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
-import NoteList from './NoteList'
+import NoteList from '../NoteList/NoteList.js'
 import { Note } from 'styled-icons/boxicons-solid/Note'
 import { NoteAdd } from 'styled-icons/material/NoteAdd'
-import DotsMobileStepper from './MobileStep.js'
-import '../vendor/sidenav-custom.css'
+import DotsMobileStepper from '../MobileStep/MobileStep.js'
+import '../Navigator/sidenav-custom.css'
 
 // TODO: Clean this up and charts button is broken
 // TODO: Add a container component to hold the logic
