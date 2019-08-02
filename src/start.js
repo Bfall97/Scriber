@@ -28,8 +28,8 @@ function createWindow () {
     webPreferences: {
       nodeIntegration: true
     },
-    autoHideMenuBar: true
-    // frame: false
+    autoHideMenuBar: true,
+    frame: false
   })
 
   mainWindow.loadURL(

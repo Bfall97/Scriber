@@ -2,6 +2,17 @@
 
 /* Default Theme (dark) */
 html {
+
+	--titlebarBG: #272626;
+	--titlebarBorder: #2c2d2f;
+	--titlebarForeground: #d4d6da;
+	--titlebarButtonBG: #37383a;
+	--titlebarButtonBorder: black;
+	--titlebarDropDownBG:#3d3e41;
+	--titlebarDropDownBorder: #212224; 
+	--titlebarDropDownSelection: #939999;
+	--titlebarDropDownSeperator:#707474;
+	
 	--primaryBackground: #2c2d2f;
 	--secondaryBackground: #272626;
 	--textDisplay: #2d313a;
@@ -178,7 +189,7 @@ html.theme-transition *:after {
 }
 
 .App{
-	border-right: 2px solid var(--secondaryBackground)
+	border-right: 2px solid var(--secondaryBackground);
 }
 
 /* Theme Icon Buttons Styles */
