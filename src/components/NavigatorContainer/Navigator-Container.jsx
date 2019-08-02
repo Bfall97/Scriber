@@ -10,7 +10,7 @@ export default class NavigatorContainer extends Component {
     this.state = {
       stepNum: 0,
       startNum: 0,
-      subsetNum: 6, // Sets the # of notes display at a time in the sidenavP
+      subsetNum: 6 // Sets the # of notes display at a time in the sidenavP
 
     }
   }

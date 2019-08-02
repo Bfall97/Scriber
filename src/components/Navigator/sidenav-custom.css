@@ -3,10 +3,10 @@
 
 .sidenav---sidenav---_2tBP {
 	position: absolute;
-	top: 0;
+	top: 28px;
 	bottom: 0;
 	left: 0;
-	z-index: 1006;
+	z-index: 106;
 	min-width: 64px;
 	-webkit-transition: min-width 0.15s;
 	-moz-transition: min-width 0.15s;
@@ -486,7 +486,7 @@
 
 /* SideNav Expanded Opened Menu Container */
 .sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL{
-	 height: -webkit-calc(100vh - 80px);
+	 height: -webkit-calc(100% - 80px);
 }
 /* SideNav Expanded Menu Container parent Container ?*/
 .sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---highlighted---oUx9u.sidenav---expandable---3_dr7.sidenav---expanded---1KdUL{

@@ -24,7 +24,7 @@ const $ = require('jquery');
 
             // Does this item contain a [toc] with other stuff?
             // If so, we'll split the element into two
-            else if (results = element.text().trim().match(/^([\s\S]*?)((?:\\)?\[toc\])([\s\S]*)$/)) {
+            else if (results === element.text().trim().match(/^([\s\S]*?)((?:\\)?\[toc\])([\s\S]*)$/)) {
               // If there was a \ before the [toc] they're trying to escape it,
               // so return the [toc] string without the \ and carry on. For
               // some reason (I'm guessing a bug in showdown) you actually
