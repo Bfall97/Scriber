@@ -1,4 +1,5 @@
 @import url(../../vendor/App.css);
+/* Editor text styles and colours */
 
 .cm-s-base16-light.CodeMirror {
 	background: var(--editorBackground);
@@ -19,7 +20,6 @@
 }
 .cm-s-base16-light .CodeMirror-gutters {
 	background: #f1f1f1;
-	border-right: px;
 	margin-right: 5px;
 }
 .cm-s-base16-light .CodeMirror-guttermarker {
@@ -29,15 +29,17 @@
 	color: #b0b0b0;
 }
 .cm-s-base16-light .CodeMirror-linenumber {
-	color: var(--textDisplay);
+	color: var(--editorLineNumber);
+	border-right: 1px solid var(--editorGutterBorder);
 	padding: 0;
 	text-align: center !important;
+	max-width: 30px;
 }
 .cm-s-base16-light .CodeMirror-cursor {
-	border-left: 1px solid var(--primaryAccent);
+	border-left: 1px solid var(--editorCursor);
 }
 .CodeMirror-gutter {
-	background-color: var(--secondaryContrast);
+	background-color: var(--editorGutter);
 	width: 32px !important;
 }
 
@@ -53,7 +55,7 @@
 
 .cm-s-base16-light span.cm-property,
 .cm-s-base16-light span.cm-attribute {
-	color: #90a959;
+	color: var(--editorAttributeProperty);
 }
 .cm-s-base16-light span.cm-keyword {
 	color: var(--editorKeyword);
@@ -72,13 +74,13 @@
 	color: #566adb;
 }
 .cm-s-base16-light span.cm-bracket {
-	color: #16c591;
+	color: var(--editorBracket);
 }
 .cm-s-base16-light span.cm-tag {
-	color: #ac4142;
+	color: var(--editorTag);
 }
 .cm-s-base16-light span.cm-link {
-	color: #a84795;
+	color: var(--editorLink);
 }
 .cm-s-base16-light span.cm-error {
 	background: #ac4142;
@@ -89,8 +91,8 @@
 	background: #dddcdc;
 }
 .cm-s-base16-light .CodeMirror-matchingbracket {
-	color: #f5f5f5 !important;
-	background-color: #6a9fb5 !important;
+	color: var(--editorMatchBracketColor) !important;
+	background-color: var(--editorMatchBracketBG) !important;
 }
 .cm-header {
 	color: var(--editorHeader);

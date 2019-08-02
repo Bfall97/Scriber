@@ -1,13 +1,18 @@
 @import "../../vendor/App.css";
 
 .bottom-bar{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
     width: 100%;
-    height: 30px;
-    background-color: var(--secondaryBackground);
+    height: 20px;
     bottom: 0;
     position: absolute;
-    margin: 1px 1px 0px 50px;
-    z-index :100;
+	margin: 1px 1px 0px 1px;
+	padding: 3px;
+	z-index :1010;
+	background: linear-gradient(to bottom,var(--primaryGradient),var(--secondaryGradient));
+	border-top: 0.5px solid var(--bottomBarBorder);
 }
 
 .notes-layout-buttons {
@@ -50,8 +55,16 @@
 	padding-bottom: 0;
 	padding-top: 0;
 	margin-top: 0;
-	cursor: pointer;
+	cursor: pointer;	
 }
+
+.close-o:hover,
+.edit:hover,
+.pre:hover,
+.book-content:hover {
+	transform: scale(1.1);
+}
+
 
 .close-o:hover {
 	color: #da2424cc;

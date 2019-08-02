@@ -1,0 +1,47 @@
+@import url(../../vendor/App.css);
+
+.Pane2{
+    overflow-y: none;
+}
+/* Scrollbar Style For editor
+  /* width */
+  .Pane2::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+.Pane2::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+.Pane2::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+.Pane2::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  } 
+
+
+.editor-Pane {
+	height: 100vh;
+	font-size: 11px;
+	text-align: left;
+} 
+
+
+.Pane2{
+    &.Pane2::-webkit-scrollbar-track{
+        background: var(--scrollbarTrack);
+        
+    }
+    &.Pane2::-webkit-scrollbar-thumb{
+        background: var(--scrollbarThumb);
+    }
+    &.Pane2::-webkit-scrollbar-thumb:hover{
+        background: var(--scrollbarThumbHover);
+    }
+    
+}
