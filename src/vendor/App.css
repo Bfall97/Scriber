@@ -2,29 +2,92 @@
 
 /* Default Theme (dark) */
 html {
-	--primaryBackground: #282c34;
-	--secondaryBackground: #1d1d20;
+
+	--titlebarBG: #272626;
+	--titlebarBorder: #2c2d2f;
+	--titlebarForeground: #d4d6da;
+	--titlebarButtonBG: #37383a;
+	--titlebarButtonBorder: black;
+	--titlebarDropDownBG:#3d3e41;
+	--titlebarDropDownBorder: #212224; 
+	--titlebarDropDownSelection: #939999;
+	--titlebarDropDownSeperator:#707474;
+	
+	--primaryBackground: #2c2d2f;
+	--secondaryBackground: #272626;
 	--textDisplay: #2d313a;
 	--primaryAccent: #ddb866;
-	--secondaryAccent: rgb(12, 22, 53);
+	--secondaryAccent: #606484;
 	--primaryTextColor: #ffffff;
 	--secondaryTextColor: #e2b458;
 
+	--sideNavMainText:#edf2f0;
+	--sideNavHover: #000000;
+	--sideNavSearchBoxText:#edf2f0;
+	--sideNavSearchBorder:#edf2f0;
+	--sideNavSubMenuTextAccent:#ddefff;
+	--sideNavSubMenuBG: #46494b;
+
 	--editorBackground: #36373a;
-	--editorForground: #ece3e3;
-	--editorSelection: #d8dc4bc2;
+	--editorForeground: #ece3e3;
+	--editorSelection: #92952e77;
 	--editorComment: #228b22;
-	--editorKeyword: #ddd670;
-	--editorNumber: #9181da;
-	--editorString: #df2e2e;
-	--editorVariable1: #9c6db3;
-	--editorVariable2: #4ca0a5;
-	--editorHeader: #538fd4;
+	--editorKeyword: #e7e079;
+	--editorNumber: #a89ddd;
+	--editorString: #e48739;
+	--editorVariable1: #77c072;
+	--editorVariable2: #8ac3c0;
+	--editorHeader: #3c85d8;
+	--editorCursor: #df9f59;
+	--editorLineNumber: #dfdfdf;
+	--editorGutter:#36373a;
+	--editorAttributeProperty:#59ccc2;
+	--editorBracket:#358a7c;
+	--editorTag:#69b9bd;
+	--editorLink:#64ad80;
+	--editorMatchBracketColor: #528076;
+	--editorMatchBracketBG:#467b9b;
+	--editorGutterBorder: #252424;
+	
 
 	--buttonHover: #ece3e37a;
 	--secondaryContrast: #ece49dbe;
 
-	--mobileStep: #7c93b370;
+	--mobileStep: #7ca0d3a8;
+
+	--scrollbarTrack : #272525;
+	--scrollbarThumb : #828994;
+	--scrollbarThumbHover :#5a718f;
+	
+	--bottomBarBorder: #18181a; 
+	/* SideNav */
+	--primaryGradient:#232325;
+	--secondaryGradient:#232325;
+
+	--resizerBackground: #535353;
+	--resizerAccent:#e7e7e7;
+	--resizerBorder: #2e3033;
+
+	--previewAnchor: #3dadb8;
+	/* --previewAnchorHover:; */
+	--previewH2Underline: #6a81be;
+	--previewHeader1: #fffefe;
+	--previewHeader2:#f1f1f1;
+	--previewHeader3:#badae2;
+	--previewHeader4:#72aab8;
+	--previewHeader5:#5b94ca;
+	--previewHeader6:#3996e2;
+	--previewHorizontalRule: #2ec2b5;
+	--previewHorizontalRuleInner:#2394c8;
+	--previewBlockQoute: #16cc8f;
+	--previewBlockQouteBG: #5f5f62;
+	--previewTableBorder: #494646;
+	--previewTableRowBG: #858585;
+	--previewTableRow2BG: #777676;
+	--previewTableHeaderBorder: #c7bdbd;
+	--previewTableTDBorder: #a09d9d;
+	--previewCodeBlockBorder: #aaa6a6;
+	
 }
 
 html[data-theme="light"] {
@@ -126,7 +189,7 @@ html.theme-transition *:after {
 }
 
 .App{
-	border-right: 2px solid var(--secondaryBackground)
+	border-right: 2px solid var(--secondaryBackground);
 }
 
 /* Theme Icon Buttons Styles */

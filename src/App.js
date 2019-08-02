@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import NoteDisplayContainer from './components/NoteDisplayContainer/NoteDisplayContainer'
 import NavigatorContainer from './components/NavigatorContainer/Navigator-Container'
-import TopNav from './components/TopNav/TopNav'
+// import TopNav from './components/TopNav/TopNav'
+import TitleBar from '../src/components/TitleBar/TitleBar.js'
 import BottomBar from './components/BottomNav/BottomBar'
-
 import { Moon } from 'styled-icons/boxicons-regular/Moon'
 import { Sun } from 'styled-icons/boxicons-regular/Sun'
 import { Heart } from 'styled-icons/boxicons-regular/Heart'
@@ -116,13 +116,12 @@ class App extends Component {
 
      // ----This function removes view of the note that was just deleted------//
      deletedNote = viewState => {
-      this.setState({
-        view: viewState
-      })
-      NotificationManager.info('Note Deleted')
-      this.updateFiles() // signal re download
-    };
-  
+       this.setState({
+         view: viewState
+       })
+       NotificationManager.info('Note Deleted')
+       this.updateFiles() // signal re download
+     };
 
   savedNote = () => {
     NotificationManager.success(
@@ -205,20 +204,21 @@ class App extends Component {
             }
 
             // Which icon to display
-            const ThemeIcons =
-      <React.Fragment>
-        <Moon dark onClick={() => this.toggleTheme('dark')} size='22' className='dark-theme'/>
-        <Sun light onClick={() => this.toggleTheme('light')} size='22'className='light-theme' />
-        <Heart light onClick={() => this.toggleTheme('femme')} size='22'className='femme-theme' />
-        <Glasses light onClick={() => this.toggleTheme('office')} size='22'className='office-theme' />
-      </React.Fragment>
+            // const ThemeIcons =
+            // <React.Fragment>
+            //   <Moon dark onClick={() => this.toggleTheme('dark')} size='22' className='dark-theme'/>
+            //   <Sun light onClick={() => this.toggleTheme('light')} size='22'className='light-theme' />
+            //   <Heart light onClick={() => this.toggleTheme('femme')} size='22'className='femme-theme' />
+            //   <Glasses light onClick={() => this.toggleTheme('office')} size='22'className='office-theme' />
+            // </React.Fragment>
 
             return (
 
               <div className="App">
-                <TopNav />
+                <TitleBar /> 
+                {/* <TopNav /> */}
                 <NotificationContainer />
-                <div className='themeIcon'>{ThemeIcons}</div>
+                {/* <div className='themeIcon'>{ThemeIcons}</div> */}
                 <NavigatorContainer
                   subsetNum = {this.state.subsetNum}
                   stepNum={this.state.stepNum}

@@ -3,17 +3,18 @@
 
 .sidenav---sidenav---_2tBP {
 	position: absolute;
-	top: 0;
+	top: 28px;
 	bottom: 0;
 	left: 0;
-	z-index: 1006;
+	z-index: 106;
 	min-width: 64px;
-	background: var(--secondaryBackground);
 	-webkit-transition: min-width 0.15s;
 	-moz-transition: min-width 0.15s;
 	-o-transition: min-width 0.15s;
 	-ms-transition: min-width 0.15s;
 	transition: min-width 0.15s;
+	background: linear-gradient(to left, var(--primaryGradient),var(--secondaryGradient));
+	border-right: .5px var(--secondaryBackground)  solid;
 }
 .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv
 	.sidenav---sidenav-nav---3tvij
@@ -28,14 +29,16 @@
 	display: block;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL {
-	min-width: 240px;
+	min-width: 350px;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-nav---3tvij
 	> .sidenav---sidenav-navitem---uwIJ-
 	.sidenav---navicon---3gCRo
 	+ .sidenav---navtext---1AE_f {
-	display: inline-block;
+	display: inline;
+	top: 5;	
+	position: fixed;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-nav---3tvij
@@ -47,10 +50,13 @@
 	.sidenav---sidenav-subnav---1EN61 {
 	position: static;
 	border: none;
-	float: left;
+	border-radius: 0;
+	float: right;
+	margin-left: 64px;
 	clear: both;
-	width: 100%;
-	background: transparent;
+	width: 82%;
+	height:100%;
+	background: var(--sideNavSubMenuBG);
 	overflow: hidden;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -60,6 +66,7 @@
 	> .sidenav---sidenav-navitem---uwIJ-.sidenav---expanded---1KdUL
 	.sidenav---sidenav-subnav---1EN61 {
 	display: block;
+	
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-subnav---1EN61 {
@@ -133,7 +140,9 @@
 	> .sidenav---sidenav-subnavitem---1cD47
 	> .sidenav---navitem---9uL5T {
 	color: #ffffff;
-	padding: 0 14px 0 20px;
+	padding: 0 0px 0px 0px;
+	margin-right: 0px;
+	margin-left:0px;
 	line-height: 28px;
 }
 .sidenav---sidenav-toggle---1KRjR {
@@ -177,6 +186,7 @@
 	.sidenav---sidenav-toggle---1KRjR
 	.sidenav---icon-bar---u1f02 {
 	width: 25px;
+	display: none;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-toggle---1KRjR
@@ -185,7 +195,7 @@
 	-moz-transform: rotate(45deg);
 	-o-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
+	transform: rotate(45deg);	
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-toggle---1KRjR
@@ -246,7 +256,7 @@
 .sidenav---sidenav-nav---3tvij
 	> .sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u.sidenav---expanded---1KdUL
 	> .sidenav---navitem---9uL5T::after {
-	background: #000;
+	background: #000;	
 	opacity: 0.25;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
 	filter: alpha(opacity=25);
@@ -257,10 +267,11 @@
 .sidenav---sidenav-nav---3tvij
 	> .sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u.sidenav---selected---1EK3y.sidenav---expanded---1KdUL
 	> .sidenav---navitem---9uL5T::after {
-	background: #000;
+	background: #000;	
 	opacity: 0.2;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
 	filter: alpha(opacity=20);
+	max-width: 64px;
 }
 .sidenav---sidenav-nav---3tvij
 	> .sidenav---sidenav-navitem---uwIJ-:hover
@@ -312,7 +323,7 @@
 	> .sidenav---navitem---9uL5T
 	.sidenav---navtext---1AE_f
 	> * {
-	color: #f7f7f7;
+	color: var(--sideNavMainText);
 }
 .sidenav---sidenav-nav---3tvij
 	> .sidenav---sidenav-navitem---uwIJ-
@@ -436,7 +447,7 @@
 .sidenav---sidenav-subnav---1EN61
 	> .sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y
 	> .sidenav---navitem---9uL5T:hover {
-	background: #fff;
+	background: var(--sideNavHover);
 }
 .sidenav---sidenav-subnav---1EN61
 	> .sidenav---sidenav-subnavitem---1cD47
@@ -452,7 +463,7 @@
 .sidenav---sidenav-subnav---1EN61
 	> .sidenav---sidenav-subnavitem---1cD47
 	> .sidenav---navitem---9uL5T:hover {
-	/* background: #eee; */
+	background: #eee;
 }
 .sidenav---sidenav-subnav---1EN61
 	> .sidenav---sidenav-subnavitem---1cD47
@@ -473,143 +484,99 @@
 	box-sizing: inherit;
 }
 
-.sidenav---navitem---9uL5T {
-	max-height: 55vh;
-	min-width: 100%;
-	display: inline-block;
-	overflow-y: auto;
+/* SideNav Expanded Opened Menu Container */
+.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL{
+	 height: -webkit-calc(100% - 80px);
+}
+/* SideNav Expanded Menu Container parent Container ?*/
+.sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---highlighted---oUx9u.sidenav---expandable---3_dr7.sidenav---expanded---1KdUL{
+	height:100%;
 }
 
+/* Side Nav Hamburger Button Expanded*/
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL > .sidenav---sidenav-toggle---1KRjR{
+	display: none;
+}
 
-/* TODO: fix  hovering opacity */
-/* Note Icon Styles */
+.sidenav---sidenav-subnavitem---1cD47{
+	color: black
+}
 
-/* .notes-layout-buttons {
+/* Search Box in Nav Dropdown */
+.sidenav---navtext---1AE_f .MuiInputBase-root.MuiInput-root.MuiInput-underline{
+	color: var(--sideNavSearchBoxText);
+	border-bottom: var(--sideNavSearchBorder) 1px solid;
+}
+
+/* Time Stamps of SideNav Notelist ine expanded menu */
+.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .sidenav---navtext---1AE_f time{
+	color:var(--sideNavSubMenuTextAccent)
+}
+
+/* Note list titles in expanded menu */
+.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .sidenav---navtext---1AE_f li{
+	font-size: 11px;
 	padding: 2px;
-	float: right;
-	padding-top: 0;
-	margin-top: 0;
-	width: 90%;
+	margin: 5px;
+	border-radius: 0;
 }
 
-.note-buttons:hover,
-
-.notes-layout-buttons:hover {
-	opacity: 1;
+/* Side Nav Expanded Menu container*/
+.sidenav---sidenav-nav---3tvij .sidenav---expanded---1KdUL >.sidenav---sidenav-subnav---1EN61{
+	height: -webkit-calc(100vh - 80px);
+	overflow-y:auto;	
+	border-right: 1px solid var(--primaryBackground)
 }
 
-.note-buttons {
-	float: left;
-	text-align: left;
-	padding-left: 10px;
-	padding-top: 0;
-	margin-top: 0;
-	opacity: 0.3;
-	transition: opacity 1s;
-	min-width: 40%;
+
+
+
+/* list of notes only in expanded */
+.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .notelist-container{
+	width: 100%;
+	border-radius: 1px;
+	padding: 1px;
+	margin: 1px;
 }
 
-.note-buttons:hover {
-	opacity: 1;
-} */
-
-/* 
-.save,
-.delete {
-	cursor: pointer;
-	padding-left: 20px;
+/* individual links in notelist */
+.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .notelist-container li{	
 	padding-right: 10px;
+	padding-left: 10px;
+	margin-left: -1px;
 }
 
-.delete {
-	margin-right: 10%;
+
+/* Dropdown arrow in expanded sidenav menu */
+.arrowDrop{
+	position: fixed;
+	left: 50px;
+	margin: 15px;
 }
 
-.delete:hover {
-	-webkit-animation: wobble-hor-bottom 1s both;
-	animation: wobble-hor-bottom 1s both;
+/* Dropdown arrow when submenu is collapsed */
+.sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---highlighted---oUx9u.sidenav---expandable---3_dr7 .arrowDrop{
+	transform: rotate(-90deg);
 }
 
-.edit:hover,
-.pre:hover,
-.book-content:hover {
-	color: var(--buttonHover);
+/* Dropdown arrow when submenu is open */
+.sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---highlighted---oUx9u.sidenav---expandable---3_dr7.sidenav---expanded---1KdUL .arrowDrop{
+	transform: rotate(-45deg);
 }
-
-.close-o:hover {
-	color: #da2424cc;
-} */
 
 .new-note {
 	margin: 5px;
 	color: var(--textPrimary);
 }
 
-/* ----------------------------------------------
- * Generated by Animista on 2019-5-31 13:16:40
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation wobble-hor-bottom
- * ----------------------------------------
- */
-/* @-webkit-keyframes wobble-hor-bottom {
-	0%,
-	100% {
-		-webkit-transform: translateX(0%);
-		transform: translateX(0%);
-		-webkit-transform-origin: 25% 25%;
-		transform-origin: 25% 25%;
-	}
-	15% {
-		-webkit-transform: translateX(-3px) rotate(-3deg);
-		transform: translateX(-3px) rotate(-3deg);
-	}
-	30% {
-		-webkit-transform: translateX(3px) rotate(2deg);
-		transform: translateX(3px) rotate(2deg);
-	}
-	45% {
-		-webkit-transform: translateX(-3px) rotate(-0.6deg);
-		transform: translateX(-3px) rotate(-0.6deg);
-	}
-	60% {
-		-webkit-transform: translateX(2px) rotate(0.4deg);
-		transform: translateX(2px) rotate(0.4deg);
-	}
-	75% {
-		-webkit-transform: translateX(-1px) rotate(-0.6deg);
-		transform: translateX(-1px) rotate(-0.6deg);
-	}
+.new-note-btn {
+	border-bottom: #f7f7f7 1px solid;
+	margin-bottom:20px;
 }
-@keyframes wobble-hor-bottom {
-	0%,
-	100% {
-		-webkit-transform: translateX(0%);
-		transform: translateX(0%);
-		-webkit-transform-origin: 25% 25%;
-		transform-origin: 25% 25%;
-	}
-	15% {
-		-webkit-transform: translateX(-3px) rotate(-3deg);
-		transform: translateX(-3px) rotate(-3deg);
-	}
-	30% {
-		-webkit-transform: translateX(3px) rotate(2deg);
-		transform: translateX(3px) rotate(2deg);
-	}
-	45% {
-		-webkit-transform: translateX(-3px) rotate(-0.6deg);
-		transform: translateX(-3px) rotate(-0.6deg);
-	}
-	60% {
-		-webkit-transform: translateX(2px) rotate(0.4deg);
-		transform: translateX(2px) rotate(0.4deg);
-	}
-	75% {
-		-webkit-transform: translateX(-1px) rotate(-0.6deg);
-		transform: translateX(-1px) rotate(-0.6deg);
-	}
-} */
+
+.new-note-btn:hover {
+	border-bottom: #fffefe 2px solid;
+	font-weight: 500;
+}
+
+

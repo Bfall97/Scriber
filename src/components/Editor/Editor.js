@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Controlled as CodeMirror } from 'react-codemirror2'
+import '../Editor/EditorSass.scss'
 require('codemirror/lib/codemirror.css')
 require('codemirror/mode/javascript/javascript')
 require('codemirror/mode/python/python')

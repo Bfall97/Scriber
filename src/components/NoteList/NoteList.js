@@ -5,8 +5,7 @@ import Input from '@material-ui/core/Input'
 
 const ListItem = styled.li`
 text-align: left;
-line-height: 1.1em;
-list-style-type: disc;
+line-height: 0.9em;
 border-radius: 18px;
 padding: 4px;
 padding-left: 1;
@@ -17,7 +16,7 @@ width: 100%;
   color: black;
   font-weight: 500;
   cursor: pointer;
-  background-color:#e3e2e2
+  background-color:#bfb7b7
   transition: background .2s;
   
 }
