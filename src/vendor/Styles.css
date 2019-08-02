@@ -6,8 +6,7 @@
 	font-size: 14px;
 	line-height: 1.6;
 	padding-top: 10px;
-	padding-bottom: 10px;
-	background-color: rgba(255, 255, 255, 0.595);
+	padding-bottom: 10px;	
 	padding: 30px;
 	color: rgb(37, 36, 36);
 }
@@ -18,7 +17,7 @@
 	margin-bottom: 0 !important;
 }
 .view-pane a {
-	color: #4183c4;
+	color: var(--previewAnchor);
 	text-decoration: none;
 }
 .view-pane a.absent {
@@ -37,11 +36,11 @@
 }
 .view-pane a:hover {
 	transition: 0.5s;
-	background-color: rgb(89.8%, 26.9%, 43.4%);
-	color: rgb(253, 253, 253);
+	background-color: var(--previewAnchorHover);
+	color: var(--previewAnchorHover);
 	opacity: 0.8;
-	border-radius: 10px;
-	padding: 3px;
+	border-radius: 5px;
+	padding: 1px;
 }
 .view-pane h1,
 h2,
@@ -100,26 +99,28 @@ h6 code {
 }
 .view-pane h1 {
 	font-size: 28px;
-	color: var(--primaryText);
+	color: var(--previewHeader1);
 }
 .view-pane h2 {
 	font-size: 24px;
-	border-bottom: 1px solid #cccccc;
-	color: var(--primaryAccent);
+	border-bottom: 1px solid var(--previewH2Underline);
+	color: var(--previewHeader2);
 }
 .view-pane h3 {
 	font-size: 18px;
-	color: var(--editorHeader);
+	color: var(--previewHeader3);
 }
 .view-pane h4 {
 	font-size: 16px;
+	color: var(--previewHeader4);
 }
 .view-pane h5 {
 	font-size: 14px;
+	color: var(--previewHeader5);
 }
 .view-pane h6 {
-	color: #777777;
 	font-size: 14px;
+	color: var(--previewHeader6);
 }
 .view-pane p,
 blockquote,
@@ -133,8 +134,8 @@ pre {
 }
 .view-pane hr {
 	border: 1px solid;
-	color: var(--editorVariable1);
-	background-color: #a11717;
+	color: var(--previewHorizontalRuleOuter);
+	background-color: var(--previewHorizontalRuleInner);
 	border-radius: 20px;
 	height: 1px;
 	padding: 0;
@@ -220,8 +221,8 @@ ol :last-child {
 	margin-bottom: 0;
 }
 .view-pane blockquote {
-	border-left: 4px solid var(--editorString);
-	background-color: var(--editorBackground);
+	border-left: 4px solid var(--previewBlockQoute);
+	background-color: var(--previewBlockQouteBG);
 	padding: 0 15px;
 	color: var(--primaryText);
 }
@@ -235,23 +236,23 @@ ol :last-child {
 	padding: 0;
 }
 .view-pane table tr {
-	border-top: 1px solid #cccccc;
-	background-color: white;
+	border-top: 1px solid var(--previewTableBorder);
+	background-color: var(--previewTableRowBG);
 	margin: 0;
 	padding: 0;
 }
 .view-pane table tr:nth-child(2n) {
-	background-color: #f8f8f8;
+	background-color: var(--previewTableRow2BG);
 }
 .view-pane table tr th {
 	font-weight: bold;
-	border: 1px solid #cccccc;
+	border: 1px solid var(--previewTableHeaderBorder);
 	text-align: left;
 	margin: 0;
 	padding: 6px 13px;
 }
 .view-pane table tr td {
-	border: 1px solid #cccccc;
+	border: 1px solid var(--previewTableTDBorder);
 	text-align: left;
 	margin: 0;
 	padding: 6px 13px;
@@ -346,8 +347,7 @@ tt {
 	margin: 0 2px;
 	padding: 0 5px;
 	white-space: nowrap;
-	border: 1px solid var(--primaryAccent);
-	/* background-color: ; */
+	border: 1px solid var(--previewCodeBlockBorder);
 	border-radius: 3px;
 }
 .view-pane pre code {
@@ -355,11 +355,8 @@ tt {
 	padding: 0;
 	white-space: pre;
 	border: none;
-	/* background: transparent; */
 }
 .view-pane .highlight pre {
-	/* background-color: #f8f8f8; */
-	/* border: 1px solid #eee7e7; */
 	font-size: 13px;
 	line-height: 19px;
 	overflow: auto;
@@ -367,8 +364,7 @@ tt {
 	border-radius: 3px;
 }
 .view-pane pre {
-	/* background-color: #f8f8f8; */
-	/* border: 1px solid #cccccc; */
+
 	font-size: 13px;
 	line-height: 19px;
 	overflow: auto;
@@ -377,81 +373,13 @@ tt {
 }
 .view-pane pre code,
 pre tt {
-	/* background-color: transparent; */
 	border: none;
 }
 
-/* My own modifications */
-/* =========================== */
-
-@keyframes borderAni {
-	0% {
-		border-color: #d53613;
-	}
-
-	10% {
-		border-color: #31ccbb;
-	}
-
-	20% {
-		border-color: #bee421;
-	}
-
-	30% {
-		border-color: #029d08;
-	}
-
-	40% {
-		border-color: #d226e2;
-	}
-
-	65% {
-		border-color: #9f80dd;
-	}
-
-	55% {
-		border-color: #adc708;
-	}
-
-	75% {
-		border-color: #6d90d5;
-	}
-
-	85% {
-		border-color: #8c3590;
-	}
-
-	90% {
-		border-color: #d211b2;
-	}
-
-	100% {
-		border-color: #1047b8;
-	}
-}
-
-.view-pane body {
-	/* cursor:crosshair; */
-	position: absolute;
-	border-left: 4.5px solid;
-	animation-name: borderAni;
-	animation-duration: 30s;
-	animation-iteration-count: infinite;
-	position: sticky;
-}
-.view-pane s {
-	color: rgb(56, 121, 60);
-	font-style: italic;
-}
 .view-pane details {
 	transition: 0.6s;
 	background-color: var(--editorBackground);
 }
 .view-pane details:hover {
-	background-color: #c6b8df;
-	color: black;
 	cursor: pointer;
-}
-.view-pane details:focus {
-	background-color: var(--editorBackground);
 }

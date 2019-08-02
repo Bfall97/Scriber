@@ -10,7 +10,8 @@ export default class NavigatorContainer extends Component {
     this.state = {
       stepNum: 0,
       startNum: 0,
-      subsetNum: 6 // Sets the # of notes display at a time in the sidenavP
+      subsetNum: 6, // Sets the # of notes display at a time in the sidenavP
+
     }
   }
 
@@ -58,6 +59,7 @@ export default class NavigatorContainer extends Component {
 
     render () {
       return (
+
         <Navigator
           getLink = {this.props.getLink}
           subsetNum = {this.state.subsetNum}
@@ -70,6 +72,7 @@ export default class NavigatorContainer extends Component {
           newNote ={this.props.newNote}
           onStepClick = {this.onStepClick}
         />
+
       )
     }
 }
