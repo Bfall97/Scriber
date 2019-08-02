@@ -23,7 +23,7 @@
 .Resizer.horizontal {
 	height: 11px;
 	margin: -5px 0;
-	border-top: 5px solid var(--secondaryAccent);
+	border-top: 5px solid var(--resizerBorder);
 	border-bottom: 5px solid var(--secondaryAccent);
 	cursor: row-resize;
 	width: 100%;
@@ -35,7 +35,7 @@
 }
 
 .Resizer.vertical {
-	height: 100vh;
+	height: 100%;
 	width: 3px;
 	margin: 0 auto;
 	border-left: 2px solid var(--resizerBackground);
@@ -71,7 +71,7 @@
 }
 
 .SplitPane{
-	max-height:97.5vh;
+	max-height:93.7%;
 	bottom:25px;
 }
 
@@ -87,14 +87,14 @@
 	margin: 5px;
 	margin-left: 2px;
 	margin-right: 0;
-	height: 100vh;
+	height: 100%;
 	font-size: 11px;
 	text-align: left;
 	padding-left: 15px;
 }
 
 .vertical {
-	border-top: 2px var(--secondaryAccent) solid;
+	border-top: 2px var(--resizerBorder) solid;
 	margin-left: 60px;	
 }
 
