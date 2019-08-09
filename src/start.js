@@ -1,10 +1,10 @@
-
 const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const contextMenu = require('electron-context-menu')
 const path = require('path')
 const url = require('url')
+const settings = require('electron-settings');
 
 // Context Menu Electron Package
 contextMenu({
@@ -20,8 +20,8 @@ function createWindow () {
   const { webContents } = require('electron')
   console.log(webContents)
   mainWindow = new BrowserWindow({
-    width: 600,
-    height: 800,
+    width: settings.get('lastScreenDimension.width'),
+    height: settings.get('lastScreenDimension.height'),
     minWidth: 600,
     minHeight: 300,
     titleBarStyle: 'customButtonsHover',
@@ -29,7 +29,8 @@ function createWindow () {
       nodeIntegration: true
     },
     autoHideMenuBar: true,
-    frame: false
+    frame: false,
+    // fullscreen: true,
   })
 
   mainWindow.loadURL(
@@ -38,11 +39,32 @@ function createWindow () {
       pathname: path.join(__dirname, '/../public/index.html'),
       protocol: 'file:',
       slashes: true
-    })
+    }),
+
+    // Persistence
+    settings.set('currentTheme',{
+      theme: settings.get('currentTheme.theme')
+    }),
+    settings.set('lastScreenDimensions',{
+      width: settings.get('lastScreenDimensions.width'),
+      height: settings.get('lastScreenDimensions.height')
+    }),
+    settings.set('customThemes',{
+      savedThemes : [],
+      activeTheme : ''
+    }),
+
   )
 
   mainWindow.on('closed', () => {
     mainWindow = null
+  },
+  // TODO: Fix Window Resize Settings
+  'resize', () => {
+    settings.set('lastScreenDimensions',{
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight,
+    })
   })
 }
 
@@ -59,3 +81,5 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+

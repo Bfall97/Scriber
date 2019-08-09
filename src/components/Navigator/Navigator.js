@@ -11,11 +11,13 @@ import styled from 'styled-components'
 import '../Navigator/sidenav-custom.css'
 import '../Navigator/Navigator.scss'
 
+// TODO: Clean this up and charts button is broken
+// TODO: Add a container component to hold the logic
+// TODO: I may want to create a component to render the various lists of notes, their breadcrumbs, symbols and dropdowns
+
 export const ConditionalDrop = styled(ArrowDropDown)`
   display: ${props => (props.expanded ? 'block' : 'none')}
 `
-// TODO: Clean this up and charts button is broken
-// TODO: Add a container component to hold the logic
 
 class Navigator extends Component {
   state = {

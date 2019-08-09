@@ -1,0 +1,48 @@
+@import url(../../vendor/App.css);
+
+.settings-container{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    padding: 15px 10px 10px 10px;
+    background: var(--primaryBackground);
+    overflow-y: auto;
+    z-index: 10;
+    margin-left: 2%;
+    &h2{
+        margin: 0;
+        padding:0;
+    }
+
+}
+
+.settings-button{
+    position: absolute;
+    bottom: 30px;
+    left: 15px;
+    z-index: 1200;
+    cursor: pointer;
+
+    &.settings-button:hover{
+        transform: scale(1.1)
+    }
+}
+
+.custom-theme-form{
+    margin: 15px;
+}
+
+.colour-picker{
+    float: right;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.custom-theme-list-item{
+    color: var(--primaryTextColour);
+}
+
+.custom-theme-list-item-active{
+    color: var(--primaryAccent);
+}

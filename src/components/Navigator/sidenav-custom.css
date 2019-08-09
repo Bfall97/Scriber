@@ -524,12 +524,17 @@
 /* Side Nav Expanded Menu container*/
 .sidenav---sidenav-nav---3tvij .sidenav---expanded---1KdUL >.sidenav---sidenav-subnav---1EN61{
 	height: -webkit-calc(100vh - 80px);
+	border-radius: 2px;
 	overflow-y:auto;	
 	border-right: 1px solid var(--primaryBackground)
 }
 
 
-
+/* display: none; */
+.sidenav---sidenav-nav---3tvij .sidenav---1KdUL .sidenav---sidenav-subnav---1EN61{	
+border: 5px blue solid;
+display: none !important;
+}
 
 /* list of notes only in expanded */
 .sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .notelist-container{

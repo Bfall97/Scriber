@@ -175,6 +175,7 @@ html[data-theme="office"] {
 }
 
 html {
+ /*  what the fuck? */
 	overflow-y: hidden;
 	overflow-x: hidden;
 }
@@ -189,7 +190,7 @@ html.theme-transition *:after {
 }
 
 .App{
-	border-right: 2px solid var(--secondaryBackground);
+	border-right: 3px solid var(--secondaryBackground);
 }
 
 /* Theme Icon Buttons Styles */
@@ -300,14 +301,13 @@ html.theme-transition *:after {
 
 .App {
 	text-align: center;
-	/* overflow-y: hidden; */
 }
 
 /* background of app.js */
 .App {
 	background-color: var(--primaryBackground);
 	min-height: 100vh;
-	max-height: 100vh;
+	min-width: 100vw;
 	color: var(--primaryTextColor);
 }
 .App-link {
@@ -327,4 +327,11 @@ html.theme-transition *:after {
 }
 .loader-active {
 	display: block;
+}
+
+.settings-page{
+	max-width: 99%;
+	margin-left: 40px;
+	padding-right: 25px !important;
+	padding: 0;
 }

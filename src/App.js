@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NoteDisplayContainer from './components/NoteDisplayContainer/NoteDisplayContainer'
 import NavigatorContainer from './components/NavigatorContainer/Navigator-Container'
+import Settings from './components/Settings/Settings';
 // import TopNav from './components/TopNav/TopNav'
 import TitleBar from '../src/components/TitleBar/TitleBar.js'
 import BottomBar from './components/BottomNav/BottomBar'
@@ -8,23 +9,26 @@ import { Moon } from 'styled-icons/boxicons-regular/Moon'
 import { Sun } from 'styled-icons/boxicons-regular/Sun'
 import { Heart } from 'styled-icons/boxicons-regular/Heart'
 import { Glasses } from 'styled-icons/fa-solid/Glasses'
-
+import { Settings as SettingsIcon } from 'styled-icons/octicons/Settings'
 import 'react-notifications/lib/notifications.css'
 import '../src/vendor/App.css'
 
 const notifications = require('react-notifications') // TODO: write typed definitions for this package.
 const { NotificationContainer, NotificationManager } = notifications
 const Dropbox = require('dropbox').Dropbox
+const setting = require('electron').remote.require('electron-settings')
+
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      theme: 'dark',
+      // theme: 'dark',
       data: [],
       content: '',
       link: '',
       view: false,
+      // settingsView: false,
       saved: false,
       layout: '50%',
       viewHeight:
@@ -32,6 +36,7 @@ class App extends Component {
               document.documentElement.clientHeight,
               window.innerHeight || 0
             ) - 120
+
 
     }
     this.toggleTheme = this.toggleTheme.bind(this)
@@ -188,6 +193,7 @@ class App extends Component {
             } else {
               this.DownloadDisplay = (
                 <NoteDisplayContainer
+                className='note-display'
                   subsetNum = {this.state.subsetNum}
                   stepNum={this.state.stepNum}
                   startNum={this.state.startNum}
@@ -203,37 +209,38 @@ class App extends Component {
               )
             }
 
-            // Which icon to display
-            // const ThemeIcons =
-            // <React.Fragment>
-            //   <Moon dark onClick={() => this.toggleTheme('dark')} size='22' className='dark-theme'/>
-            //   <Sun light onClick={() => this.toggleTheme('light')} size='22'className='light-theme' />
-            //   <Heart light onClick={() => this.toggleTheme('femme')} size='22'className='femme-theme' />
-            //   <Glasses light onClick={() => this.toggleTheme('office')} size='22'className='office-theme' />
-            // </React.Fragment>
-
             return (
 
-              <div className="App">
-                <TitleBar /> 
-                {/* <TopNav /> */}
-                <NotificationContainer />
-                {/* <div className='themeIcon'>{ThemeIcons}</div> */}
-                <NavigatorContainer
-                  subsetNum = {this.state.subsetNum}
-                  stepNum={this.state.stepNum}
-                  startNum={this.state.startNum}
-                  view={this.state.view}
-                  data={this.state.data}
-                  link={this.state.link}
-                  layout={this.state.layout}
-                  getLink = {this.getLink}
-                  newNote={this.newNote}
-                />
-                {this.DownloadDisplay}
-                <BottomBar view={this.state.view} layoutChange = {this.layoutChange} onExit={this.onExit} />
-              </div>
+                <div className="App">
+                  <TitleBar /> 
+                  {/* <TopNav /> */}
+                  <NotificationContainer />
+                  {/* <div className='themeIcon'>{ThemeIcons}</div> */}      
+                  <div id='nav-col'>
+                  <NavigatorContainer
+                    className='navigator'
+                    subsetNum = {this.state.subsetNum}
+                    stepNum={this.state.stepNum}
+                    startNum={this.state.startNum}
+                    view={this.state.view}
+                    data={this.state.data}
+                    link={this.state.link}
+                    layout={this.state.layout}
+                    getLink = {this.getLink}
+                    newNote={this.newNote}
+                  />
+                  </div>
+                  {/* until I know what I am doing I am postponing this segment of development */}
+                  {/* <div className='settings-page'>   
+                    <Settings />
+                   </div> */}
+                  <div id='note-col'>
+                  {this.DownloadDisplay}
+                  </div>
+                  <BottomBar view={this.state.view} layoutChange = {this.layoutChange} onExit={this.onExit} />
+                </div>
             )
+            
           }
 }
 
