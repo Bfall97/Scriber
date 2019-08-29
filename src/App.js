@@ -1,14 +1,18 @@
+import CssBaseline from '@material-ui/core/CssBaseline';
 import React, { Component } from 'react'
 import NoteDisplayContainer from './components/NoteDisplayContainer/NoteDisplayContainer'
 import NavigatorContainer from './components/NavigatorContainer/Navigator-Container'
 import Settings from './components/Settings/Settings';
+import WelcomePage from './components/WelcomePage/welcome-page'
 // import TopNav from './components/TopNav/TopNav'
 import TitleBar from '../src/components/TitleBar/TitleBar.js'
 import BottomBar from './components/BottomNav/BottomBar'
+import Tooltip from '@material-ui/core/Tooltip'
 import { Moon } from 'styled-icons/boxicons-regular/Moon'
 import { Sun } from 'styled-icons/boxicons-regular/Sun'
 import { Heart } from 'styled-icons/boxicons-regular/Heart'
 import { Glasses } from 'styled-icons/fa-solid/Glasses'
+
 import { Settings as SettingsIcon } from 'styled-icons/octicons/Settings'
 import 'react-notifications/lib/notifications.css'
 import '../src/vendor/App.css'
@@ -28,7 +32,7 @@ class App extends Component {
       content: '',
       link: '',
       view: false,
-      // settingsView: false,
+      settingsView: false,
       saved: false,
       layout: '50%',
       viewHeight:
@@ -43,6 +47,7 @@ class App extends Component {
   }
 
     // --------Get The Selected Note Link To Download--------------//
+    //REVIEW I could put the logic to handle where the document is coming from here...
     getLink = link => {
       this.setState(
         {
@@ -66,12 +71,17 @@ class App extends Component {
     }
 
     // -------List All Current Files in Dropbox Folder on Startup-----///
-    // TODO: Later change this to if dropbox exists, then download.
     componentDidMount () {
       this.updateDimensions()
       window.addEventListener('resize', this.updateDimensions.bind(this))
+      
+      //REVIEW Possibly deal with multiple source by adding them all into one here?
+      // Possibly wont work because when I go to grab the file I wont know where to download from.
+      if(setting.get('tokens.dropbox')!== ''){
+        this.DownloadFiles() 
+      }
 
-      this.DownloadFiles()
+      
     }
 
     // -------Keeps ScreenHeight update in case of change------//
@@ -99,6 +109,7 @@ class App extends Component {
   }
 
   // TODO: User input of accessToken when Login/Sign up is done
+  //TODO: Find a way to abstract dropbox stuff
   DownloadFiles = () => {
     var dbx = new Dropbox({
       fetch,
@@ -188,8 +199,11 @@ class App extends Component {
           }
 
           render () {
-            if (this.state.view === false) {
-              this.DownloadDisplay = null
+            if (this.state.view === false) { //Welcome page on startup
+              this.DownloadDisplay = 
+              <WelcomePage 
+                docList = {this.state.data}
+              /> 
             } else {
               this.DownloadDisplay = (
                 <NoteDisplayContainer
@@ -209,36 +223,45 @@ class App extends Component {
               )
             }
 
-            return (
+            if(this.state.settingsView === true){
+              this.DownloadDisplay =
+              <Settings
+               />}
 
+            return (
+            <>
                 <div className="App">
+                  <CssBaseline />
                   <TitleBar /> 
-                  {/* <TopNav /> */}
-                  <NotificationContainer />
-                  {/* <div className='themeIcon'>{ThemeIcons}</div> */}      
-                  <div id='nav-col'>
-                  <NavigatorContainer
-                    className='navigator'
-                    subsetNum = {this.state.subsetNum}
-                    stepNum={this.state.stepNum}
-                    startNum={this.state.startNum}
-                    view={this.state.view}
-                    data={this.state.data}
-                    link={this.state.link}
-                    layout={this.state.layout}
-                    getLink = {this.getLink}
-                    newNote={this.newNote}
-                  />
+                  <div id='content-container'>
+                    {/* <TopNav /> */}
+                    <NotificationContainer />
+                    {/* <div className='themeIcon'>{ThemeIcons}</div> */}      
+                    <div id='nav-col'>
+                      <NavigatorContainer
+                        className='navigator'
+                        subsetNum = {this.state.subsetNum}
+                        stepNum={this.state.stepNum}
+                        startNum={this.state.startNum}
+                        view={this.state.view}
+                        data={this.state.data}
+                        link={this.state.link}
+                        layout={this.state.layout}
+                        getLink = {this.getLink}
+                        newNote={this.newNote}
+                        />
+                    </div>
+                    {/* until I know what I am doing I am postponing this segment of development */}
+                    <div id='note-col'>
+                    {this.DownloadDisplay}
+                    </div>
                   </div>
-                  {/* until I know what I am doing I am postponing this segment of development */}
-                  {/* <div className='settings-page'>   
-                    <Settings />
-                   </div> */}
-                  <div id='note-col'>
-                  {this.DownloadDisplay}
-                  </div>
-                  <BottomBar view={this.state.view} layoutChange = {this.layoutChange} onExit={this.onExit} />
+                  <Tooltip title="Settings" aria-label="settings">
+                      <SettingsIcon size='22' className='settings-button' onClick={()=>{this.setState({settingsView: !this.state.settingsView, view: false})}} />
+                  </Tooltip>
                 </div>
+                  <BottomBar view={this.state.view} layoutChange = {this.layoutChange} onExit={this.onExit} />
+                </>
             )
             
           }

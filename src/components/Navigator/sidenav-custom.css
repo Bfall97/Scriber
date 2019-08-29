@@ -2,12 +2,18 @@
 @import "../../vendor/App.css";
 
 .sidenav---sidenav---_2tBP {
-	position: absolute;
+	position: fixed;
+	min-height:100%;
 	top: 28px;
 	bottom: 0;
 	left: 0;
-	z-index: 106;
-	min-width: 64px;
+	/* z-index: 0; */
+	min-width: 45px;
+	-webkit-transition: min-width 0.15s;
+	-moz-transition: min-width 0.15s;
+	-o-transition: min-width 0.15s;
+	-ms-transition: min-width 0.15s;
+	transition: min-width 0.15s;
 	-webkit-transition: min-width 0.15s;
 	-moz-transition: min-width 0.15s;
 	-o-transition: min-width 0.15s;
@@ -38,7 +44,7 @@
 	+ .sidenav---navtext---1AE_f {
 	display: inline;
 	top: 5;	
-	position: fixed;
+	position: relative;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-nav---3tvij
@@ -48,14 +54,14 @@
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-subnav---1EN61 {
-	position: static;
+	/* position: static; */
 	border: none;
 	border-radius: 0;
 	float: right;
-	margin-left: 64px;
+	margin-left: 40px;
 	clear: both;
-	width: 82%;
-	height:100%;
+	width: calc(100% - 45px);
+	height:100;
 	background: var(--sideNavSubMenuBG);
 	overflow: hidden;
 	-webkit-box-shadow: none;
@@ -148,7 +154,7 @@
 .sidenav---sidenav-toggle---1KRjR {
 	position: relative;
 	float: left;
-	width: 64px;
+	width: 45px;
 	height: 64px;
 	padding: 0;
 	margin: 0;
@@ -271,7 +277,7 @@
 	opacity: 0.2;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
 	filter: alpha(opacity=20);
-	max-width: 64px;
+	max-width: 45px;
 }
 .sidenav---sidenav-nav---3tvij
 	> .sidenav---sidenav-navitem---uwIJ-:hover
@@ -386,7 +392,7 @@
 	.sidenav---navicon---3gCRo {
 	display: block;
 	float: left;
-	width: 64px;
+	width: 45px;
 	height: 50px;
 	margin-right: -6px;
 	vertical-align: top;
@@ -408,12 +414,13 @@
 }
 .sidenav---sidenav-subnav---1EN61 {
 	min-width: 200px;
-	position: absolute;
+	/* position: absolute; */
+	max-height: 95%;
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	top: 0;
-	left: 64px;
+	left: 45px;
 	background: #fff;
 	border: 1px #bbb solid;
 	border-radius: 0px 15px 15px 0px;
@@ -484,6 +491,10 @@
 	box-sizing: inherit;
 }
 
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL{
+	position: fixed;
+}
+
 /* SideNav Expanded Opened Menu Container */
 .sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL{
 	 height: -webkit-calc(100% - 80px);
@@ -496,6 +507,7 @@
 /* Side Nav Hamburger Button Expanded*/
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL > .sidenav---sidenav-toggle---1KRjR{
 	display: none;
+	margin-right: 100px;
 }
 
 .sidenav---sidenav-subnavitem---1cD47{
@@ -524,6 +536,7 @@
 /* Side Nav Expanded Menu container*/
 .sidenav---sidenav-nav---3tvij .sidenav---expanded---1KdUL >.sidenav---sidenav-subnav---1EN61{
 	height: -webkit-calc(100vh - 80px);
+	margin: 0;
 	border-radius: 2px;
 	overflow-y:auto;	
 	border-right: 1px solid var(--primaryBackground)
@@ -532,7 +545,6 @@
 
 /* display: none; */
 .sidenav---sidenav-nav---3tvij .sidenav---1KdUL .sidenav---sidenav-subnav---1EN61{	
-border: 5px blue solid;
 display: none !important;
 }
 
@@ -555,7 +567,7 @@ display: none !important;
 /* Dropdown arrow in expanded sidenav menu */
 .arrowDrop{
 	position: fixed;
-	left: 50px;
+	left: 45px;
 	margin: 15px;
 }
 

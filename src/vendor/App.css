@@ -1,5 +1,4 @@
 /* TODO: Add transitions and animations where necessary. */
-
 /* Default Theme (dark) */
 html {
 
@@ -49,8 +48,12 @@ html {
 	--editorMatchBracketBG:#467b9b;
 	--editorGutterBorder: #252424;
 	
+	--linkColour: #f8f4f4;
+	--linkHover: #ddd9d9;
 
-	--buttonHover: #ece3e37a;
+	--buttonFGColor: #2a2929;
+	--buttonBGColor: #f0e9e9;
+	--buttonHover: #ece6e6da;
 	--secondaryContrast: #ece49dbe;
 
 	--mobileStep: #7ca0d3a8;
@@ -177,7 +180,8 @@ html[data-theme="office"] {
 html {
  /*  what the fuck? */
 	overflow-y: hidden;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
+
 }
 
 /* Theme Transition */
@@ -191,6 +195,8 @@ html.theme-transition *:after {
 
 .App{
 	border-right: 3px solid var(--secondaryBackground);
+	height:100%;
+	margin-bottom: -24px;
 }
 
 /* Theme Icon Buttons Styles */
@@ -299,21 +305,76 @@ html.theme-transition *:after {
 	transition: background-color 0.5s;
 }
 
-.App {
-	text-align: center;
-}
-
 /* background of app.js */
 .App {
+	text-align: center;
 	background-color: var(--primaryBackground);
-	min-height: 100vh;
-	min-width: 100vw;
+	/* min-height: 100vh; */
+	/* min-width: 100vw; */
 	color: var(--primaryTextColor);
+	
 }
 .App-link {
 	color: var(--secondaryTextColor);
 }
 
+
+#content-container{
+	display: flex;
+	flex-direction: row;
+	/* justify-content: flex-start; */
+	width:100%;
+	align-items: stretch;
+	margin:0;
+	/* margin-bottom:-24px !important; */
+	height:93%;	
+	position: relative !important;
+}
+
+#nav-col{
+		/* position: fixed; */
+		position:relative;
+		flex-grow:1;
+		top: 28px;
+		bottom: 0;
+		left: 0;
+		/* z-index: 1; */
+		/* min-width: 64px; */
+		/* -webkit-transition: min-width 0.15s;
+		-moz-transition: min-width 0.15s;
+		-o-transition: min-width 0.15s;
+		-ms-transition: min-width 0.15s; */
+		/* transition: min-width 0.15s; */
+		/* padding-right: 190px; */
+		min-width: 64px;
+		/* width:64px; */
+		height: 100%;
+		z-index:1010;
+		
+}
+
+/* #nav-col .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL{
+	margin-right: 1200px;
+} */
+
+#note-col{
+	flex-grow:2;
+	/* height: 90%; */
+	/* border: 2px dotted green; */
+	overflow-y: auto;
+	overflow-x: hidden
+}
+
+
+#nav-col.collapsed{
+	max-width: 64px;
+	min-width: 64px;
+}
+
+#nav-col.expanded{
+	max-width: 350px;
+	min-width: 350px;
+}
 .sidenav---sidenav---_2tBP {
 	background-color: var(--primaryBackground);
 }

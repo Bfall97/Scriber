@@ -1,7 +1,6 @@
 @import url(../../vendor/App.css);
 
 
-
 .Resizer {
 	background: var(--resizerBorder);
 	opacity: 0.8;
@@ -70,9 +69,17 @@
 	padding: 0 6px; /* Horizontal padding of content */
 }
 
-.SplitPane{
-	max-height:91%;
-	bottom:25px;
+.split-pane-container{
+	height:100%;
+	position: relative !important;
+	box-sizing: border-box;
+}
+
+.SplitPane.vertical {
+	height:100%;
+	max-width:100%;	
+	margin: 0;	
+	box-sizing: border-box;
 }
 
 .Pane {

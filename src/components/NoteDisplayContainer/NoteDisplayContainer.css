@@ -17,7 +17,8 @@
 	overflow-y: auto;
 	line-height: 1.2;
 	padding: 0 2em;
-	padding-left: 5px;
+	padding-left: 5px;	
+
 }
 
 .displayContainer link:visited {
@@ -27,23 +28,33 @@
 .crud-buttons{
 	bottom: 0;
 	right: 0;
-	position: absolute;
+	position: fixed;
 	float: right;
-	width: 100px;
-	padding: 5px;
-	z-index: 1011;
+	width: 120px;
+	padding: 2px;
+	margin-right: 10px;
 	opacity: 0.3;
 	transition: opacity 1s;
+	z-index: 1226;
 }
 
 .crud-buttons:hover {
 	opacity: 1;
 }
 
+.save{
+	float: left;
+}
+
+.delete{
+	float: right;
+}
+
 .save,
 .delete {
 	cursor: pointer;
-	padding-left: 20px;
+	/* padding-left: 10px; */
+	/* padding-right: 10px; */
 }
 
 .delete:hover {

@@ -20,35 +20,49 @@ export const ConditionalDrop = styled(ArrowDropDown)`
 `
 
 class Navigator extends Component {
-  state = {
-    expanded: false,
-    subNavExpanded: false
+  constructor(props) {
+    super(props)
+     this.state = {
+      expanded: false,
+      subNavExpanded: false    
+       
+    }
   }
-
+  componentDidUpdate(){
+    this.state.expanded ? document.getElementById("nav-col").className = "expanded" : document.getElementById("nav-col").className = "collapsed";
+  }
+  
   sideNavExpand= () => {
     // this.subNavToggle(this.state.subNavExpanded)
     this.setState({ expanded: true })
     // this.forceUpdate()
   }
-
+  
   subNavToggle = () => {
     this.setState({
       subNavExpanded: !this.state.subNavExpanded
     })
   }
-
+  //REVIEW Factor out this component
+  
   render () {
+    
+    // this.state.expanded ? document.getElementById("nav-col").className = "expanded" : document.getElementById("nav-col").className = "collapsed";
     return (
       <div>
         <ClickOutside
           onClickOutside={() => {
             this.setState({ expanded: false })
+            // navColumn.style.minWidth = '64px';
           }}
-        >
+          >
           <SideNav
             expanded={this.state.expanded}
             onToggle={(expanded) => {
               this.setState({ expanded })
+              // let navColumn = document.querySelector("#nav-col"); 
+              // navColumn.className += " expanded";
+              // navColumn.style.minWidth = '350px';
             }}
             onSelect={selected => {
             // Add your code here
@@ -73,7 +87,7 @@ class Navigator extends Component {
             <SideNav.Nav defaultSelected="Notes" onClick={this.sideNavExpand}>
               <NavItem eventKey="Notes" onClick={this.subNavToggle} expanded={this.state.subNavExpanded}>
                 <NavIcon>
-                  <Note size="36" className="note-icon" />
+                  <Note size="34" className="note-icon" />
                 </NavIcon>
                 <NavText>
                   { this.state.expanded

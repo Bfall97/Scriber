@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Navigator from './../Navigator/Navigator.js'
+import './navcontainercss.css'
 
 const notifications = require('react-notifications')
 const { NotificationManager } = notifications
@@ -59,20 +60,20 @@ export default class NavigatorContainer extends Component {
 
     render () {
       return (
-
-        <Navigator
-          getLink = {this.props.getLink}
-          subsetNum = {this.state.subsetNum}
-          stepNum={this.state.stepNum}
-          startNum={this.state.startNum}
-          view={this.props.view}
-          data={this.props.data}
-          link={this.props.link}
-          layout={this.props.layout}
-          newNote ={this.props.newNote}
-          onStepClick = {this.onStepClick}
-        />
-
+        <div className='container'>
+          <Navigator
+            getLink = {this.props.getLink}
+            subsetNum = {this.state.subsetNum}
+            stepNum={this.state.stepNum}
+            startNum={this.state.startNum}
+            view={this.props.view}
+            data={this.props.data}
+            link={this.props.link}
+            layout={this.props.layout}
+            newNote ={this.props.newNote}
+            onStepClick = {this.onStepClick}
+          />
+        </div>
       )
     }
 }

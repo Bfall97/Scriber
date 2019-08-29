@@ -26,7 +26,7 @@ export default class SplitPaneContainer extends PureComponent {
 
   render () {
     return (
-      <SplitPane split="vertical" minSize={50} defaultSize= {this.props.layout} size={this.props.layout} >
+      <SplitPane split="vertical" minSize={50} defaultSize= {this.props.layout} size={this.props.layout} position='static'>
         <div className="editor-Pane">
           <Editor 
             className='editor'

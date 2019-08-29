@@ -3,7 +3,7 @@
 .settings-container{
     position: relative;
     height: 100vh;
-    width: 100%;
+    min-width: 100%;
     max-width: 100%;
     padding: 15px 10px 10px 10px;
     background: var(--primaryBackground);
@@ -19,11 +19,10 @@
 
 .settings-button{
     position: absolute;
-    bottom: 30px;
-    left: 15px;
-    z-index: 1200;
+    bottom: 7px;
+    left: 10px;
+    z-index: 1300;
     cursor: pointer;
-
     &.settings-button:hover{
         transform: scale(1.1)
     }

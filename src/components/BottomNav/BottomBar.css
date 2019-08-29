@@ -5,12 +5,12 @@
 	flex-direction: column;
 	justify-content: center;
     width: 100%;
-    height: 20px;
+    height: 24px;
     bottom: 0;
-    position: absolute;
-	margin: 1px 1px 0px 1px;
+    position: fixed;
+	margin: 0px 0px 0px 0px;
 	padding: 3px;
-	z-index :1010;
+	z-index :1225;
 	background: linear-gradient(to bottom,var(--primaryGradient),var(--secondaryGradient));
 	border-top: 0.5px solid var(--bottomBarBorder);
 }
@@ -24,7 +24,6 @@
 }
 
 .note-buttons:hover,
-
 .notes-layout-buttons:hover {
 	opacity: 1;
 }
@@ -35,7 +34,7 @@
 	padding-left: 10px;
 	padding-top: 0;
 	margin-top: 0;
-	opacity: 0.3;
+	opacity: 0.5;
 	transition: opacity 1s;
     min-width: 40%;
 }
@@ -49,13 +48,13 @@
 .edit,
 .pre,
 .book-content {
-	padding: 5px;
-	margin: 5px;
+	margin-right: 7px;
 	margin-bottom: 0;
 	padding-bottom: 0;
 	padding-top: 0;
 	margin-top: 0;
-	cursor: pointer;	
+	cursor: pointer;
+	color: var(--buttonBGColor)
 }
 
 .close-o:hover,

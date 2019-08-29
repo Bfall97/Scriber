@@ -1,0 +1,35 @@
+#recent-documents{
+    width: 60px;
+    height: 120px;
+    
+}
+
+.empty, .document{
+    width: 100px;
+    height: 130px;
+    margin:5px;
+    margin-top: 0;
+    border-radius: 2px;
+    bottom: 2px;
+}
+
+.empty{
+    border: 1px gray dotted;
+}
+
+.document{
+    border: 1px rgb(204, 192, 192) solid;
+    box-shadow: 3px 3px 1px 0px rgb(68, 63, 63);
+    &:hover{
+        opacity: 0.6;
+        cursor: pointer;
+    }
+}
+
+h5{
+
+}
+
+h6{
+    vertical-align: bottom;
+}
