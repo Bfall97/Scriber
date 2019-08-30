@@ -110,13 +110,14 @@ class Navigator extends Component {
                     </span>
                   </NavText>
                 </NavItem>
+                    {/* REVIEW: Should I abstract this? */}
                 <NavItem eventKey="Notes/list" />
                 <NavItem className='notelist-container'>
                   <NavText className="note-dropdown">
                     { this.state.expanded
                       ? <NoteList
-                        className = 'note-list-menu'
-                        className = 'expanded'
+                      className = 'note-list-menu'
+                      className = 'expanded'
                         data={this.props.data}
                         sendLink={this.props.getLink}
                       // stepNum={this.props.stepNum}

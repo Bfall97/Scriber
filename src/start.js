@@ -42,7 +42,9 @@ function createWindow () {
     }),
 
     // Persistence
-    
+    settings.set('filepaths',{
+      default : '',
+    }),
     settings.set('tokens',{
       dropbox : 'HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK',
     }),

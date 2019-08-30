@@ -1,3 +1,4 @@
+import { fileRead, defaultFolderRead } from '../../LocalFileSystem.js'
 const { remote } = require('electron')
 const { app, Menu } = remote
 
@@ -128,7 +129,7 @@ const template = [
             {
         label: 'Open',
         accelerator: 'Ctrl+O',
-        click() { openFile(); }
+        click() { fileRead(); }
       },
       {
         label: 'Save',
