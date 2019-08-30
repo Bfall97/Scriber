@@ -5,6 +5,9 @@ import NavigatorContainer from './components/NavigatorContainer/Navigator-Contai
 import Settings from './components/Settings/Settings';
 import WelcomePage from './components/WelcomePage/welcome-page'
 // import TopNav from './components/TopNav/TopNav'
+
+import { fileWrite, fileRead, defaultFolderRead } from './LocalFileSystem.js'
+
 import TitleBar from '../src/components/TitleBar/TitleBar.js'
 import BottomBar from './components/BottomNav/BottomBar'
 import Tooltip from '@material-ui/core/Tooltip'
@@ -74,6 +77,12 @@ class App extends Component {
     componentDidMount () {
       this.updateDimensions()
       window.addEventListener('resize', this.updateDimensions.bind(this))
+      
+      
+      //REVIEW: Is this the best way to handle this?
+      if(setting.get('filepaths.default')!== ''){
+        defaultFolderRead()
+      }
       
       //REVIEW Possibly deal with multiple source by adding them all into one here?
       // Possibly wont work because when I go to grab the file I wont know where to download from.
