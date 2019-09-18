@@ -1,16 +1,18 @@
 #recent-documents{
     width: 60px;
-    height: 120px;
-    
+    height: 170px;
+    padding: 0px;
 }
 
 .empty, .document{
     width: 100px;
-    height: 130px;
+    height: 140px;
     margin:5px;
     margin-top: 0;
     border-radius: 2px;
     bottom: 2px;
+    padding: 0;
+    position: relative;
 }
 
 .empty{
@@ -18,8 +20,14 @@
 }
 
 .document{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px rgb(204, 192, 192) solid;
     box-shadow: 3px 3px 1px 0px rgb(68, 63, 63);
+    background-color: rgb(211, 211, 208);
+    padding: 2px;
+    padding-bottom: 20px;
     &:hover{
         opacity: 0.6;
         cursor: pointer;
@@ -27,9 +35,22 @@
 }
 
 h5{
-
+    color: rgb(29, 28, 28);
+    top: 0;
+    margin-bottom: 20px;
+    max-height: 25px;
+    width: 100%;
+    font-size: 10.6px;
+    font-weight: 800;
 }
 
 h6{
+    font-style: italic;
+    color: rgb(29, 28, 28);
+    bottom: 0;
+    margin: auto;
+    flex-grow: 1;
     vertical-align: bottom;
+    position: absolute;
+    
 }

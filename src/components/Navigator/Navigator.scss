@@ -1,3 +1,14 @@
+.subnav-expanded{
+    display: block;
+}
+
+.subnav-collapsed{
+    display: none;
+}
+
+
+
+// Scrollbar Styles
 .sidenav---sidenav-subnav---1EN61::-webkit-scrollbar-track,.sidenav---sidenav-subnav---1EN61::-webkit-scrollbar-thumb,.sidenav---sidenav-subnav---1EN61::-webkit-scrollbar {
     background: var(--sideNavSubMenuBG);
     transition: background 2s;

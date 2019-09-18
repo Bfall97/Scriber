@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Moment from 'react-moment'
 import Input from '@material-ui/core/Input'
+import '../SideExplorerContentMenu/SideExplorerContentMenu.scss'
 
 const ListItem = styled.li`
 text-align: left;
@@ -31,14 +32,13 @@ opacity: 0.8;
 font-style: italic;
 `
 
-class DropboxNoteList extends Component {
+class LocalNoteList extends Component {
   constructor (props) {
     super(props)
     this.state = ({
       link: '',
       filter: ''
     })
-    console.log('in notelist '+this.props.data)
   }
 
   handleCheck = (e) => {
@@ -54,10 +54,10 @@ class DropboxNoteList extends Component {
   }
 
   render () {
-    // const data = this.props.data
     const data = this.props.data
-    console.log('dropbox: '+ this.props.dropboxData)
-    // const dropboxArray = 
+    console.log(this.props.data)
+
+
     // Sort by last modified
     if (this.props.data !== null && this.state.filter === '') {
       data.sort(function (a, b) {
@@ -66,11 +66,20 @@ class DropboxNoteList extends Component {
         }
         if (a.client_modified < b.client_modified) {
           return 1
-          // a must be equal to b
+        // a must be equal to b
         }
         return 0
       })
     }
+
+    //   const lowercasedFilter = this.state.filter.toLowerCase();
+    //   data.filter(item =>{
+
+    //     item.low
+    //     // return Object.keys(item).some(key=>
+    //       // item.path_lower.includes(lowercasedFilter));
+    //   })
+    // }
 
     return (
       this.props.data !== null ?
@@ -105,4 +114,4 @@ class DropboxNoteList extends Component {
   }
 }
 
-export default DropboxNoteList
+export default LocalNoteList

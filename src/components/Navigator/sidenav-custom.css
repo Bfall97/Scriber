@@ -1,13 +1,8 @@
 /*! react-sidenav v0.4.5 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 @import "../../vendor/App.css";
-
 .sidenav---sidenav---_2tBP {
-	position: fixed;
 	min-height:100%;
-	top: 28px;
-	bottom: 0;
 	left: 0;
-	/* z-index: 0; */
 	min-width: 45px;
 	-webkit-transition: min-width 0.15s;
 	-moz-transition: min-width 0.15s;
@@ -20,8 +15,11 @@
 	-ms-transition: min-width 0.15s;
 	transition: min-width 0.15s;
 	background: linear-gradient(to left, var(--primaryGradient),var(--secondaryGradient));
-	border-right: .5px var(--secondaryBackground)  solid;
+	border-right: .5px var(--secondaryBackground)  solid;	
 }
+
+
+
 .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv
 	.sidenav---sidenav-nav---3tvij
 	.sidenav---sidenav-navitem---uwIJ-
@@ -29,13 +27,13 @@
 	display: none;
 }
 .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv
-	.sidenav---sidenav-nav---3tvij
-	.sidenav---sidenav-navitem---uwIJ-:hover
-	> .sidenav---sidenav-subnav---1EN61 {
+.sidenav---sidenav-nav---3tvij
+.sidenav---sidenav-navitem---uwIJ-:hover
+> .sidenav---sidenav-subnav---1EN61 {
 	display: block;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL {
-	min-width: 350px;
+	min-width: 355px;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-nav---3tvij
@@ -45,6 +43,8 @@
 	display: inline;
 	top: 5;	
 	position: relative;
+	
+	
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-nav---3tvij
@@ -52,31 +52,13 @@
 	> .sidenav---navitem---9uL5T {
 	cursor: pointer;
 }
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
-	.sidenav---sidenav-subnav---1EN61 {
-	/* position: static; */
-	border: none;
-	border-radius: 0;
-	float: right;
-	margin-left: 40px;
-	clear: both;
-	width: calc(100% - 45px);
-	height:100;
-	background: var(--sideNavSubMenuBG);
-	overflow: hidden;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
+
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-nav---3tvij
 	> .sidenav---sidenav-navitem---uwIJ-.sidenav---expanded---1KdUL
 	.sidenav---sidenav-subnav---1EN61 {
 	display: block;
 	
-}
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
-	.sidenav---sidenav-subnav---1EN61 {
-	display: none;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-subnav---1EN61
@@ -89,7 +71,7 @@
 	content: " ";
 	width: 100%;
 	height: 28px;
-	position: absolute;
+	/*position: absolute*/;
 	top: 0;
 	z-index: -1;
 }
@@ -112,7 +94,7 @@
 	content: " ";
 	width: 100%;
 	height: 28px;
-	position: absolute;
+	/*position: absolute*/;
 	top: 0;
 	z-index: -1;
 }
@@ -131,7 +113,7 @@
 	height: 20px;
 	left: 10px;
 	top: 4px;
-	position: absolute;
+	/*position: absolute*/;
 	border-left: 1px #fff solid;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
@@ -149,7 +131,7 @@
 	padding: 0 0px 0px 0px;
 	margin-right: 0px;
 	margin-left:0px;
-	line-height: 28px;
+	line-height: 28px;	
 }
 .sidenav---sidenav-toggle---1KRjR {
 	position: relative;
@@ -192,7 +174,7 @@
 	.sidenav---sidenav-toggle---1KRjR
 	.sidenav---icon-bar---u1f02 {
 	width: 25px;
-	display: none;
+	/* display: none; */
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
 	.sidenav---sidenav-toggle---1KRjR
@@ -336,8 +318,8 @@
 	> .sidenav---navitem---9uL5T {
 	position: relative;
 	display: block;
-	line-height: 50px;
-	height: 50px;
+	/* line-height: 50px; */
+	height: 100%;
 	white-space: nowrap;
 	text-decoration: none;
 	color: #fff;
@@ -353,7 +335,7 @@
 	> .sidenav---sidenav-navitem---uwIJ-
 	> .sidenav---navitem---9uL5T::after {
 	content: "";
-	position: absolute;
+	/*position: absolute*/;
 	width: 100%;
 	top: 0;
 	bottom: 0;
@@ -395,7 +377,6 @@
 	width: 45px;
 	height: 50px;
 	margin-right: -6px;
-	vertical-align: top;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-color: transparent;
@@ -414,7 +395,6 @@
 }
 .sidenav---sidenav-subnav---1EN61 {
 	min-width: 200px;
-	/* position: absolute; */
 	max-height: 95%;
 	list-style: none;
 	padding: 0;
@@ -450,6 +430,7 @@
 	font-weight: bold;
 	background: none;
 	cursor: default;
+	
 }
 .sidenav---sidenav-subnav---1EN61
 	> .sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y
@@ -466,6 +447,7 @@
 	line-height: 30px;
 	padding: 0 24px;
 	cursor: pointer;
+	
 }
 .sidenav---sidenav-subnav---1EN61
 	> .sidenav---sidenav-subnavitem---1cD47
@@ -492,32 +474,102 @@
 }
 
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL{
-	position: fixed;
+	/* position: fixed; */
+	
 }
+
+
+/* Half of these dont seem to do anything */
 
 /* SideNav Expanded Opened Menu Container */
 .sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL{
-	 height: -webkit-calc(100% - 80px);
+	 /* height: -webkit-calc(100% - 80px); */
+	 display:flex;
+	 flex-direction: column;
+	 overflow-y: auto;
+	 
 }
 /* SideNav Expanded Menu Container parent Container ?*/
 .sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---highlighted---oUx9u.sidenav---expandable---3_dr7.sidenav---expanded---1KdUL{
-	height:100%;
+	height:100%;	
 }
 
 /* Side Nav Hamburger Button Expanded*/
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL > .sidenav---sidenav-toggle---1KRjR{
-	display: none;
+	/* display: none; */
 	margin-right: 100px;
 }
 
 .sidenav---sidenav-subnavitem---1cD47{
-	color: black
+	color: black;
+}
+
+/* Sub Menu Styles */
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
+	.sidenav---sidenav-subnav---1EN61 {
+	position: static;
+	border: none;
+	border-radius: 0;
+	float: left;
+	margin-left: 45px;
+	clear: both;
+	/* This is obviously wrong and embarrasing */
+	width: calc(86.5% + 2px);
+	height:100%;
+	background: var(--sideNavSubMenuBG);
+	overflow: hidden;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-right: 3px solid var(--secondaryBackground);
+}
+
+/* SubNav Height */
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
+	.sidenav---sidenav-subnav---1EN61 {
+	/* display: none; */
+	/* min-height: calc(100vh - 225px); */
+	height:100%;
+	/* border: blue 1px dotted; */
+	
+}
+
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
+	.sidenav---sidenav-subnav---1EN61.note-list-menu{
+		display: block;
 }
 
 /* Search Box in Nav Dropdown */
 .sidenav---navtext---1AE_f .MuiInputBase-root.MuiInput-root.MuiInput-underline{
 	color: var(--sideNavSearchBoxText);
 	border-bottom: var(--sideNavSearchBorder) 1px solid;
+}
+
+.sidenav---sidenav-navitem---uwIJ- .sidenav---navitem---9uL5T .focused-menu{
+	z-index: 5001;
+}
+
+.sidenav---sidenav-navitem---uwIJ- .sidenav---navitem---9uL5T .unfocused-menu{
+	z-index: -1;
+	display: none;
+	/* display: flex;
+	flex-direction: column;
+	flex-wrap: wrap; */
+}
+
+.sidenav---sidenav-nav---3tvij .sidenav---expanded---1KdUL >.sidenav---sidenav-subnav---1EN61.sidenav---navitem---9uL5T{
+	min-height:100vh;
+	/* width: 64px; */
+}
+
+/* Side Nav Expanded Menu container*/
+.sidenav---sidenav-nav---3tvij .sidenav---expanded---1KdUL >.sidenav---sidenav-subnav---1EN61{
+	/* height: -webkit-calc(100vh - 80px); */
+	height:100%;
+	margin: 0;
+	border-radius: 2px;
+	overflow-y:auto;	
+	border-right: 3px solid  var(--secondaryBackground);
+	
 }
 
 /* Time Stamps of SideNav Notelist ine expanded menu */
@@ -533,52 +585,47 @@
 	border-radius: 0;
 }
 
-/* Side Nav Expanded Menu container*/
-.sidenav---sidenav-nav---3tvij .sidenav---expanded---1KdUL >.sidenav---sidenav-subnav---1EN61{
-	height: -webkit-calc(100vh - 80px);
-	margin: 0;
-	border-radius: 2px;
-	overflow-y:auto;	
-	border-right: 1px solid var(--primaryBackground)
-}
-
-
-/* display: none; */
-.sidenav---sidenav-nav---3tvij .sidenav---1KdUL .sidenav---sidenav-subnav---1EN61{	
-display: none !important;
-}
 
 /* list of notes only in expanded */
 .sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .notelist-container{
-	width: 100%;
+	width: 80%;
 	border-radius: 1px;
-	padding: 1px;
-	margin: 1px;
+	/* padding: 1px; */
+	margin: 2px;
+	margin-right: 7px;
+	/* margin-left: 64px; */
+	float:right;
 }
-
 /* individual links in notelist */
 .sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .notelist-container li{	
 	padding-right: 10px;
 	padding-left: 10px;
 	margin-left: -1px;
 }
+/* Dropdown arrow in expanded sidenav menu
 
 
-/* Dropdown arrow in expanded sidenav menu */
+/* Dropdown arrow when submenu is collapsed */
+.arrowDrop-collapsed{
+	/* position: fixed; */
+	float:left;
+	/* left: 45px; */
+	/* margin: 15px; */
+	transform: rotate(-45deg);
+}
+
+/* Dropdown arrow when submenu is open */
 .arrowDrop{
 	position: fixed;
 	left: 45px;
 	margin: 15px;
-}
-
-/* Dropdown arrow when submenu is collapsed */
-.sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---highlighted---oUx9u.sidenav---expandable---3_dr7 .arrowDrop{
 	transform: rotate(-90deg);
 }
 
-/* Dropdown arrow when submenu is open */
-.sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---highlighted---oUx9u.sidenav---expandable---3_dr7.sidenav---expanded---1KdUL .arrowDrop{
-	transform: rotate(-45deg);
+
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL{
+	display: flex;
+	flex-direction: column;
 }
 
 .new-note {
@@ -596,4 +643,14 @@ display: none !important;
 	font-weight: 500;
 }
 
+
+.sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv  .notelist-container{
+	width: 100%;
+	height: 100%;
+}
+
+
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo + .sidenav---navtext---1AE_f{
+	
+}
 

@@ -39,7 +39,6 @@ class NoteList extends Component {
       filter: ''
     })
   }
-
   handleCheck = (e) => {
     this.setState({
       link: e.currentTarget.dataset.path
@@ -54,9 +53,11 @@ class NoteList extends Component {
 
   render () {
     const data = this.props.data
+    console.log(this.props.data)
+
 
     // Sort by last modified
-    if (this.state.filter === '') {
+    if (this.props.data !== null && this.state.filter === '') {
       data.sort(function (a, b) {
         if (a.client_modified > b.client_modified) {
           return -1
@@ -79,7 +80,9 @@ class NoteList extends Component {
     // }
 
     return (
-      <div>
+      this.props.data !== null ?
+      <div className='content-menu'>
+      <h3>{this.props.title}</h3>
         <Input
           id = "outlined-name"
           label='Search'
@@ -101,6 +104,13 @@ class NoteList extends Component {
 
           return <ListItem onClick={this.handleCheck} data-file={entry} data-path={entry.path_lower} key={entry.path_lower}>{titleFormat} <Date><Moment>{dateToFormat}</Moment></Date></ListItem>
         })}
+      </div>
+      
+      :
+      
+      <div className='content-menu'>
+        <h3>{this.props.title}</h3>
+        {this.props.connectorComponent}
       </div>
     )
   }
