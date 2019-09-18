@@ -59,6 +59,7 @@ export default class NavigatorContainer extends Component {
     };
 
     render () {
+      // console.log(this.props.dropBoxData)
       return (
         <div className='container'>
           <Navigator
@@ -67,11 +68,15 @@ export default class NavigatorContainer extends Component {
             stepNum={this.state.stepNum}
             startNum={this.state.startNum}
             view={this.props.view}
-            data={this.props.data}
+            dropboxData={this.props.dropboxData}
             link={this.props.link}
             layout={this.props.layout}
             newNote ={this.props.newNote}
             onStepClick = {this.onStepClick}
+            localData= {this.props.localData}
+            dropboxData={this.props.dropboxData}
+            getExpansion={this.props.getExpansion}
+            navExpanded={this.props.navExpanded}
           />
         </div>
       )

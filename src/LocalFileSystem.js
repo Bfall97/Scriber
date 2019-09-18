@@ -59,9 +59,7 @@ function fileUpdate(){
 }
 
 
-function fileDelete(){
-    var filepath = "C:/Path-toFile/file.txt";// Previously saved path somewhere
-
+function fileDelete(filepath){
     if (fs.existsSync(filepath)) {
         fs.unlink(filepath, (err) => {
             if (err) {
@@ -78,42 +76,41 @@ function fileDelete(){
 
 function defaultFolderRead(){
     if(setting.get('filepaths.default')===''){
+    
         dialog.showOpenDialog({
-            title:"Select a folder",
-            properties: ["openDirectory"]
-        }, (folderPaths) => {
-            var fileNames = folderPaths[0]
-            // folderPaths is an array that contains all the selected paths
-            if(fileNames === undefined){
-                console.log("No destination folder selected");
-                return;
-            }else{
-                setting.set('filepaths',{
-                    default:folderPaths[0],
-                  })
-                console.log(folderPaths);
-                // After this is set I should continue with the folder read below.
-                // Take out the else?
-                readFilesSync(setting.get('filepaths.default'))
-            }
-        });
-    }else{
-        // var data = {};
-        // fs.readdir(setting.get('filepaths.default'), (err, files) => {
-        //     files.forEach(file => {
-        //         console.log(data)
-        //         console.log(file);
-        //     });
-        // });
-        readFilesSync(setting.get('filepaths.default'))
-    }
+                title:"Select a folder",
+                properties: ["openDirectory"]
+            }, (folderPaths) => {
+                var fileNames = folderPaths[0]
+                // folderPaths is an array that contains all the selected paths
+                if(fileNames === undefined){
+                    console.log("No destination folder selected");
+                    return;
+                }else{
+                    setting.set('filepaths',{
+                        default:folderPaths[0],
+                    })
+                    // After this is set I should continue with the folder read below.
+                    // Take out the else?
+                    // readFilesSync(setting.get('filepaths.default'))
+                }
+            });
+        }else{
+            // var data = {};
+            // fs.readdir(setting.get('filepaths.default'), (err, files) => {
+                //     files.forEach(file => {
+                    //         console.log(data)
+                    //         console.log(file);
+                    //     });
+                    // });
+                    // readFilesSync(setting.get('filepaths.default'))
+                }
 }
 
 
 
 function readFilesSync(dir) {
     const files = [];
-  
     fs.readdirSync(dir).forEach(filename => {
       const name = path.parse(filename).name;
       const ext = path.parse(filename).ext;
@@ -123,8 +120,8 @@ function readFilesSync(dir) {
   
       if (isFile) files.push({ filepath, name, ext, stat });
     });
-    // return files;
-    console.log(files)
+    return files;
+    
   }
 
 export {
@@ -133,4 +130,5 @@ export {
     fileUpdate,
     fileDelete,
     defaultFolderRead,
+    readFilesSync
 }

@@ -1,0 +1,39 @@
+.section-icon{
+    position:fixed;
+}
+
+.nav-title-item-collapsed{
+
+}
+
+.nav-title-item-expanded{
+}
+
+.nav-title-item-expanded~.sidenav---navtext---1AE_f> .nav-title-item-collapsed{
+}
+
+.filepath-string{
+    color: white;
+    bottom:34px;
+    left: 120px;
+    width: 100px;
+    height: 20px;
+    position: relative;
+    font-weight: 400;
+    font-size: 0.65em;
+    margin:0;
+
+    // TODO: hover styles
+}
+
+
+.nav-display{
+    z-index:5000;
+}
+.nav-display-none{
+    z-index:0;
+}
+
+.nav-section-container{
+    height:100%;
+}

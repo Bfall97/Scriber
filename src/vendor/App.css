@@ -25,7 +25,7 @@ html {
 	--sideNavSearchBoxText:#edf2f0;
 	--sideNavSearchBorder:#edf2f0;
 	--sideNavSubMenuTextAccent:#ddefff;
-	--sideNavSubMenuBG: #46494b;
+	--sideNavSubMenuBG: #5d5c5c;
 
 	--editorBackground: #36373a;
 	--editorForeground: #ece3e3;
@@ -332,51 +332,43 @@ html.theme-transition *:after {
 }
 
 #nav-col{
-		/* position: fixed; */
 		position:relative;
 		flex-grow:1;
-		top: 28px;
 		bottom: 0;
 		left: 0;
-		/* z-index: 1; */
-		/* min-width: 64px; */
-		/* -webkit-transition: min-width 0.15s;
-		-moz-transition: min-width 0.15s;
-		-o-transition: min-width 0.15s;
-		-ms-transition: min-width 0.15s; */
-		/* transition: min-width 0.15s; */
-		/* padding-right: 190px; */
-		min-width: 64px;
-		/* width:64px; */
+		top:0;
 		height: 100%;
 		z-index:1010;
+		background: linear-gradient(to bottom,var(--primaryGradient),var(--secondaryGradient));
+	}
+
+#nav-col.collapsed{
+	max-width: 64px;
+	min-width: 45px;
+	height: 100%;
+	max-width: 64px;
+	
 		
 }
 
-/* #nav-col .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL{
-	margin-right: 1200px;
-} */
+#nav-col.expanded{
+	max-width: 300px;
+	min-width: 300px;
+	height: 100%;
+}
+
+
+#nav-col.expanded div{
+	height: 100%;
+}
 
 #note-col{
 	flex-grow:2;
 	/* height: 90%; */
 	/* border: 2px dotted green; */
 	overflow-y: auto;
-	overflow-x: hidden
-}
-
-
-#nav-col.collapsed{
-	max-width: 64px;
-	min-width: 64px;
-}
-
-#nav-col.expanded{
-	max-width: 350px;
-	min-width: 350px;
-}
-.sidenav---sidenav---_2tBP {
-	background-color: var(--primaryBackground);
+	overflow-x: hidden;
+	
 }
 
 .iconContainer {
@@ -392,7 +384,45 @@ html.theme-transition *:after {
 
 .settings-page{
 	max-width: 99%;
-	margin-left: 40px;
+	margin-left: 45px;
 	padding-right: 25px !important;
 	padding: 0;
+}
+
+.Resizer.vertical.disabled {
+	cursor: default;
+	background:transparent;
+	display:none;
+  }
+.Resizer.vertical.disabled:hover {
+	border-color: transparent;
+}
+
+/* .SplitPane{
+	margin:0;
+	padding:0;
+	border:none;
+} */
+
+
+
+/* .vertical{
+	border:none;
+} */
+
+.Pane.vertical.Pane1  {
+	background: transparent;
+	margin:0;
+	padding:0;
+	border:none;
+}
+
+/* .Pane1{
+	height:100%;
+	margin:0;
+	padding:0;
+	border:none;
+} */
+.SplitPane.vertical.disabled{
+	border:none;
 }

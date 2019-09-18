@@ -31,7 +31,27 @@ const handleDownloadRead = (link) => {
 
   }
 
+  const downloadFileList = (token) => {
+    var dbx = new Dropbox({
+      fetch,
+      accessToken: token
+    })
+    dbx
+      .filesListFolder({
+        path: ''
+      })
+      .then(response => {
+        return response.entries
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  };
+
 
 export {
-  handleDownloadRead
+  handleDownloadRead,
+  handleRead,
+  downloadFileList
+  
 }

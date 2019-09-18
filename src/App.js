@@ -4,9 +4,12 @@ import NoteDisplayContainer from './components/NoteDisplayContainer/NoteDisplayC
 import NavigatorContainer from './components/NavigatorContainer/Navigator-Container'
 import Settings from './components/Settings/Settings';
 import WelcomePage from './components/WelcomePage/welcome-page'
-// import TopNav from './components/TopNav/TopNav'
+import SplitPane from 'react-split-pane'
+import ClickOutside from '../node_modules/react-click-outside'
+import SideExplorer from './components/SideExplorer/SideExplorer'
 
-import { fileWrite, fileRead, defaultFolderRead } from './LocalFileSystem.js'
+import { fileWrite, fileRead, defaultFolderRead, readFilesSync } from './LocalFileSystem.js'
+import { handleDownloadRead, handleRead, downloadFileList } from './Dropbox.js'
 
 import TitleBar from '../src/components/TitleBar/TitleBar.js'
 import BottomBar from './components/BottomNav/BottomBar'
@@ -31,13 +34,14 @@ class App extends Component {
     super(props)
     this.state = {
       // theme: 'dark',
-      data: [],
+      dropboxData: [],
       content: '',
       link: '',
       view: false,
       settingsView: false,
       saved: false,
       layout: '50%',
+      navExpanded: false,
       viewHeight:
             Math.max(
               document.documentElement.clientHeight,
@@ -74,20 +78,40 @@ class App extends Component {
     }
 
     // -------List All Current Files in Dropbox Folder on Startup-----///
-    componentDidMount () {
+  componentDidMount () {
       this.updateDimensions()
       window.addEventListener('resize', this.updateDimensions.bind(this))
       
+      console.log(setting.get('filepaths.default'))
       
       //REVIEW: Is this the best way to handle this?
       if(setting.get('filepaths.default')!== ''){
-        defaultFolderRead()
+        // var localData = defaultFolderRead()
+        this.setState({
+          localData : readFilesSync(setting.get('filepaths.default'))
+        })
       }
-      
       //REVIEW Possibly deal with multiple source by adding them all into one here?
       // Possibly wont work because when I go to grab the file I wont know where to download from.
+      //TODO: Add clause for if dropbox is empty but token is present
+      // Cannot abstract this because I need to setState
       if(setting.get('tokens.dropbox')!== ''){
-        this.DownloadFiles() 
+        var dbx = new Dropbox({
+          fetch,
+          accessToken: setting.get('tokens.dropbox')
+        })
+        dbx
+          .filesListFolder({
+            path: ''
+          })
+          .then(response => {
+            this.setState({
+              dropboxData: response.entries
+            })
+          })
+          .catch(error => {
+            console.log(error)
+          })
       }
 
       
@@ -119,25 +143,25 @@ class App extends Component {
 
   // TODO: User input of accessToken when Login/Sign up is done
   //TODO: Find a way to abstract dropbox stuff
-  DownloadFiles = () => {
-    var dbx = new Dropbox({
-      fetch,
-      accessToken:
-          'HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK'
-    })
-    dbx
-      .filesListFolder({
-        path: ''
-      })
-      .then(response => {
-        this.setState({
-          data: response.entries
-        })
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  };
+  // DownloadFiles = () => {
+  //   var dbx = new Dropbox({
+  //     fetch,
+  //     accessToken:
+  //         'HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK'
+  //   })
+  //   dbx
+  //     .filesListFolder({
+  //       path: ''
+  //     })
+  //     .then(response => {
+  //       this.setState({
+  //         dropboxData: response.entries
+  //       })
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     })
+  // };
 
      // ----This function removes view of the note that was just deleted------//
      deletedNote = viewState => {
@@ -160,7 +184,23 @@ class App extends Component {
   };
 
   updateFiles = () => {
-    this.DownloadFiles() // You probably need to change this too
+        var dbx = new Dropbox({
+      fetch,
+      accessToken:
+          setting.get('tokens.dropbox')
+    })
+    dbx
+      .filesListFolder({
+        path: ''
+      })
+      .then(response => {
+        this.setState({
+          dropboxData: response.entries
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      })
   };
 
       // -----Exit-----//
@@ -207,11 +247,18 @@ class App extends Component {
             })
           }
 
+          getExpansion = (expanded) =>{
+            this.setState({
+              navExpanded: expanded
+            })
+          }
+                    
           render () {
             if (this.state.view === false) { //Welcome page on startup
               this.DownloadDisplay = 
               <WelcomePage 
-                docList = {this.state.data}
+              // REVIEW: Dropbox data for now, will later need to create new array for recent docs
+                docList = {this.state.dropboxData} 
               /> 
             } else {
               this.DownloadDisplay = (
@@ -237,33 +284,62 @@ class App extends Component {
               <Settings
                />}
 
+              console.log(this.state.navExpanded)
+
+
             return (
             <>
                 <div className="App">
                   <CssBaseline />
                   <TitleBar /> 
                   <div id='content-container'>
-                    {/* <TopNav /> */}
                     <NotificationContainer />
-                    {/* <div className='themeIcon'>{ThemeIcons}</div> */}      
+                    <SplitPane 
+                      split="vertical" 
+                      size={this.state.navExpanded ? 350 : 50}
+                      defaultSize={740}
+                      position='static'
+                      allowResize={this.state.navExpanded ? true : false}
+                      style={'border:none'}
+                      >
                     <div id='nav-col'>
-                      <NavigatorContainer
-                        className='navigator'
-                        subsetNum = {this.state.subsetNum}
-                        stepNum={this.state.stepNum}
-                        startNum={this.state.startNum}
-                        view={this.state.view}
-                        data={this.state.data}
-                        link={this.state.link}
-                        layout={this.state.layout}
-                        getLink = {this.getLink}
-                        newNote={this.newNote}
-                        />
+                       <SideExplorer 
+                       className='navigator'
+                       subsetNum = {this.state.subsetNum}
+                       stepNum={this.state.stepNum}
+                       startNum={this.state.startNum}
+                       view={this.state.view}
+                       // data={this.state.data}
+                       dropboxData={this.state.dropboxData}
+                       localData={this.state.localData}
+                       link={this.state.link}
+                       layout={this.state.layout}
+                       getLink = {this.getLink}
+                       newNote={this.newNote}
+                       getExpansion={this.getExpansion}
+                       navExpanded={this.state.navExpanded}
+                       /> 
+                         {/* <NavigatorContainer
+                          className='navigator'
+                          subsetNum = {this.state.subsetNum}
+                          stepNum={this.state.stepNum}
+                          startNum={this.state.startNum}
+                          view={this.state.view}
+                          // data={this.state.data}
+                          dropboxData={this.state.dropboxData}
+                          localData={this.state.localData}
+                          link={this.state.link}
+                          layout={this.state.layout}
+                          getLink = {this.getLink}
+                          newNote={this.newNote}
+                          getExpansion={this.getExpansion}
+                          navExpanded={this.state.navExpanded}
+                          /> */}
                     </div>
-                    {/* until I know what I am doing I am postponing this segment of development */}
                     <div id='note-col'>
                     {this.DownloadDisplay}
                     </div>
+                    </SplitPane>
                   </div>
                   <Tooltip title="Settings" aria-label="settings">
                       <SettingsIcon size='22' className='settings-button' onClick={()=>{this.setState({settingsView: !this.state.settingsView, view: false})}} />

@@ -1,0 +1,12 @@
+@import url(../../vendor/App.css);
+
+.content-menu{
+    float:right;
+    min-width:100%;
+    margin-left:50px;
+    padding: 5px;
+    padding-right: 55px;
+    background: var(--sideNavSubMenuBG);
+    border-left: 1px solid var(--sideNavHover)
+}
+

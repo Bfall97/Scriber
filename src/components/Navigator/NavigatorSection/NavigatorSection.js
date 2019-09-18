@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
 import { NoteAdd } from 'styled-icons/material/NoteAdd'
-import DropBoxNoteList from '../../NoteList/DropBoxNoteList.js'
+// import { DropBoxNoteList } from '../../NoteList/DropBoxNoteList.js'
+import NoteList from '../../NoteList/NoteList.js'
 import '../../Navigator/sidenav-custom.css'
 import '../../Navigator/Navigator.scss'
 
@@ -9,19 +10,17 @@ import '../../Navigator/Navigator.scss'
 export default class NavigatorSection extends Component {
     constructor(props) {
         super(props)
-    }
-    
-// needs newNote
-//data? 
-//getLink
+    }    
 
+    
     render() {
         return (
-            <>
+          <>
+                  <NavItem eventKey="Notes/list" >
                  <NavItem className='notelist-container'>
                   <NavText className="note-dropdown">
                     { this.props.expanded
-                      ? <DropBoxNoteList
+                      ? <NoteList
                         className = 'note-list-menu'
                         className = 'expanded'
                         data={this.props.data}
@@ -29,7 +28,7 @@ export default class NavigatorSection extends Component {
                       />
 
                       : <React.Fragment>
-                        <DropBoxNoteList
+                        <NoteList
                           className = 'note-list-menu'
                           className = 'collapsed'
                           data={this.props.data}
@@ -43,6 +42,7 @@ export default class NavigatorSection extends Component {
                     }
                   </NavText>
                 </NavItem>
+              </NavItem>
             </>
         )
     }

@@ -1,0 +1,18 @@
+@import url(../../vendor/App.css);
+
+.icon-menu{
+    max-width: 64px;
+    display:flex;
+    flex-direction: column;
+    position: fixed;
+    
+}
+
+.icon{
+    margin-bottom: 5px;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.7;
+    }
+}
