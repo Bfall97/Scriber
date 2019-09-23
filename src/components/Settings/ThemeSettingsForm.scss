@@ -1,19 +1,17 @@
 form{
     // margin-left: 50px;
-    justify-content: center;
-    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+    box-sizing: border-box;
     margin: 1px;
 }
 
 .header-container{
-    display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 .header{
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -23,25 +21,43 @@ input{
     padding: 5px;
     max-height: 30px;
     max-width: 120px;
-    
+    align-self: flex-end;
 }
 
 label{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     width: 100%;
     margin-left: 20px;
     padding: 5px;
-    display: flex;    
-    flex-direction: row;
-    justify-content: space-around;
     align-items: center;
+    border-bottom: 1px solid var(--settingPgAccent)
+
 }
 
 .colour-picker{
     margin: 0 auto;
-    width: 60px;
+    width: 100px;
     padding: 20px;
     border: 1px solid white;
     border-radius: 5px;
+//     align-self: center;
 }
 
+.colPickContainer{
+    width: calc(100vw - 120px);
+    height: 110px;
+    // position: fixed;
+
+}
+div .hue-horizontal{
+    top: 0;
+}
+
+.save-btn{
+    margin: 10px;
+    margin-bottom: 15px;
+    width: 15%;
+}
 

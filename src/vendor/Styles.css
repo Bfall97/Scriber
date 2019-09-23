@@ -1,5 +1,5 @@
 /* Github Styles for preview. */
-@import "App.css";
+@import "ColVars.css";
 
 .view-pane body {
 	font-family: Segoe UI, Helvetica, arial, sans-serif;

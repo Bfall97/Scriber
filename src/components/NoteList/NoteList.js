@@ -3,33 +3,26 @@ import styled from 'styled-components'
 import Moment from 'react-moment'
 import Input from '@material-ui/core/Input'
 
-const ListItem = styled.li`
-text-align: left;
-line-height: 0.9em;
-border-radius: 18px;
-padding: 4px;
-padding-left: 1;
-margin-left: 0;
-font-size: 13px;
-width: 100%;
-:hover{
-  color: black;
-  font-weight: 500;
-  cursor: pointer;
-  background-color:#bfb7b7
-  transition: background .2s;
-  
-}
-`
+// const ListItem = styled.li`
+// text-align: left;
+// line-height: 0.9em;
+// border-radius: 18px;
+// padding: 4px;
+// padding-left: 1;
+// margin-left: 0;
+// font-size: 13px;
+// width: 100%;
+// }
+// `
 
-const Date = styled.p`
-text-align: right;
-line-height: 0.4em;
-font-size: 10px;
-color:#36373a 
-opacity: 0.8;
-font-style: italic;
-`
+// const Date = styled.p`
+// text-align: right;
+// line-height: 0.4em;
+// font-size: 10px;
+// color:#36373a 
+// opacity: 0.8;
+// font-style: italic;
+// `
 
 class NoteList extends Component {
   constructor (props) {
@@ -102,7 +95,7 @@ class NoteList extends Component {
             titleFormat = entry.name
           }
 
-          return <ListItem onClick={this.handleCheck} data-file={entry} data-path={entry.path_lower} key={entry.path_lower}>{titleFormat} <Date><Moment>{dateToFormat}</Moment></Date></ListItem>
+          return <li onClick={this.handleCheck} data-file={entry} data-path={entry.path_lower} key={entry.path_lower}>{titleFormat} <p><Moment>{dateToFormat}</Moment></p></li>
         })}
       </div>
       

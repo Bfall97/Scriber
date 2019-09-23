@@ -12,6 +12,8 @@ import ThemeSettingsForm from './ThemeSettingsForm'
 import './Settings.scss'
 
 
+// TODO: Finish Settings Page
+
 const setting = require('electron').remote.require('electron-settings')
 const smalltalk = require('smalltalk');
 
@@ -109,7 +111,7 @@ export default class Settings extends Component {
       <div className='settings-container'>
         <h2>Settings</h2>
         <div className='theme-settings'>
-          <h4>Themes</h4>
+          <h4>Built-in Themes</h4>
           { ThemeIcons }
           <div className='custom-theme-form'>
              <h4>Custom Themes</h4>

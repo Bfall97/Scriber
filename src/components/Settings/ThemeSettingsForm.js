@@ -1,5 +1,5 @@
 // Come back to this sometime when you actually know wtf you're doing.
-
+// This component produces a colourcomponent for each possible theme variable. Allowing a user to create a custom theme.
 
 
 import React, { Component } from 'react'
@@ -131,6 +131,7 @@ class ThemeSettingsForm extends React.Component {
     }
   
     render() {
+      //TODO: Abstract this the labels in the form.
       return (
         <form onSubmit={this.handleSubmit}>
             <div className='setting-input'>
@@ -366,7 +367,6 @@ class ThemeSettingsForm extends React.Component {
               </label>
 
 
-          <input type="button" value="Save" onClick={this.handleSubmit} />
               <h5>Scroll Bar Theme Settings</h5>
 
               <label>
@@ -397,6 +397,7 @@ class ThemeSettingsForm extends React.Component {
               </label>
 
 
+              <input className='save-btn' type="button" value="Save" onClick={this.handleSubmit} />
             </div>
 
         </form>

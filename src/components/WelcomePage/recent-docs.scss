@@ -34,7 +34,7 @@
     }
 }
 
-h5{
+.welcomepage-container h5{
     color: rgb(29, 28, 28);
     top: 0;
     margin-bottom: 20px;
@@ -42,9 +42,11 @@ h5{
     width: 100%;
     font-size: 10.6px;
     font-weight: 800;
+    cursor: pointer;
 }
 
-h6{
+.welcomepage-container h6{
+    cursor: pointer;
     font-style: italic;
     color: rgb(29, 28, 28);
     bottom: 0;

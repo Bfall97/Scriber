@@ -222,7 +222,7 @@
 .sidenav---sidenav-nav---3tvij
 	> .sidenav---sidenav-navitem---uwIJ-:hover
 	> .sidenav---navitem---9uL5T::after {
-	background: #fff;
+	/* background: #fff; */
 	opacity: 0.15;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
 	filter: alpha(opacity=15);
@@ -452,7 +452,7 @@
 .sidenav---sidenav-subnav---1EN61
 	> .sidenav---sidenav-subnavitem---1cD47
 	> .sidenav---navitem---9uL5T:hover {
-	background: #eee;
+	/* background: #eee; */
 }
 .sidenav---sidenav-subnav---1EN61
 	> .sidenav---sidenav-subnavitem---1cD47
@@ -503,154 +503,3 @@
 .sidenav---sidenav-subnavitem---1cD47{
 	color: black;
 }
-
-/* Sub Menu Styles */
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
-	.sidenav---sidenav-subnav---1EN61 {
-	position: static;
-	border: none;
-	border-radius: 0;
-	float: left;
-	margin-left: 45px;
-	clear: both;
-	/* This is obviously wrong and embarrasing */
-	width: calc(86.5% + 2px);
-	height:100%;
-	background: var(--sideNavSubMenuBG);
-	overflow: hidden;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	border-right: 3px solid var(--secondaryBackground);
-}
-
-/* SubNav Height */
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
-	.sidenav---sidenav-subnav---1EN61 {
-	/* display: none; */
-	/* min-height: calc(100vh - 225px); */
-	height:100%;
-	/* border: blue 1px dotted; */
-	
-}
-
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
-	.sidenav---sidenav-subnav---1EN61.note-list-menu{
-		display: block;
-}
-
-/* Search Box in Nav Dropdown */
-.sidenav---navtext---1AE_f .MuiInputBase-root.MuiInput-root.MuiInput-underline{
-	color: var(--sideNavSearchBoxText);
-	border-bottom: var(--sideNavSearchBorder) 1px solid;
-}
-
-.sidenav---sidenav-navitem---uwIJ- .sidenav---navitem---9uL5T .focused-menu{
-	z-index: 5001;
-}
-
-.sidenav---sidenav-navitem---uwIJ- .sidenav---navitem---9uL5T .unfocused-menu{
-	z-index: -1;
-	display: none;
-	/* display: flex;
-	flex-direction: column;
-	flex-wrap: wrap; */
-}
-
-.sidenav---sidenav-nav---3tvij .sidenav---expanded---1KdUL >.sidenav---sidenav-subnav---1EN61.sidenav---navitem---9uL5T{
-	min-height:100vh;
-	/* width: 64px; */
-}
-
-/* Side Nav Expanded Menu container*/
-.sidenav---sidenav-nav---3tvij .sidenav---expanded---1KdUL >.sidenav---sidenav-subnav---1EN61{
-	/* height: -webkit-calc(100vh - 80px); */
-	height:100%;
-	margin: 0;
-	border-radius: 2px;
-	overflow-y:auto;	
-	border-right: 3px solid  var(--secondaryBackground);
-	
-}
-
-/* Time Stamps of SideNav Notelist ine expanded menu */
-.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .sidenav---navtext---1AE_f time{
-	color:var(--sideNavSubMenuTextAccent)
-}
-
-/* Note list titles in expanded menu */
-.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .sidenav---navtext---1AE_f li{
-	font-size: 11px;
-	padding: 2px;
-	margin: 5px;
-	border-radius: 0;
-}
-
-
-/* list of notes only in expanded */
-.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .notelist-container{
-	width: 80%;
-	border-radius: 1px;
-	/* padding: 1px; */
-	margin: 2px;
-	margin-right: 7px;
-	/* margin-left: 64px; */
-	float:right;
-}
-/* individual links in notelist */
-.sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL .notelist-container li{	
-	padding-right: 10px;
-	padding-left: 10px;
-	margin-left: -1px;
-}
-/* Dropdown arrow in expanded sidenav menu
-
-
-/* Dropdown arrow when submenu is collapsed */
-.arrowDrop-collapsed{
-	/* position: fixed; */
-	float:left;
-	/* left: 45px; */
-	/* margin: 15px; */
-	transform: rotate(-45deg);
-}
-
-/* Dropdown arrow when submenu is open */
-.arrowDrop{
-	position: fixed;
-	left: 45px;
-	margin: 15px;
-	transform: rotate(-90deg);
-}
-
-
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL{
-	display: flex;
-	flex-direction: column;
-}
-
-.new-note {
-	margin: 5px;
-	color: var(--textPrimary);
-}
-
-.new-note-btn {
-	border-bottom: #f7f7f7 1px solid;
-	margin-bottom:20px;
-}
-
-.new-note-btn:hover {
-	border-bottom: #fffefe 2px solid;
-	font-weight: 500;
-}
-
-
-.sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv  .notelist-container{
-	width: 100%;
-	height: 100%;
-}
-
-
-.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo + .sidenav---navtext---1AE_f{
-	
-}
-
