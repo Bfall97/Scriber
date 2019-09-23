@@ -79,7 +79,7 @@ export default class SideExplorer extends Component {
             <SideExplorerIconMenu
               className='icon-menu-container'
               icons = {[
-                <SideNav.Toggle onClick={this.onToggle} style ={{ height: '34px' }} />,
+                <SideNav.Toggle onClick={this.onToggle} style ={{ height: '34px', width: '46px', margin: '0 auto' }} />,
                 <FileDirectory size={34} onClick={() => { this.getActive('local') }} />,
                 <Dropbox size={34} onClick={() => { this.getActive('dropbox') }} />
               ]}

@@ -1,4 +1,4 @@
-@import url(../../vendor/App.css);
+@import url(../../vendor/ColVars.css);
 
 .welcomepage-container{
     display: flex;
@@ -42,7 +42,7 @@
 }
 
 .recent-doc-container{
-    border: 1px gainsboro dotted;
+    border: 1px var(--welcomePgRecentDocContainer) dotted;
     width: 350px;
     min-height: 175px;
     margin: 5px;

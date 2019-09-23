@@ -342,7 +342,7 @@ class App extends Component {
                     </SplitPane>
                   </div>
                   <Tooltip title="Settings" aria-label="settings">
-                      <SettingsIcon size='22' className='settings-button' onClick={()=>{this.setState({settingsView: !this.state.settingsView, view: false})}} />
+                      <SettingsIcon size='24' className='settings-button' onClick={()=>{this.setState({settingsView: !this.state.settingsView, view: false})}} />
                   </Tooltip>
                 </div>
                   <BottomBar view={this.state.view} layoutChange = {this.layoutChange} onExit={this.onExit} />

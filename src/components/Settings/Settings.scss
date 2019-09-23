@@ -1,6 +1,9 @@
-@import url(../../vendor/App.css);
+@import url(../../vendor/ColVars.css);
 
 .settings-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     position: relative;
     height: 100vh;
     min-width: 100%;
@@ -10,26 +13,30 @@
     overflow-y: auto;
     z-index: 10;
     margin-left: 2%;
-    &h2{
-        margin: 0;
+    & h2{
+        margin: 5px;
         padding:0;
+    }
+    & h4{
+        margin-top: 25px;
     }
 
 }
 
 .settings-button{
     position: absolute;
-    bottom: 7px;
+    bottom: 26px;
     left: 10px;
     z-index: 1300;
     cursor: pointer;
-    &.settings-button:hover{
+    & .settings-button:hover{
         transform: scale(1.1)
     }
 }
 
 .custom-theme-form{
     margin: 15px;
+    margin-top: 25px;
 }
 
 .colour-picker{

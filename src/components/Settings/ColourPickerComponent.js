@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { SliderPicker } from 'react-color'
 import './ThemeSettingsForm.scss'
@@ -9,6 +9,7 @@ class ColourPickerComponent extends React.Component {
     displayColorPicker: false,
     color: '',
     currentColour: '',
+    colourPickView: false
   };
 
 
@@ -33,6 +34,16 @@ class ColourPickerComponent extends React.Component {
     document.documentElement.style.setProperty(variable, color.hex); 
     this.setState({ currentColour: color.hex });
   }
+
+  colourClose = () => {
+      this.setState({colourPickView: false});
+  }
+
+
+  // TODO: Set a timer to close the colour pickers
+  timedClose =() =>{
+  
+  }
   render() {
       const ColourPickerBtn = styled.div`
         height: 14px;
@@ -50,16 +61,16 @@ class ColourPickerComponent extends React.Component {
         padding: 5px;
         display: inline-block;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         width: 100%;
         padding-top: 20px;
         padding-bottom: 20px;
         vertical-align: center;
-      `
-
+      `      
+    
     return (
-      <ColourPickContainer
-      onMouseLeave={()=>{this.setState({colourPickView: false})}}
+      <ColourPickContainer className='colPickContainer'
+      onMouseLeave={()=>{ this.colourClose }}
       >
               {this.state.colourPickView ? 
 

@@ -12,24 +12,24 @@ export default class BottomBar extends Component {
   render () {
     const LayoutButtons =
     <div className="note-buttons">
-      <CloseO size="24" className="close-o" onClick={this.props.onExit} />
+      <CloseO size="30" className="close-o" onClick={this.props.onExit} />
       <Tooltip title="Focused Edit Mode" aria-label="edit">
         <Edit
-          size="20"
+          size="28"
           className="edit"
           onClick={() => this.props.layoutChange('edit')}
         />
       </Tooltip>
       <Tooltip title="Preview Mode">
         <DocumentText
-          size="20"
+          size="28"
           className="pre"
           onClick={() => this.props.layoutChange('preview')}
         />
       </Tooltip>
       <Tooltip title="Split View Mode">
         <BookContent
-          size="20"
+          size="28"
           className="book-content"
           onClick={() => this.props.layoutChange('split')}
         />
