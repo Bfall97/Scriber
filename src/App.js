@@ -1,13 +1,12 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
-import React, { Component } from 'react'
+import React, { Component, useRef } from 'react'
 import NoteDisplayContainer from './components/NoteDisplayContainer/NoteDisplayContainer'
-import NavigatorContainer from './components/NavigatorContainer/Navigator-Container'
 import Settings from './components/Settings/Settings';
 import WelcomePage from './components/WelcomePage/welcome-page'
 import SplitPane from 'react-split-pane'
 import ClickOutside from '../node_modules/react-click-outside'
 import SideExplorer from './components/SideExplorer/SideExplorer'
-
+// import NavigatorContainer from './components/NavigatorContainer/Navigator-Container'
 import { fileWrite, fileRead, defaultFolderRead, readFilesSync } from './LocalFileSystem.js'
 import { handleDownloadRead, handleRead, downloadFileList } from './Dropbox.js'
 
@@ -29,6 +28,8 @@ const Dropbox = require('dropbox').Dropbox
 const setting = require('electron').remote.require('electron-settings')
 
 
+//TODO: Make sidebar collapsible!
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -47,9 +48,8 @@ class App extends Component {
               document.documentElement.clientHeight,
               window.innerHeight || 0
             ) - 120
-
-
     }
+     this.paneWidth = React.createRef()
     this.toggleTheme = this.toggleTheme.bind(this)
   }
 
@@ -79,7 +79,8 @@ class App extends Component {
 
     // -------List All Current Files in Dropbox Folder on Startup-----///
   componentDidMount () {
-      this.updateDimensions()
+    console.log(this.paneWidth.current.offsetWidth)
+    this.updateDimensions()
       window.addEventListener('resize', this.updateDimensions.bind(this))
       
       console.log(setting.get('filepaths.default'))
@@ -283,10 +284,6 @@ class App extends Component {
               this.DownloadDisplay =
               <Settings
                />}
-
-              console.log(this.state.navExpanded)
-
-
             return (
             <>
                 <div className="App">
@@ -294,9 +291,14 @@ class App extends Component {
                   <TitleBar /> 
                   <div id='content-container'>
                     <NotificationContainer />
-                    <SplitPane 
+                    <SplitPane
+                      minSize={225}
+                      ref={ this.paneWidth }
+                      id='main-split-pane'
                       split="vertical" 
-                      size={this.state.navExpanded ? 350 : 50}
+                      size={ 
+                        this.state.navExpanded ? 350 :50
+                      }
                       defaultSize={740}
                       position='static'
                       allowResize={this.state.navExpanded ? true : false}
@@ -352,4 +354,4 @@ class App extends Component {
           }
 }
 
-export default App
+ export default App

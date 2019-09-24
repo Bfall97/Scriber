@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Moment from 'react-moment'
 import Input from '@material-ui/core/Input'
+import NoteListSearch from '../NoteListSearch/NotelistSearch'
 
 // const ListItem = styled.li`
 // text-align: left;
@@ -71,17 +72,22 @@ class NoteList extends Component {
     //       // item.path_lower.includes(lowercasedFilter));
     //   })
     // }
+    const onChange = event => setValue(event.target.value);
+
+    const onSelect = event => setValue(event.suggestion);
 
     return (
       this.props.data !== null ?
       <div className='content-menu'>
       <h3>{this.props.title}</h3>
-        <Input
+        {/* <Input
           id = "outlined-name"
           label='Search'
           placeholder = 'Search...'
           onChange={this.handleSearchChange}
-        />
+        /> */}
+        {/* NOTE: Maybe this would work with a filter on the list? */}
+        <NoteListSearch data={this.props.data}/>
         {data.slice(this.props.startNum, this.props.subsetNum).map((entry, index) => {
           // format last modify date.
           const dateToFormat = entry.client_modified
@@ -95,7 +101,7 @@ class NoteList extends Component {
             titleFormat = entry.name
           }
 
-          return <li onClick={this.handleCheck} data-file={entry} data-path={entry.path_lower} key={entry.path_lower}>{titleFormat} <p><Moment>{dateToFormat}</Moment></p></li>
+          return <li onClick={this.handleCheck} data-file={entry} data-path={entry.path_lower} key={entry.path_lower}>{titleFormat} <p><Moment format="LLL">{dateToFormat}</Moment></p></li>
         })}
       </div>
       

@@ -3,9 +3,8 @@
 .content-menu{
     float:right;
     min-width:100%;
-    margin-left:50px;
     padding: 5px;
-    padding-right: 55px;
+    padding-right: 5px;
     background: var(--sideNavSubMenuBG);
     border-left: 1px solid var(--sideNavBorder);
     & h3{
@@ -44,3 +43,14 @@
     }
 }
 
+
+.dSllCE{
+    fill:var(--accordionColor) ;
+    stroke:var(--accordionColor);
+}
+
+.jxEXYf{
+    outline-color: none;
+    border-color: none;
+    box-shadow:none;
+}
