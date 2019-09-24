@@ -4,8 +4,7 @@ import '../ViewPane/ViewPane.scss'
 const showdown = require('showdown')
 const showdownHighlight = require('showdown-highlight')
 const showdowntoc = require('../../showdownExt/showdown-toc.js')
-
-// !Saving new note does not work. Title is also bugging out.
+//TODO: !Saving new note does not work. Title is also bugging out.
 export default function ViewPane (props) {
   let title = ''
 

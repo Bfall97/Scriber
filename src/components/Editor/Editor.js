@@ -21,7 +21,6 @@ export default class Editor extends Component {
 
   updateCode (e) {
     this.props.onChange(e)
-    console.log(e)
   }
 
   // Make sure value is set before render

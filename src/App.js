@@ -79,11 +79,9 @@ class App extends Component {
 
     // -------List All Current Files in Dropbox Folder on Startup-----///
   componentDidMount () {
-    console.log(this.paneWidth.current.offsetWidth)
     this.updateDimensions()
       window.addEventListener('resize', this.updateDimensions.bind(this))
       
-      console.log(setting.get('filepaths.default'))
       
       //REVIEW: Is this the best way to handle this?
       if(setting.get('filepaths.default')!== ''){

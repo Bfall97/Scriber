@@ -55,7 +55,6 @@ export default class NoteDisplayContainer extends Component {
               content: '' // reset content state, prevents old data from showing.
             })
           }
-          console.log(this.state.content)
           this.handleDownload()
         }
 
@@ -119,7 +118,6 @@ export default class NoteDisplayContainer extends Component {
           link = this.state.title
           dbx.filesUpload({ path: '/' + link + '.md', contents: this.state.content, mode: 'add' })
             .then(function (response) {
-              console.log(response)
             })
             .catch(function (error) {
               console.error(error)
@@ -128,7 +126,6 @@ export default class NoteDisplayContainer extends Component {
           link = this.props.link
           dbx.filesUpload({ path: link, contents: this.state.content, mode: 'overwrite' })
             .then(function (response) {
-              console.log(response)
               // success = true;
               console.log('saved')
             })

@@ -71,7 +71,6 @@
 
 .split-pane-container{
 	height:100%;
-	position: relative !important;
 	box-sizing: border-box;
 }
 

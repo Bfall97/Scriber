@@ -59,7 +59,6 @@ export default class NavigatorContainer extends Component {
     };
 
     render () {
-      // console.log(this.props.dropBoxData)
       return (
         <div className='container'>
           <Navigator
