@@ -151,7 +151,7 @@ html.theme-transition *:after {
 	bottom: 0;
 	left: 0;
 	top:0;
-	height: 100%;
+	min-height: 100vh;
 	background: linear-gradient(to bottom,var(--primaryGradient),var(--secondaryGradient));
 	}
 
@@ -228,4 +228,7 @@ html.theme-transition *:after {
 
 .SplitPane.vertical.disabled{
 	border:none;
+}
+.SplitPane.vertical{
+	border-top: none;
 }
