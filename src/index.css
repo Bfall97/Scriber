@@ -1,25 +1,39 @@
+*{
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
 html{
   margin: 0;
   padding: 0;
-  height: 100%;
-  box-sizing: border-box;
+  height: 100vh;
+  background-color: transparent;
+  width:100vw;
+  
 }
 body {
   margin: 0;  
   padding: 0;
-  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: transparent !important;
+  /* height:100vh; */
+  /* width:100vw; */
+  /* height: 100vh; */
+  /* width:100%; */
 }
 
 #root{
   margin: 0;
   padding: 0;
-  height: 100%;
+  height:100vh;
+  width:100%;
+  background-color: transparent;
+  overflow-y: hidden;
 }
 
 code {

@@ -23,11 +23,9 @@ constructor(props) {
 }
 
 
-
-handleClick = (link) => {
-    // 1. Find out where the link is from (i.e. local, Dropbox, Google, etc.) How?
-    //2. Proceed to download from source
-    //3. Trigger display, getting rid of welcome page
+handleClick = (doc) => {
+    this.props.sendLink(doc) 
+    
 }
 
 render(){
@@ -35,7 +33,7 @@ render(){
         // Find a way to distinguish between a dropbox file and a local file.
     return (
       this.props.documentTitle ? 
-             <div id='recent-doc' className='document' onClick={this.handleClick}>
+             <div id='recent-doc' className='document' onClick={()=>this.handleClick(this.props.doc)}>
                  <h5>{this.props.documentTitle}</h5>
                     
                     <StyledText 

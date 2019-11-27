@@ -21,6 +21,14 @@ function fileWrite(content){
     }); 
 }
 
+//ASync so it cant return. idk
+function openFile(filepath){
+
+    let data = fs.readFileSync(filepath,'utf8')
+    return data
+}
+
+
 
 function fileRead(){
     dialog.showOpenDialog((fileNames) => {
@@ -36,7 +44,7 @@ function fileRead(){
                 alert("An error occurred reading the file :" + err.message);
                 return;
             }
-    
+            
             // Change how to handle the file content
             console.log("The file content is : " + data);
         });
@@ -74,37 +82,25 @@ function fileDelete(filepath){
 }
 }
 
+//TODO this is all messed up, async? -- elctron version
 function defaultFolderRead(){
-    if(setting.get('filepaths.default')===''){
-    
-        dialog.showOpenDialog({
-                title:"Select a folder",
-                properties: ["openDirectory"]
-            }, (folderPaths) => {
-                var fileNames = folderPaths[0]
-                // folderPaths is an array that contains all the selected paths
-                if(fileNames === undefined){
-                    console.log("No destination folder selected");
-                    return;
-                }else{
-                    setting.set('filepaths',{
-                        default:folderPaths[0],
-                    })
-                    // After this is set I should continue with the folder read below.
-                    // Take out the else?
-                    // readFilesSync(setting.get('filepaths.default'))
-                }
-            });
-        }else{
-            // var data = {};
-            // fs.readdir(setting.get('filepaths.default'), (err, files) => {
-                //     files.forEach(file => {
-                    //         console.log(data)
-                    //         console.log(file);
-                    //     });
-                    // });
-                    // readFilesSync(setting.get('filepaths.default'))
-                }
+    // if(setting.get('filepaths.default')===''){
+     
+        var filepath = dialog.showOpenDialogSync({
+                    title:"Select a folder",
+                    properties: ["openDirectory"]
+                })
+        if(filepath === undefined){
+                        console.log("No destination folder selected");
+                        alert("No destination folder selected");
+                        return;
+                    }else{
+                        console.log("filepath set");
+                        setting.set('filepaths',{
+                            default:filepath[0],
+                        })
+                        }
+            return;
 }
 
 
@@ -130,5 +126,6 @@ export {
     fileUpdate,
     fileDelete,
     defaultFolderRead,
-    readFilesSync
+    readFilesSync,
+    openFile
 }

@@ -22,8 +22,11 @@
         padding: 4px;
         padding-left: 1;
         margin-left: 0;
-        font-size: 13px;
+        font-size: 11px;
         width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     & li:hover{

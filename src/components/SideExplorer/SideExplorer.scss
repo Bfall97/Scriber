@@ -1,6 +1,7 @@
 .explorer-container{
     display:flex;
 	flex-direction: row;
+	-webkit-user-select:none;
 }
 
 .icon-menu-container{
@@ -11,6 +12,8 @@
 .content-menu-container{
 	flex-grow: 2;
 }
+
+
 
 // side explorer toggle button
 .sidenav---sidenav-toggle---1KRjR {
@@ -80,4 +83,10 @@
 	-o-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
+}
+
+// Accordion Label
+.dOVRRX{
+	color: var(--primaryTextColor);
+	font-size: 16.5px;
 }

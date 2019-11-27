@@ -1,36 +1,22 @@
-import React from 'react'
-import ReactHtmlParser from 'react-html-parser'
+import React, { Component } from 'react'
+import PureComponent from 'react-pure-render/component'
+import { Markdown } from 'react-showdown';
 import '../ViewPane/ViewPane.scss'
-const showdown = require('showdown')
-const showdownHighlight = require('showdown-highlight')
-const showdowntoc = require('../../showdownExt/showdown-toc.js')
-//TODO: !Saving new note does not work. Title is also bugging out.
-export default function ViewPane (props) {
-  let title = ''
+//TODO: Check this --> !Saving new note does not work. Title is also bugging out.
 
-  function convertMD () {
-    const converter = new showdown.Converter({
-      extensions: [showdownHighlight, showdowntoc]
-    })
-    converter.setFlavor('github')
-    const display = (converter.makeHtml(props.content))
-    const htmlDisplay = ReactHtmlParser(display)
-    if (props.link === '' && props.toBeSaved === false) {
-      htmlDisplay.forEach(element => {
-        if (element.type === 'h1') {
-          title = element.props.children[0]
-        }
-        if (props.link === '' && props.title === '') { props.getTitle(title) }
-      }
-      )
+// export default function ViewPane (props) {
+  export default class ViewPane extends PureComponent{
+    constructor (props) {
+      super(props)
+      let title = ''
     }
-    return htmlDisplay
+
+  render(){ 
+    return(
+      <div className="view-pane" id='vp'>
+        <Markdown markup={ this.props.content } smoothLivePreview={true} />
+      </div>
+    )
   }
-
-  return (
-    <div className="view-pane" id='vp'>
-      {convertMD()}
-    </div>
-
-  )
 }
+

@@ -20,10 +20,13 @@ function createWindow () {
   const { webContents } = require('electron')
   console.log(webContents)
   mainWindow = new BrowserWindow({
-    width: settings.get('lastScreenDimension.width'),
-    height: settings.get('lastScreenDimension.height'),
-    minWidth: 600,
-    minHeight: 300,
+    show: false,
+    // backgroundColor: '#2e2c29',
+    backgroundColor: '#FFF',
+    width: settings.get('lastScreenDimension.width') > 0 ? settings.get('lastScreenDimension.width') : 425,
+    height: settings.get('lastScreenDimension.height') > 0 ? settings.get('lastScreenDimension.height') : 750 ,
+    minWidth: 400,
+    minHeight: 400,
     titleBarStyle: 'customButtonsHover',
     webPreferences: {
       nodeIntegration: true
@@ -32,6 +35,12 @@ function createWindow () {
     frame: false,
     // fullscreen: true,
   })
+  
+  mainWindow.once('ready-to-show', ()=>{
+    mainWindow.show();
+    mainWindow.focus();
+  })
+
 
   mainWindow.loadURL(
     process.env.ELECTRON_START_URL ||
@@ -40,13 +49,14 @@ function createWindow () {
       protocol: 'file:',
       slashes: true
     }),
+    
 
-    // Persistence
+    // Data Persistence //
     settings.set('filepaths',{
       default : '',
     }),
     settings.set('tokens',{
-      dropbox : 'HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK',
+      dropbox : '',
       // HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK
     }),
     settings.set('currentTheme',{
@@ -60,13 +70,15 @@ function createWindow () {
       savedThemes : [],
       activeTheme : ''
     }),
+    settings.set('recentDocs',{
+      recentDocs : []
+    }),
 
   )
 
   mainWindow.on('closed', () => {
     mainWindow = null
   },
-  // TODO: Fix Window Resize Settings
   'resize', () => {
     settings.set('lastScreenDimensions',{
       width: document.documentElement.clientWidth,
@@ -88,5 +100,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-

@@ -7,24 +7,52 @@ import { FileDirectory } from 'styled-icons/octicons/FileDirectory'
 import { Dropbox } from 'styled-icons/boxicons-logos/Dropbox'
 import NoteList from '../NoteList/NoteList.js'
 import { readFilesSync, defaultFolderRead } from '../../LocalFileSystem'
+// import { downloadFileList } from '../../Dropbox.js'
 import '../SideExplorer/SideExplorer.scss'
 
 const setting = require('electron').remote.require('electron-settings')
+const smalltalk = require('smalltalk')
 
-// TODO: Add loader for subnav lists.
-
+// TODO Dropbox and local list dont show up at same time often
 export default class SideExplorer extends Component {
   constructor (props) {
     super(props)
     this.state = {
       open: false,
       activeMenu: '',
-      content: null
+      content: null,
+      isLoading: false
     }
   }
 
-  componentWillReceiveProps () {
+  // TODO DRY
+  handleDropbox= () => {
+    smalltalk
+      .prompt('Dropbox Token', 'Please enter your dropbox token, if you do not know where to find it, click here (link)', '')
+      .then((value) => {
+        setting.set('tokens', { dropbox: value })
+        this.props.updateList()
+        this.getContent()
+      })
+      .catch(() => {
+        console.log('cancel')
+      })
+  }
+
+  handleLocal= () => {
+    defaultFolderRead()
+    this.props.updateList()
     this.getContent()
+  }
+
+  componentWillReceiveProps () {
+    this.setState({
+      isLoading: true
+    })
+    this.getContent()
+    this.setState({
+      isLoading: false
+    })
   }
 
   onToggle = () => {
@@ -40,13 +68,15 @@ export default class SideExplorer extends Component {
           <AccordionPanel
             label= 'Local Notes'
           >
+
             <NoteList
               className = 'note-list-menu'
               className = 'expanded'
               data={setting.get('filepaths.default') === '' ? null : readFilesSync(setting.get('filepaths.default'))}
               sendLink={this.props.getLink}
-              connectorComponent={<button onClick={() => defaultFolderRead()}>Choose a Directory</button>}
+              connectorComponent={<button onClick={() => this.handleLocal()}>Choose a Directory</button>}
               title='Local Notes'
+              isLoading={this.state.isLoading}
             />
           </AccordionPanel>
         </Accordion>
@@ -58,57 +88,61 @@ export default class SideExplorer extends Component {
           <AccordionPanel
             label= 'Dropbox Notes'
           >
-            <NoteList
-              className = 'note-list-menu'
-              className = 'expanded'
-              data={setting.get('tokens.dropbox') === '' ? null : this.props.dropboxData}
-              sendLink={this.props.getLink}
-              subsetNum = {this.props.subsetNum}
-              stepNum={this.props.stepNum}
-              startNum={this.props.startNum}
-              connectorComponent={<button>Connect Your Dropbox Account</button>}
-              title='Dropbox Notes'
-            />
+            {this.state.isLoading ? <SpinLoader color={getComputedStyle(document.documentElement).getPropertyValue('--primaryAccent')} background={ getComputedStyle(document.documentElement).getPropertyValue('--primaryBackground')} size={5} />
+              : <NoteList
+                className = 'note-list-menu'
+                className = 'expanded'
+                data={setting.get('tokens.dropbox') === '' ? null : this.props.dropboxData}
+                sendLink={this.props.getLink}
+                subsetNum = {this.props.subsetNum}
+                stepNum={this.props.stepNum}
+                startNum={this.props.startNum}
+                connectorComponent={<button onClick={this.handleDropbox}>Connect Your Dropbox Account</button>}
+                title='Dropbox Notes'
+                isLoading={this.state.isLoading}
+              />}
           </AccordionPanel>
         </Accordion>
       })
-    } else if (this.state.activeMenu === '') {
+    } else if (this.state.activeMenu === '') { // TODO Fix this or delete it. (leaning towards delete)
       this.setState({ content:
-        <>
-        <Accordion margin={{ left: '50px' }}
-        >
-          <AccordionPanel
-            label= 'Local Notes'
-          >
-            <NoteList
-              className = 'note-list-menu'
-              className = 'expanded'
-              data={setting.get('filepaths.default') === '' ? null : readFilesSync(setting.get('filepaths.default'))}
-              sendLink={this.props.getLink}
-              connectorComponent={<button onClick={() => defaultFolderRead()}>Choose a Directory</button>}
-              title='Local Notes'
-            />
-          </AccordionPanel>
-        </Accordion>
-        <Accordion margin={{ left: '50px' }}
-        >
-          <AccordionPanel
-            label= 'Dropbox Notes'
-          >
-            <NoteList
-              className = 'note-list-menu'
-              className = 'expanded'
-              data={setting.get('tokens.dropbox') === '' ? null : this.props.dropboxData}
-              sendLink={this.props.getLink}
-              subsetNum = {this.props.subsetNum}
-              stepNum={this.props.stepNum}
-              startNum={this.props.startNum}
-              connectorComponent={<button>Connect Your Dropbox Account</button>}
-              title='Dropbox Notes'
-            />
-          </AccordionPanel>
-        </Accordion>
-        </>
+         <>
+         <Accordion margin={{ left: '50px' }}
+         >
+           <AccordionPanel
+             label= 'Local Notes'
+           >
+             <NoteList
+               className = 'note-list-menu'
+               className = 'expanded'
+               data={setting.get('filepaths.default') === '' ? null : readFilesSync(setting.get('filepaths.default'))}
+               sendLink={this.props.getLink}
+               connectorComponent={<button onClick={() => defaultFolderRead()}>Choose a Directory</button>}
+               title='Local Notes'
+               isLoading={this.state.isLoading}
+             />
+           </AccordionPanel>
+         </Accordion>
+         <Accordion margin={{ left: '50px' }}
+         >
+           <AccordionPanel
+             label= 'Dropbox Notes'
+           >
+            : <NoteList
+               className = 'note-list-menu'
+               className = 'expanded'
+               data={setting.get('tokens.dropbox') === '' ? null : this.props.dropboxData}
+               sendLink={this.props.getLink}
+               subsetNum = {this.props.subsetNum}
+               stepNum={this.props.stepNum}
+               startNum={this.props.startNum}
+               connectorComponent={<button>Connect Your Dropbox Account</button>}
+               title='Dropbox Notes'
+               isLoading={this.state.isLoading}
+             />
+           </AccordionPanel>
+         </Accordion>
+         </>
       })
     }
   }
@@ -145,7 +179,7 @@ export default class SideExplorer extends Component {
               navOpen = {this.state.open}
               active = {this.state.activeMenu}
             >
-              {this.state.content}
+              { this.state.content}
             </SideExplorerContentMenu>
 
           </Box>

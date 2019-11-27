@@ -6,7 +6,6 @@ import WelcomePage from './components/WelcomePage/welcome-page'
 import SplitPane from 'react-split-pane'
 import ClickOutside from '../node_modules/react-click-outside'
 import SideExplorer from './components/SideExplorer/SideExplorer'
-// import NavigatorContainer from './components/NavigatorContainer/Navigator-Container'
 import { fileWrite, fileRead, defaultFolderRead, readFilesSync } from './LocalFileSystem.js'
 import { handleDownloadRead, handleRead, downloadFileList } from './Dropbox.js'
 
@@ -27,15 +26,14 @@ const { NotificationContainer, NotificationManager } = notifications
 const Dropbox = require('dropbox').Dropbox
 const setting = require('electron').remote.require('electron-settings')
 
-
-//TODO: Make sidebar collapsible!
-
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
       // theme: 'dark',
       dropboxData: [],
+      localData:[],
+      recentDocuments: [],
       content: '',
       link: '',
       view: false,
@@ -43,32 +41,45 @@ class App extends Component {
       saved: false,
       layout: '50%',
       navExpanded: false,
-      viewHeight:
-            Math.max(
-              document.documentElement.clientHeight,
-              window.innerHeight || 0
-            ) - 120
+      document: {},
+      viewHeight:Math.max(
+                  document.documentElement.clientHeight,
+                  window.innerHeight || 0
+                ) - 120
     }
-     this.paneWidth = React.createRef()
+     
+    this.paneWidth = React.createRef()
     this.toggleTheme = this.toggleTheme.bind(this)
   }
 
     // --------Get The Selected Note Link To Download--------------//
-    //REVIEW I could put the logic to handle where the document is coming from here...
-    getLink = link => {
+    getLink = data => {
+      // data = JSON.parse(data)
+
+      // Set the document object in state
+      this.setState({
+        document:data
+      })
+
+
+      //NOTE sometimes its setting.get('recentDocs.recentDocs.recentDocs'), 
+          //and sometimes its setting.get('recentDocs.recentDocs') i dont know why
+      if (setting.get('recentDocs.recentDocs.recentDocs') !== undefined){
+        var recentDocs = setting.get('recentDocs.recentDocs.recentDocs')
+      }else if( setting.get('recentDocs.recentDocs') !== undefined){
+        var recentDocs = setting.get('recentDocs.recentDocs')
+      }
+
+      //Push the document to the recent docs list 
+      if (recentDocs.length == 3) {recentDocs.shift()}
+      recentDocs.push(data)
+      setting.set('recentDocs.recentDocs',recentDocs)
       this.setState(
         {
-          link: link,
+          link: data.path,
+          recentDocuments: recentDocs,
           view: true
         })
-      // ? Do I need this?
-      // () => {
-      // <NoteDisplayContainer
-      // link={this.state.link}
-      // layout={this.state.layout}
-      // deletedNote={this.deletedNote}
-      // />
-      // }
     }
 
     getContent = content => {
@@ -83,16 +94,27 @@ class App extends Component {
       window.addEventListener('resize', this.updateDimensions.bind(this))
       
       
+      //NOTE may have to move this to componentDidUpdate or something
+      if (setting.get('recentDocs.recentDocs') && setting.get('recentDocs.recentDocs').length) {
+        let docs = setting.get('recentDocs.recentDocs')
+        this.setState({
+          recentDocuments : docs
+        })
+      }else{
+        setting.set('recentDocs.recentDocs',{
+          recentDocs: this.state.dropboxData
+        })
+        this.setState({
+          recentDocuments : this.state.dropboxData
+        })
+      }
+      
       //REVIEW: Is this the best way to handle this?
       if(setting.get('filepaths.default')!== ''){
-        // var localData = defaultFolderRead()
         this.setState({
           localData : readFilesSync(setting.get('filepaths.default'))
         })
       }
-      //REVIEW Possibly deal with multiple source by adding them all into one here?
-      // Possibly wont work because when I go to grab the file I wont know where to download from.
-      //TODO: Add clause for if dropbox is empty but token is present
       // Cannot abstract this because I need to setState
       if(setting.get('tokens.dropbox')!== ''){
         var dbx = new Dropbox({
@@ -140,33 +162,11 @@ class App extends Component {
     }, 800)
   }
 
-  // TODO: User input of accessToken when Login/Sign up is done
-  //TODO: Find a way to abstract dropbox stuff
-  // DownloadFiles = () => {
-  //   var dbx = new Dropbox({
-  //     fetch,
-  //     accessToken:
-  //         'HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK'
-  //   })
-  //   dbx
-  //     .filesListFolder({
-  //       path: ''
-  //     })
-  //     .then(response => {
-  //       this.setState({
-  //         dropboxData: response.entries
-  //       })
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //     })
-  // };
-
      // ----This function removes view of the note that was just deleted------//
-     deletedNote = viewState => {
-       this.setState({
-         view: viewState
-       })
+    deletedNote = viewState => {
+      this.setState({
+        view: viewState
+      })
        NotificationManager.info('Note Deleted')
        this.updateFiles() // signal re download
      };
@@ -183,23 +183,31 @@ class App extends Component {
   };
 
   updateFiles = () => {
-        var dbx = new Dropbox({
-      fetch,
-      accessToken:
-          setting.get('tokens.dropbox')
-    })
-    dbx
-      .filesListFolder({
-        path: ''
+    if(setting.get('filepaths.default')!== ''){
+      this.setState({
+        localData : readFilesSync(setting.get('filepaths.default'))
       })
-      .then(response => {
-        this.setState({
-          dropboxData: response.entries
+    }
+    if(setting.get('tokens.dropbox')!== ''){
+      var dbx = new Dropbox({
+        fetch,
+        accessToken: setting.get('tokens.dropbox')
+      })
+      dbx
+        .filesListFolder({
+          path: ''
         })
-      })
-      .catch(error => {
-        console.log(error)
-      })
+        .then(response => {
+          this.setState({
+            dropboxData: response.entries
+          })
+          this.forceUpdate()
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+    this.forceUpdate()
   };
 
       // -----Exit-----//
@@ -251,13 +259,19 @@ class App extends Component {
               navExpanded: expanded
             })
           }
+
+          settingsScreen = () => {
+            this.setState({settingsView: !this.state.settingsView, view: false})
+          }
                     
           render () {
             if (this.state.view === false) { //Welcome page on startup
               this.DownloadDisplay = 
               <WelcomePage 
-              // REVIEW: Dropbox data for now, will later need to create new array for recent docs
-                docList = {this.state.dropboxData} 
+                docList = {this.state.recentDocuments}
+                sendLink = {this.getLink}
+                newNote = {this.newNote}
+                settingsScreen = {this.settingsScreen}
               /> 
             } else {
               this.DownloadDisplay = (
@@ -274,6 +288,7 @@ class App extends Component {
                   getContent = {this.getContent}
                   savedNote = {this.savedNote}
                   deletedNote = {this.deletedNote}
+                  document={this.state.document}
                 />
               )
             }
@@ -281,12 +296,13 @@ class App extends Component {
             if(this.state.settingsView === true){
               this.DownloadDisplay =
               <Settings
+                settingsScreen={this.settingsScreen}
                />}
             return (
             <>
+                <CssBaseline>
+                <TitleBar className='title-bar' /> 
                 <div className="App">
-                  <CssBaseline />
-                  <TitleBar /> 
                   <div id='content-container'>
                     <NotificationContainer />
                     <SplitPane
@@ -295,12 +311,11 @@ class App extends Component {
                       id='main-split-pane'
                       split="vertical" 
                       size={ 
-                        this.state.navExpanded ? 350 :50
+                        this.state.navExpanded ? 300 :50 // Default Navbar open/close size
                       }
                       defaultSize={740}
                       position='static'
                       allowResize={this.state.navExpanded ? true : false}
-                      style={'border:none'}
                       >
                     <div id='nav-col'>
                        <SideExplorer 
@@ -318,23 +333,8 @@ class App extends Component {
                        newNote={this.newNote}
                        getExpansion={this.getExpansion}
                        navExpanded={this.state.navExpanded}
+                       updateList={this.updateFiles}
                        /> 
-                         {/* <NavigatorContainer
-                          className='navigator'
-                          subsetNum = {this.state.subsetNum}
-                          stepNum={this.state.stepNum}
-                          startNum={this.state.startNum}
-                          view={this.state.view}
-                          // data={this.state.data}
-                          dropboxData={this.state.dropboxData}
-                          localData={this.state.localData}
-                          link={this.state.link}
-                          layout={this.state.layout}
-                          getLink = {this.getLink}
-                          newNote={this.newNote}
-                          getExpansion={this.getExpansion}
-                          navExpanded={this.state.navExpanded}
-                          /> */}
                     </div>
                     <div id='note-col'>
                     {this.DownloadDisplay}
@@ -342,10 +342,11 @@ class App extends Component {
                     </SplitPane>
                   </div>
                   <Tooltip title="Settings" aria-label="settings">
-                      <SettingsIcon size='24' className='settings-button' onClick={()=>{this.setState({settingsView: !this.state.settingsView, view: false})}} />
+                      <SettingsIcon size='24' className='settings-button' onClick={this.settingsScreen} />
                   </Tooltip>
                 </div>
-                  <BottomBar view={this.state.view} layoutChange = {this.layoutChange} onExit={this.onExit} />
+                <BottomBar view={this.state.view} layoutChange = {this.layoutChange} onExit={this.onExit} />
+                </CssBaseline>
                 </>
             )
             
