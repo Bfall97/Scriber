@@ -5,11 +5,16 @@ import { Trash } from 'styled-icons/boxicons-regular/Trash'
 import { Checkmark } from 'styled-icons/icomoon/Checkmark'
 import { SpinLoader } from 'react-css-loaders'
 import SplitPaneContainer from '../../components/SplitPlaneContainer/SplitPaneContainer'
+import { openFile } from '../../LocalFileSystem.js'
+// import { handleDownloadRead, handleRead, downloadFileList } from './Dropbox.js'
+
 import '../NoteDisplayContainer/NoteDisplayContainer.css'
 import '../SplitPlaneContainer/split-pane.css'
 import '../../vendor/Styles.css'
 
 const Dropbox = require('dropbox').Dropbox
+
+// TODO: Handle other file types, here and in NoteList
 
 export default class NoteDisplayContainer extends Component {
   constructor (props) {
@@ -25,7 +30,7 @@ export default class NoteDisplayContainer extends Component {
     }
   }
 
-  // Update Function
+  // Update Function for Editor and ViewPane
         onMarkdownChange =(md) => {
           this.setState({
             content: md,
@@ -37,9 +42,6 @@ export default class NoteDisplayContainer extends Component {
         // -------Download again when new link is clicked-------//
         componentDidUpdate (propsLink, newPropLayout) {
           if (propsLink.link !== this.props.link) {
-            this.setState({
-              isLoading: true // Start loading event when switching notes
-            })
             this.handleDownload()
           } else {
             return false
@@ -58,20 +60,30 @@ export default class NoteDisplayContainer extends Component {
           this.handleDownload()
         }
 
-      // --------Download File from DropBox API------//
+      // --------Download File Content------//
       handleDownload = () => {
-        var dbx = new Dropbox({ fetch: fetch, accessToken: 'HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK' })
-        dbx.filesDownload({ path: this.props.link })
-          .then((response) => {
-            console.log('downloading....')
-            const blob = response.fileBlob
-            this.handleRead(blob)
+        // Handle different sourced data
+        if (this.props.document.source === 'local') {
+          this.setState({
+            isLoading: false
           })
-          .catch((error) => {
-            console.log(error)
+          const fileContent = openFile(this.props.document.path)
+          this.setState({
+            content: fileContent,
+            isLoading: false
           })
-
-        return false
+        } else if (this.props.document.source === 'dropbox') {
+          var dbx = new Dropbox({ fetch: fetch, accessToken: 'HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK' })
+          dbx.filesDownload({ path: this.props.link })
+            .then((response) => {
+              const blob = response.fileBlob
+              this.handleRead(blob)
+            })
+            .catch((error) => {
+              console.log(error)
+            })
+          return false
+        }
       }
 
       /// ------ Start file read for Markdown Parsing------//
@@ -141,7 +153,7 @@ export default class NoteDisplayContainer extends Component {
         })
       }
 
-      // TODO: Update list to handle changess
+      // TODO: Update list to handle changes
       // --Handle Delete of CRUD-- //
       onDelete = () => {
         const confirmPrompt = window.confirm('Are you sure you want to delete this note?')

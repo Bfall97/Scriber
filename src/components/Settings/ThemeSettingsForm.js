@@ -125,8 +125,6 @@ class ThemeSettingsForm extends React.Component {
         // setting.set('customThemes',{ 
         //   savedThemes: currSavedThemes
         // })
-        console.log(this.state.customTheme)
-        console.log('Did this work?:', setting.getAll());
       event.preventDefault();
     }
   

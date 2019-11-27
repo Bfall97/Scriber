@@ -38,7 +38,6 @@ class DropboxNoteList extends Component {
       link: '',
       filter: ''
     })
-    console.log('in notelist '+this.props.data)
   }
 
   handleCheck = (e) => {
@@ -56,7 +55,6 @@ class DropboxNoteList extends Component {
   render () {
     // const data = this.props.data
     const data = this.props.data
-    console.log('dropbox: '+ this.props.dropboxData)
     // const dropboxArray = 
     // Sort by last modified
     if (this.props.data !== null && this.state.filter === '') {

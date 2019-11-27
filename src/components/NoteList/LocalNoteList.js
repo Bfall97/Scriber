@@ -55,7 +55,6 @@ class LocalNoteList extends Component {
 
   render () {
     const data = this.props.data
-    console.log(this.props.data)
 
 
     // Sort by last modified

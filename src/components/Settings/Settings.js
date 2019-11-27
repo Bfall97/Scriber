@@ -1,4 +1,3 @@
-// Taken out until I know what I am doing.
 import React, { Component } from 'react'
 import { Route, Link, Switch } from "react-router-dom";
 import { Moon } from 'styled-icons/boxicons-regular/Moon'
@@ -97,9 +96,11 @@ export default class Settings extends Component {
 //TODO: Add Scrollbar, your CSS sucks!
   
   render() {
+      
+    
     // Which icon to display
-        const ThemeIcons =
-        <React.Fragment>
+    const ThemeIcons =
+    <React.Fragment>
           <Moon dark onClick={() => this.toggleTheme('dark')} size='22' className='dark-theme'/>
           <Sun light onClick={() => this.toggleTheme('light')} size='22'className='light-theme' />
           <Heart femme onClick={() => this.toggleTheme('femme')} size='22'className='femme-theme' />
@@ -109,6 +110,7 @@ export default class Settings extends Component {
     return (
       <React.Fragment>
       <div className='settings-container'>
+        <button onClick={this.props.settingsScreen}>Back</button>
         <h2>Settings</h2>
         <div className='theme-settings'>
           <h4>Built-in Themes</h4>

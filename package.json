@@ -20,6 +20,7 @@
     "babel-preset-react-app": "^9.0.0",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "codemirror": "^5.49.2",
     "css-loader": "2.1.1",
     "custom-electron-titlebar": "^3.0.10",
     "datejs": "^1.0.0-rc3",
@@ -84,6 +85,7 @@
     "react-pure-render": "^1.0.2",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
+    "react-showdown": "^1.6.0",
     "react-sidebar": "^3.0.2",
     "react-sidenav": "^4.0.3",
     "react-split-pane": "^0.1.87",
@@ -137,7 +139,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^5.0.2",
+    "electron": "^7.1.2",
     "electron-builder": "^20.41.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-plugin-import": "^2.18.2",

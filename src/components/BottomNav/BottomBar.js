@@ -6,7 +6,6 @@ import { Edit } from 'styled-icons/boxicons-solid/Edit'
 import { BookContent } from 'styled-icons/boxicons-solid/BookContent'
 import { DocumentText } from 'styled-icons/typicons/DocumentText'
 
-// REVIEW - it may be better to replace these with Material UI FABs (floating action buttons)
 
 export default class BottomBar extends Component {
   render () {
@@ -35,6 +34,7 @@ export default class BottomBar extends Component {
         />
       </Tooltip>
     </div>
+
     return (
       <div className='bottom-bar'>
         {this.props.view ? LayoutButtons : null}
