@@ -134,7 +134,11 @@ const template = [
       {
         label: 'Save',
         accelerator: 'Ctrl+S',
+<<<<<<< HEAD
         // click() { saveFile(); }
+=======
+        click() { saveFile(); }
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
       },
       isMac ? {label: 'Close', role: 'close' } : { label: 'Quit',role: 'quit' }
     ]

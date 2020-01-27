@@ -8,16 +8,23 @@
   }
 
 .editor-Pane {
+<<<<<<< HEAD
   max-height: 100%;
+=======
+  height: 100%;
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
 	font-size: 11px;
   text-align: left;
 } 
 
+<<<<<<< HEAD
 .Pane1, .Pane2{
   max-height:calc(99%);
 }
 
 
+=======
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
 .Pane1::-webkit-scrollbar-track,.Pane1::-webkit-scrollbar-thumb,.Pane1::-webkit-scrollbar {
     background: var(--editorBackground);
     transition: background 2s;

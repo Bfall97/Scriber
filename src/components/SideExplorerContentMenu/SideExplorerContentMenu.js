@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react'
 import SideNav from '@trendmicro/react-sidenav'
 import SideExplorerIconMenu from '../SideExplorerIconMenu/SideExplorerIconMenu'
@@ -83,6 +84,34 @@ constructor(props) {
         />
     )
   }
+=======
+import React from 'react'
+import { Box, AccordionPanel, Accordion } from 'grommet'
+import './SideExplorerContentMenu.scss'
+
+// Grab Theme Colours for Accordion
+
+const SideExplorerContentMenu = (props) => {
+   
+
+    return (
+        props.navOpen ? 
+        <Box fill='horizontal' className='content-menu-box'>
+        {/* <Accordion margin={{"left":"50px"}}
+        > 
+            <AccordionPanel 
+                style={{textTransform: 'capitalize'}}
+                label= { props.active + " Notes"}
+                alignSelf='center'
+            > */}
+                {props.children}
+            {/* </AccordionPanel> */}
+        {/* </Accordion> */}
+        </Box>
+        :
+        null
+    )
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
 }
 
 export default SideExplorerContentMenu

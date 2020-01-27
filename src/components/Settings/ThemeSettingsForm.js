@@ -118,7 +118,11 @@ class ThemeSettingsForm extends React.Component {
           })
         }else{
           setting.set('customThemes',{ 
+<<<<<<< HEAD
             savedThemes: setting.get('customThemes:savedThemes').push(this.state.customTheme)
+=======
+            savedThemes: savedThemes.push(this.state.customTheme)
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
           })
         }
 

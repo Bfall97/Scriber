@@ -5,11 +5,16 @@ const path = require('path')
 const setting = require('electron').remote.require('electron-settings')
 
 function fileWrite(content){
+<<<<<<< HEAD
     let path = dialog.showSaveDialogSync((fileName) => {
+=======
+    dialog.showSaveDialog((fileName) => {
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
         if (fileName === undefined){
             console.log("You didn't save the file");
             return;
         }
+<<<<<<< HEAD
     }); 
     // fileName is a string that contains the path and filename created in the save file dialog.
     fs.writeFile(path, content, (err) => {
@@ -24,15 +29,35 @@ function fileWrite(content){
 
 
 function openFile(filepath){
+=======
+    
+        // fileName is a string that contains the path and filename created in the save file dialog.
+        fs.writeFile(fileName, content, (err) => {
+            if(err){
+                alert("An error occurred creating the file "+ err.message)
+            }
+            alert("The file has been succesfully saved");
+        });
+    }); 
+}
+
+//ASync so it cant return. idk
+function openFile(filepath){
+
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
     let data = fs.readFileSync(filepath,'utf8')
     return data
 }
 
+<<<<<<< HEAD
 function getStats(filepath){
     console.log(filepath)
     const stats = fs.statSync(filepath)
     return stats
 }
+=======
+
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
 
 function fileRead(){
     dialog.showOpenDialog((fileNames) => {
@@ -55,15 +80,29 @@ function fileRead(){
     });
 }
 
+<<<<<<< HEAD
 function fileUpdate(filepath, content){
     fs.writeFile(filepath, content, (err) => {
         if (err) {
             console.log("An error occurred updating the file" + err.message);
+=======
+function fileUpdate(){
+    var filepath = "C:/Previous-filepath/existinfile.txt";// you need to save the filepath when you open the file to update without use the filechooser dialog again
+    var content = "This is the new content of the file";
+
+    fs.writeFile(filepath, content, (err) => {
+        if (err) {
+            alert("An error occurred updating the file" + err.message);
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
             console.log(err);
             return;
         }
 
+<<<<<<< HEAD
         console.log("The file has been succesfully saved");
+=======
+        alert("The file has been succesfully saved");
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
     });
 }
 
@@ -72,18 +111,30 @@ function fileDelete(filepath){
     if (fs.existsSync(filepath)) {
         fs.unlink(filepath, (err) => {
             if (err) {
+<<<<<<< HEAD
                 console.log("An error occurred updating the file" + err.message);
+=======
+                alert("An error occurred updating the file" + err.message);
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
                 console.log(err);
                 return;
             }
             console.log("File succesfully deleted");
         });
     } else {
+<<<<<<< HEAD
         console.log("This file doesn't exist, cannot delete");
 }
 }
 
 // Sets default directory in electron settings.
+=======
+        alert("This file doesn't exist, cannot delete");
+}
+}
+
+//TODO this is all messed up, async? -- elctron version
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
 function defaultFolderRead(){
     // if(setting.get('filepaths.default')===''){
      
@@ -96,10 +147,17 @@ function defaultFolderRead(){
                         alert("No destination folder selected");
                         return;
                     }else{
+<<<<<<< HEAD
                         setting.set('filepaths',{
                             default:filepath[0],
                         })
                     console.log("filepath set: ", setting.get('filepaths.default'));
+=======
+                        console.log("filepath set");
+                        setting.set('filepaths',{
+                            default:filepath[0],
+                        })
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
                         }
             return;
 }
@@ -128,6 +186,10 @@ export {
     fileDelete,
     defaultFolderRead,
     readFilesSync,
+<<<<<<< HEAD
     openFile,
     getStats
+=======
+    openFile
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
 }
