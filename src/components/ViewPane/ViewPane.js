@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import PureComponent from 'react-pure-render/component'
 import { Markdown } from 'react-showdown';
+<<<<<<< HEAD
+=======
 import marked from 'marked';
 
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
 import '../ViewPane/ViewPane.scss'
 //TODO: Check this --> !Saving new note does not work. Title is also bugging out.
 
@@ -13,6 +16,12 @@ import '../ViewPane/ViewPane.scss'
       let title = ''
     }
 
+<<<<<<< HEAD
+  render(){ 
+    return(
+      <div className="view-pane" id='vp'>
+        <Markdown markup={ this.props.content } smoothLivePreview={true} />
+=======
     getMarkdownText() {
       var rawMarkup = marked(this.props.content, {sanitize: true});
       return { __html: rawMarkup };
@@ -24,6 +33,7 @@ import '../ViewPane/ViewPane.scss'
     return(
       <div className="view-pane" id='vp'  dangerouslySetInnerHTML={this.getMarkdownText()} >
         {/* <Markdown markup={ this.props.content } smoothLivePreview={true} /> */}
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
       </div>
     )
   }

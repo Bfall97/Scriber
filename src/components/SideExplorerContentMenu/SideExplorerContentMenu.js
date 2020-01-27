@@ -1,3 +1,31 @@
+<<<<<<< HEAD
+import React from 'react'
+import { Box, AccordionPanel, Accordion } from 'grommet'
+import './SideExplorerContentMenu.scss'
+
+// Grab Theme Colours for Accordion
+
+const SideExplorerContentMenu = (props) => {
+   
+
+    return (
+        props.navOpen ? 
+        <Box fill='horizontal' className='content-menu-box'>
+        {/* <Accordion margin={{"left":"50px"}}
+        > 
+            <AccordionPanel 
+                style={{textTransform: 'capitalize'}}
+                label= { props.active + " Notes"}
+                alignSelf='center'
+            > */}
+                {props.children}
+            {/* </AccordionPanel> */}
+        {/* </Accordion> */}
+        </Box>
+        :
+        null
+    )
+=======
 import React, { Component } from 'react'
 import SideNav from '@trendmicro/react-sidenav'
 import SideExplorerIconMenu from '../SideExplorerIconMenu/SideExplorerIconMenu'
@@ -83,6 +111,7 @@ constructor(props) {
         />
     )
   }
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
 }
 
 export default SideExplorerContentMenu
