@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* eslint-disable no-unused-expressions */
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
 import React, { Component } from 'react'
 import { Controlled as CodeMirror } from 'react-codemirror2'
 import '../Editor/EditorSass.scss'
@@ -120,7 +124,11 @@ export default class Editor extends Component {
 
         onClick={
           (editor) => {
+<<<<<<< HEAD
             editor.instance.refresh()
+=======
+            // editor.instance.refresh() // This was making the cursor act weird...
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
           }
         }
 

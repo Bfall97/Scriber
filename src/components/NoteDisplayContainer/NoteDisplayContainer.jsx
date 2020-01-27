@@ -3,7 +3,11 @@ import Tooltip from '@material-ui/core/Tooltip'
 import { Save } from 'styled-icons/boxicons-regular/Save'
 import { Trash } from 'styled-icons/boxicons-regular/Trash'
 import { Checkmark } from 'styled-icons/icomoon/Checkmark'
+<<<<<<< HEAD
 import { SpinLoader } from 'react-css-loaders'
+=======
+import { SpinLoader } from 'react-css-loaders2'
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
 import SplitPaneContainer from '../../components/SplitPlaneContainer/SplitPaneContainer'
 import { openFile } from '../../LocalFileSystem.js'
 // import { handleDownloadRead, handleRead, downloadFileList } from './Dropbox.js'
@@ -30,6 +34,17 @@ export default class NoteDisplayContainer extends Component {
     }
   }
 
+<<<<<<< HEAD
+=======
+  //  Set the content of given file to state
+  viewFile = () =>{
+      if(this.props.document.local_path){ // A local note
+        this.setState({isLoading: true, content: openFile(this.props.document.local_path)})
+        this.setState({isLoading: false})
+      }
+    }
+
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
   // Update Function for Editor and ViewPane
         onMarkdownChange =(md) => {
           this.setState({
@@ -40,15 +55,25 @@ export default class NoteDisplayContainer extends Component {
         }
 
         // -------Download again when new link is clicked-------//
+<<<<<<< HEAD
         componentDidUpdate (propsLink, newPropLayout) {
           if (propsLink.link !== this.props.link) {
             this.handleDownload()
+=======
+        componentDidUpdate (propsLink) {
+          if (propsLink.link !== this.props.link) {
+            this.viewFile()
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
           } else {
             return false
           }
         }
 
+<<<<<<< HEAD
         /// ---- Trigger download function on Display-------////
+=======
+        /// ---- Trigger View function on Display-------////
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
         componentDidMount () {
           if (this.props.link === '') {
             console.log('new note detected')
@@ -57,6 +82,7 @@ export default class NoteDisplayContainer extends Component {
               content: '' // reset content state, prevents old data from showing.
             })
           }
+<<<<<<< HEAD
           this.handleDownload()
         }
 
@@ -86,6 +112,12 @@ export default class NoteDisplayContainer extends Component {
         }
       }
 
+=======
+          // If not new file, view it.
+          this.viewFile()
+        }
+
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
       /// ------ Start file read for Markdown Parsing------//
       handleRead = (blob) => {
         var reader = new FileReader()
@@ -100,7 +132,11 @@ export default class NoteDisplayContainer extends Component {
         reader.readAsText(blob)
       }
 
+<<<<<<< HEAD
       // TODO: Handle exit with unsaved changes here done? BUG HERE
+=======
+      //BUG HERE
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
       componentWillUnmount () {
         if (this.state.toBeSaved) {
           const savePrompt = window.confirm('You have unsaved changes. Would you like to save now?')
@@ -110,6 +146,7 @@ export default class NoteDisplayContainer extends Component {
         }
       }
 
+<<<<<<< HEAD
       // TODO: Update List to show changes
       // TODO: Ideally I would want the savedNote function only on success. (.then) and fail in .catch
       // --Handle Create and Update of CRUD---- //
@@ -148,10 +185,17 @@ export default class NoteDisplayContainer extends Component {
 
         // Detect if content has changed
         if (this.state.toBeSaved) this.props.savedNote(true)
+=======
+      // --Handle Create and Update of CRUD---- //
+      onSave = () => {
+        // Detect if content has changed
+        if (this.state.toBeSaved) this.props.savedNote()
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
         this.setState({
           toBeSaved: false
         })
       }
+<<<<<<< HEAD
 
       // TODO: Update list to handle changes
       // --Handle Delete of CRUD-- //
@@ -169,6 +213,11 @@ export default class NoteDisplayContainer extends Component {
             })
           this.props.deletedNote(false)
         }
+=======
+      // --Handle Delete of CRUD-- //
+      onDelete = () => {
+          this.props.onDelete()
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
       }
 
     getTitle=(newTitle) => {
@@ -188,7 +237,12 @@ export default class NoteDisplayContainer extends Component {
       return (
       // Loader
         this.state.isLoading ? <SpinLoader color={primaryAccent} background={primaryBack} size={7} /> // Loader goes here
+<<<<<<< HEAD
           : <div className='split-pane-container'>
+=======
+          : 
+          <div className='split-pane-container'>
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
             <SplitPaneContainer
               getTitle={this.getTitle}
               onSave={() => this.onSave()}

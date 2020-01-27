@@ -1,7 +1,10 @@
 /* TODO: Add transitions and animations where necessary. */
 
 .App{
+<<<<<<< HEAD
 text-align: center;
+=======
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
 border-right: 1px solid var(--secondaryBackground);
 color: var(--primaryTextColor);
 height:100%;
@@ -145,17 +148,29 @@ html.theme-transition *:after {
 
 #nav-col{
 	position:relative;
+<<<<<<< HEAD
 	flex-grow:1;
+=======
+	/* flex-grow:1; */
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
 	bottom: 0;
 	left: 0;
 	top:0;
 	min-height: 100%;
 	background: linear-gradient(to bottom,var(--primaryGradient),var(--secondaryGradient));
+<<<<<<< HEAD
+=======
+	min-width: 50px;
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
 	}
 
 #nav-col.collapsed{
 	max-width: 64px;
+<<<<<<< HEAD
 	min-width: 45px;
+=======
+	min-width: 65px;
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
 	height: 100%;
 	max-width: 64px;
 }

@@ -13,6 +13,7 @@ export const StyledText = styled(Notes)`
   height: 0.7em !important;
   margin: 0px;
   font-size: 90px !important;
+<<<<<<< HEAD
 
   
 `
@@ -25,6 +26,14 @@ constructor(props) {
 
 handleClick = (doc) => {
     this.props.sendLink(doc) 
+=======
+`
+// NOTE Keeping this simple for now, just displaying their titles.
+export default class recentdocuments extends Component {
+
+handleClick = (doc) => {
+    this.props.getDoc(doc)
+>>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
     
 }
 
