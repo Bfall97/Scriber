@@ -14,6 +14,16 @@ export const StyledText = styled(Notes)`
   margin: 0px;
   font-size: 90px !important;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+`
+// NOTE Keeping this simple for now, just displaying their titles.
+export default class recentdocuments extends Component {
+
+handleClick = (doc) => {
+    this.props.getDoc(doc)
+=======
+>>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
 
   
 `
@@ -26,6 +36,7 @@ constructor(props) {
 
 handleClick = (doc) => {
     this.props.sendLink(doc) 
+<<<<<<< HEAD
 =======
 `
 // NOTE Keeping this simple for now, just displaying their titles.
@@ -34,6 +45,9 @@ export default class recentdocuments extends Component {
 handleClick = (doc) => {
     this.props.getDoc(doc)
 >>>>>>> 815dd7e... Massive Revision for the project
+=======
+>>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
+>>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
     
 }
 
