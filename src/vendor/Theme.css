@@ -1,0 +1,12 @@
+html {
+	--primaryBackground: #ffffff;
+	--primaryTextColor: #000000;
+}
+
+html[data-theme="dark"] {
+	--primaryBackground: #000000;
+	--primaryTextColor: #ffffff;
+}
+button {
+	background-color: aqua;
+}

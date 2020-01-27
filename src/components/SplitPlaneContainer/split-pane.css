@@ -1,0 +1,113 @@
+@import url(../../vendor/ColVars.css);
+
+
+.Resizer {
+	background: var(--resizerBorder);
+	opacity: 0.8;
+	/* z-index: 1; */
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+	box-shadow: none;
+}
+
+.Resizer:hover {
+	-webkit-transition: all 2s ease;
+	transition: all 2s ease;
+}
+
+.Resizer.horizontal {
+	height: 11px;
+	margin: -5px 0;
+	border-top: 5px solid var(--resizerBorder);
+	border-bottom: 5px solid var(--secondaryAccent);
+	cursor: row-resize;
+	width: 100%;
+}
+
+.Resizer.horizontal:hover {
+	border-top: 5px solid var(--secondaryAccent);
+	border-bottom: 5px solid var(--secondaryAccent);
+}
+
+.Resizer.vertical {
+	height: 100%;
+	width: 3px;
+	margin: 0 auto;
+	border-left: 2px solid var(--resizerBackground);
+	border-right: 2px solid var(--resizerBackground);
+	cursor: col-resize;
+}
+
+.Resizer.vertical:hover {
+	border-left: 2px solid var(--resizerAccent);
+	border-right: 2px solid var(--resizerAccent);
+}
+
+.Resizer.disabled {
+	cursor: not-allowed;
+}
+
+.Resizer.disabled:hover {
+	border-color: transparent;
+}
+
+.CodeMirror {
+	height: 100%;
+	padding-top: 20px;
+	padding-left: 0;
+	margin-bottom: 26px;
+}
+
+.CodeMirror-lines {
+	padding: 4px 0; /* Vertical padding around content */
+}
+.CodeMirror pre {
+	padding: 0 6px; /* Horizontal padding of content */
+}
+
+.split-pane-container{
+	height:100%;
+	box-sizing: border-box;
+}
+
+.SplitPane.vertical {
+	height:100%;
+	max-width:100%;	
+	margin:0;
+	box-sizing: border-box;
+}
+
+.Pane {
+	margin-top: -5px;
+	padding-top: -5px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: var(--textDisplay);
+}
+
+.view-pane {
+	margin: 5px;
+	margin-left: 2px;
+	margin-right: 3px;
+	height: 100%;
+	font-size: 11px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.vertical {
+	border-top: 2px var(--resizerBorder) solid;
+	margin-left: 60px;	
+}
+
+.Pane1 {
+	margin: 0px;	
+}
+
+.Pane2 {
+	margin: 0;	
+}

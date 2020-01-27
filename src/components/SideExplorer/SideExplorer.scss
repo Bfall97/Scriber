@@ -1,0 +1,93 @@
+.explorer-container{
+    display:flex;
+	flex-direction: row;
+	-webkit-user-select:none;
+}
+
+
+.icon-menu-container{
+    flex-grow: 1;
+    
+}
+
+.content-menu-container{
+	flex-grow: 2;
+}
+
+
+
+// side explorer toggle button
+.sidenav---sidenav-toggle---1KRjR {
+	position: relative;
+	float: left;
+	width: 45px;
+	height: 64px;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	background-image: none;
+	border: 0;
+	border-radius: 0;
+	cursor: pointer;
+}
+.sidenav---sidenav-toggle---1KRjR:focus {
+	outline: none;
+}
+.sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02 {
+	display: block;
+	width: 20px;
+	height: 2px;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 1px;
+	-webkit-transition: all 0.15s;
+	-moz-transition: all 0.15s;
+	-o-transition: all 0.15s;
+	-ms-transition: all 0.15s;
+	transition: all 0.15s;
+	opacity: 0.7;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
+}
+.sidenav---sidenav-toggle---1KRjR
+	.sidenav---icon-bar---u1f02
+	+ .sidenav---icon-bar---u1f02 {
+	margin-top: 4px;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
+	.sidenav---sidenav-toggle---1KRjR
+	.sidenav---icon-bar---u1f02 {
+	width: 25px;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
+	.sidenav---sidenav-toggle---1KRjR
+	.sidenav---icon-bar---u1f02:nth-child(1) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);	
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
+	.sidenav---sidenav-toggle---1KRjR
+	.sidenav---icon-bar---u1f02:nth-child(2) {
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL
+	.sidenav---sidenav-toggle---1KRjR
+	.sidenav---icon-bar---u1f02:nth-child(3) {
+	margin-top: -8px;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+// Accordion Label
+.dOVRRX{
+	color: var(--primaryTextColor);
+	font-size: 16.5px;
+}

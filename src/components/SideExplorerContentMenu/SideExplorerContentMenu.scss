@@ -1,0 +1,59 @@
+@import url(../../vendor/ColVars.css);
+
+.content-menu{
+    float:right;
+    min-width:100%;
+    padding: 5px;
+    padding-right: 5px;
+    background: var(--sideNavSubMenuBG);
+    border-left: 1px solid var(--sideNavBorder);
+    & h3{
+        padding-bottom: 3px;
+        border-bottom: 1px solid var(--sideNavSubMenuTextAccent);
+        border-radius: 1px;
+    }
+    & li{
+        height: 45px;
+        border-bottom: 0.5px solid var(--sideNavBorder);
+        border-radius: 3px;
+        margin:2px;
+        text-align: left;
+        line-height: 0.9em;
+        padding: 4px;
+        padding-left: 1;
+        margin-left: 0;
+        font-size: 11px;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    & li:hover{
+        background-color: var(--sideNavLinkHover);
+        font-weight: 500;
+        cursor: pointer;
+        transition: background .2s;
+    }
+    & li time{
+        color:var(--sideNavSubMenuTextAccent);
+        float: right;
+        text-align: right;
+        line-height: 0.4em;
+        font-size: 10px;
+        opacity: 0.8;
+        font-style: italic;
+    }
+}
+
+
+.dSllCE{
+    fill:var(--accordionColor) ;
+    stroke:var(--accordionColor);
+}
+
+.jxEXYf{
+    outline-color: none;
+    border-color: none;
+    box-shadow:none;
+}

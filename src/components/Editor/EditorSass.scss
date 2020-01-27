@@ -1,0 +1,37 @@
+@import url(../../vendor/ColVars.css);
+// Editor Layout Styles
+
+/* Scrollbar Style For editor
+  /* width */
+  .Pane1::-webkit-scrollbar {
+    width: 7px;
+  }
+
+.editor-Pane {
+  max-height: 100%;
+	font-size: 11px;
+  text-align: left;
+} 
+
+.Pane1, .Pane2{
+  max-height:calc(99%);
+}
+
+
+.Pane1::-webkit-scrollbar-track,.Pane1::-webkit-scrollbar-thumb,.Pane1::-webkit-scrollbar {
+    background: var(--editorBackground);
+    transition: background 2s;
+  }
+  
+  .Pane1:hover{
+    &.Pane1::-webkit-scrollbar-track{
+        background: var(--scrollbarTrack);
+    }
+    &.Pane1::-webkit-scrollbar-thumb{
+        background: var(--scrollbarThumb);
+    }
+    &.Pane1::-webkit-scrollbar-thumb:hover{
+        background: var(--scrollbarThumbHover);
+    }
+    
+}

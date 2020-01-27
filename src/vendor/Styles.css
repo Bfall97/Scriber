@@ -1,0 +1,385 @@
+/* Github Styles for preview. */
+@import "ColVars.css";
+
+.view-pane body {
+	font-family: Segoe UI, Helvetica, arial, sans-serif;
+	font-size: 12px;
+	line-height: 1.6;
+	padding-top: 10px;
+	padding-bottom: 10px;	
+	padding: 30px;
+	color: rgb(37, 36, 36);
+}
+.view-pane body > *:first-child {
+	margin-top: 0 !important;
+}
+.view-pane body > *:last-child {
+	margin-bottom: 0 !important;
+}
+.view-pane a {
+	color: var(--previewAnchor);
+	text-decoration: none;
+}
+.view-pane a.absent {
+	color: #cc0000;
+}
+.view-pane a.anchor {
+	display: block;
+	padding-left: 30px;
+	margin-left: -30px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	/* opacity: 1; */
+}
+.view-pane a:hover {
+	transition: 0.5s;
+	background-color: var(--previewAnchorHover);
+	color: var(--previewAnchorHover);
+	opacity: 0.8;
+	border-radius: 5px;
+	padding: 1px;
+}
+.view-pane h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 20px 0 10px;
+	padding: 0;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	cursor: text;
+	position: relative;
+}
+.view-pane h2:first-child,
+h1:first-child,
+h1:first-child + h2,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+	margin-top: 0;
+	padding-top: 0;
+}
+.view-pane h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+	text-decoration: none;
+}
+.view-pane h1 tt,
+h1 code {
+	font-size: inherit;
+}
+.view-pane h2 tt,
+h2 code {
+	font-size: inherit;
+}
+.view-pane h3 tt,
+h3 code {
+	font-size: inherit;
+}
+.view-pane h4 tt,
+h4 code {
+	font-size: inherit;
+}
+.view-pane h5 tt,
+h5 code {
+	font-size: inherit;
+}
+.view-pane h6 tt,
+h6 code {
+	font-size: inherit;
+}
+.view-pane h1 {
+	font-size: 28px;
+	color: var(--previewHeader1);
+}
+.view-pane h2 {
+	font-size: 24px;
+	border-bottom: 1px solid var(--previewH2Underline);
+	color: var(--previewHeader2);
+}
+.view-pane h3 {
+	font-size: 18px;
+	color: var(--previewHeader3);
+}
+.view-pane h4 {
+	font-size: 16px;
+	color: var(--previewHeader4);
+}
+.view-pane h5 {
+	font-size: 14px;
+	color: var(--previewHeader5);
+}
+.view-pane h6 {
+	font-size: 14px;
+	color: var(--previewHeader6);
+}
+.view-pane p,
+blockquote,
+ul,
+ol,
+dl,
+li,
+table,
+pre {
+	margin: 15px 0;
+}
+.view-pane hr {
+	border: 1px solid;
+	color: var(--previewHorizontalRuleOuter);
+	background-color: var(--previewHorizontalRuleInner);
+	border-radius: 20px;
+	height: 1px;
+	padding: 0;
+}
+.view-pane body > h2:first-child {
+	margin-top: 0;
+	padding-top: 0;
+}
+.view-pane body > h1:first-child {
+	margin-top: 0;
+	padding-top: 0;
+}
+.view-pane body > h1:first-child + h2 {
+	margin-top: 0;
+	padding-top: 0;
+}
+.view-pane body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+	margin-top: 0;
+	padding-top: 0;
+}
+.view-pane a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+	margin-top: 0;
+	padding-top: 0;
+}
+.view-pane h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+	margin-top: 0;
+}
+.view-pane li p.first {
+	display: inline-block;
+}
+.view-pane ul,
+ol {
+	padding-left: 30px;
+}
+.view-pane ul :first-child,
+ol :first-child {
+	margin-top: 0;
+}
+.view-pane ul :last-child,
+ol :last-child {
+	margin-bottom: 0;
+}
+.view-pane dl {
+	padding: 0;
+}
+.view-pane dl dt {
+	font-size: 14px;
+	font-weight: bold;
+	font-style: italic;
+	padding: 0;
+	margin: 15px 0 5px;
+}
+.view-pane dl dt:first-child {
+	padding: 0;
+}
+.view-pane dl dt > :first-child {
+	margin-top: 0;
+}
+.view-pane dl dt > :last-child {
+	margin-bottom: 0;
+}
+.view-pane dl dd {
+	margin: 0 0 15px;
+	padding: 0 15px;
+}
+.view-pane dl dd > :first-child {
+	margin-top: 0;
+}
+.view-pane dl dd > :last-child {
+	margin-bottom: 0;
+}
+.view-pane blockquote {
+	border-left: 4px solid var(--previewBlockQoute);
+	background-color: var(--previewBlockQouteBG);
+	padding: 0 15px;
+	color: var(--primaryText);
+}
+.view-pane blockquote > :first-child {
+	margin-top: 0;
+}
+.view-pane blockquote > :last-child {
+	margin-bottom: 0;
+}
+.view-pane table {
+	padding: 0;
+}
+.view-pane table tr {
+	border-top: 1px solid var(--previewTableBorder);
+	background-color: var(--previewTableRowBG);
+	margin: 0;
+	padding: 0;
+}
+.view-pane table tr:nth-child(2n) {
+	background-color: var(--previewTableRow2BG);
+}
+.view-pane table tr th {
+	font-weight: bold;
+	border: 1px solid var(--previewTableHeaderBorder);
+	text-align: left;
+	margin: 0;
+	padding: 6px 13px;
+}
+.view-pane table tr td {
+	border: 1px solid var(--previewTableTDBorder);
+	text-align: left;
+	margin: 0;
+	padding: 6px 13px;
+}
+.view-pane table tr th :first-child,
+table tr td :first-child {
+	margin-top: 0;
+}
+.view-pane table tr th :last-child,
+table tr td :last-child {
+	margin-bottom: 0;
+}
+.view-pane img {
+	max-width: 100%;
+}
+.view-pane span.frame {
+	display: block;
+	overflow: hidden;
+}
+.view-pane span.frame > span {
+	border: 1px solid var(--primaryText);
+	display: block;
+	float: left;
+	overflow: hidden;
+	margin: 13px 0 0;
+	padding: 7px;
+	width: auto;
+}
+.view-pane span.frame span img {
+	display: block;
+	float: left;
+}
+.view-pane span.frame span span {
+	clear: both;
+	color: #333333;
+	display: block;
+	padding: 5px 0 0;
+}
+.view-pane span.align-center {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+.view-pane span.align-center > span {
+	display: block;
+	overflow: hidden;
+	margin: 13px auto 0;
+	text-align: center;
+}
+.view-pane span.align-center span img {
+	margin: 0 auto;
+	text-align: center;
+}
+.view-pane span.align-right {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+.view-pane span.align-right > span {
+	display: block;
+	overflow: hidden;
+	margin: 13px 0 0;
+	text-align: right;
+}
+.view-pane span.align-right span img {
+	margin: 0;
+	text-align: right;
+}
+.view-pane span.float-left {
+	display: block;
+	margin-right: 13px;
+	overflow: hidden;
+	float: left;
+}
+.view-pane span.float-left span {
+	margin: 13px 0 0;
+}
+.view-pane span.float-right {
+	display: block;
+	margin-left: 13px;
+	overflow: hidden;
+	float: right;
+}
+.view-pane span.float-right > span {
+	display: block;
+	overflow: hidden;
+	margin: 13px auto 0;
+	text-align: right;
+}
+.view-pane code,
+tt {
+	margin: 0 2px;
+	padding: 0 5px;
+	white-space: nowrap;
+	border: 1px solid var(--previewCodeBlockBorder);
+	border-radius: 3px;
+}
+.view-pane pre code {
+	margin: 0;
+	padding: 0;
+	white-space: pre;
+	border: none;
+}
+.view-pane .highlight pre {
+	font-size: 13px;
+	line-height: 19px;
+	overflow: auto;
+	padding: 6px 10px;
+	border-radius: 3px;
+}
+.view-pane pre {
+
+	font-size: 13px;
+	line-height: 19px;
+	overflow: auto;
+	padding: 6px 10px;
+	border-radius: 3px;
+}
+.view-pane pre code,
+pre tt {
+	border: none;
+}
+
+.view-pane details {
+	transition: 0.6s;
+	background-color: var(--editorBackground);
+}
+.view-pane details:hover {
+	cursor: pointer;
+}
