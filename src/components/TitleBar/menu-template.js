@@ -134,11 +134,7 @@ const template = [
       {
         label: 'Save',
         accelerator: 'Ctrl+S',
-<<<<<<< HEAD
-        click() { saveFile(); }
-=======
         // click() { saveFile(); }
->>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
       },
       isMac ? {label: 'Close', role: 'close' } : { label: 'Quit',role: 'quit' }
     ]

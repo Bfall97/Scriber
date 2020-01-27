@@ -70,11 +70,7 @@ class ColourPickerComponent extends React.Component {
     
     return (
       <ColourPickContainer className='colPickContainer'
-<<<<<<< HEAD
-      onMouseLeave={()=>{ this.colourClose }}
-=======
       onMouseLeave={()=> this.colourClose }
->>>>>>> parent of 72b801b... Merge branch 'master' of https://github.com/Bfall97/Noted2
       >
               {this.state.colourPickView ? 
 
