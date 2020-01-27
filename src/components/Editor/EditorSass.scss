@@ -8,23 +8,11 @@
   }
 
 .editor-Pane {
-<<<<<<< HEAD
   height: 100%;
-=======
-  max-height: 100%;
->>>>>>> 815dd7e... Massive Revision for the project
 	font-size: 11px;
   text-align: left;
 } 
 
-<<<<<<< HEAD
-=======
-.Pane1, .Pane2{
-  max-height:calc(99%);
-}
-
-
->>>>>>> 815dd7e... Massive Revision for the project
 .Pane1::-webkit-scrollbar-track,.Pane1::-webkit-scrollbar-thumb,.Pane1::-webkit-scrollbar {
     background: var(--editorBackground);
     transition: background 2s;

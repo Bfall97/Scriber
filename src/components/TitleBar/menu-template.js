@@ -134,11 +134,7 @@ const template = [
       {
         label: 'Save',
         accelerator: 'Ctrl+S',
-<<<<<<< HEAD
         click() { saveFile(); }
-=======
-        // click() { saveFile(); }
->>>>>>> 815dd7e... Massive Revision for the project
       },
       isMac ? {label: 'Close', role: 'close' } : { label: 'Quit',role: 'quit' }
     ]

@@ -25,11 +25,7 @@ export default class SideExplorer extends Component {
     }
   }
 
-<<<<<<< HEAD
   // TODO DRY
-=======
-// TODO DRY
->>>>>>> 815dd7e... Massive Revision for the project
   handleDropbox= () => {
     smalltalk
       .prompt('Dropbox Token', 'Please enter your dropbox token, if you do not know where to find it, click here (link)', '')
@@ -63,11 +59,7 @@ export default class SideExplorer extends Component {
     this.setState({ open: !this.state.open }, () => this.props.getExpansion(this.state.open))
   }
 
-<<<<<<< HEAD
   // TODO: DRY
-=======
-// TODO: DRY
->>>>>>> 815dd7e... Massive Revision for the project
   getContent = () => {
     if (this.state.activeMenu === 'local') {
       this.setState({ content:
@@ -96,12 +88,8 @@ export default class SideExplorer extends Component {
           <AccordionPanel
             label= 'Dropbox Notes'
           >
-<<<<<<< HEAD
             {this.state.isLoading ? <SpinLoader color={getComputedStyle(document.documentElement).getPropertyValue('--primaryAccent')} background={ getComputedStyle(document.documentElement).getPropertyValue('--primaryBackground')} size={5} />
               : <NoteList
-=======
-             <NoteList
->>>>>>> 815dd7e... Massive Revision for the project
                 className = 'note-list-menu'
                 className = 'expanded'
                 data={setting.get('tokens.dropbox') === '' ? null : this.props.dropboxData}
@@ -116,11 +104,7 @@ export default class SideExplorer extends Component {
           </AccordionPanel>
         </Accordion>
       })
-<<<<<<< HEAD
     } else if (this.state.activeMenu === '') { // TODO Fix this or delete it. (leaning towards delete)
-=======
-  } else if (this.state.activeMenu === '') { // TODO Fix this or delete it. (leaning towards delete)
->>>>>>> 815dd7e... Massive Revision for the project
       this.setState({ content:
          <>
          <Accordion margin={{ left: '50px' }}
