@@ -2,15 +2,9 @@
 
 .App{
 <<<<<<< HEAD
-<<<<<<< HEAD
 text-align: center;
 =======
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-=======
-text-align: center;
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
 border-right: 1px solid var(--secondaryBackground);
 color: var(--primaryTextColor);
 height:100%;
@@ -155,48 +149,28 @@ html.theme-transition *:after {
 #nav-col{
 	position:relative;
 <<<<<<< HEAD
-<<<<<<< HEAD
 	flex-grow:1;
 =======
 	/* flex-grow:1; */
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-	/* flex-grow:1; */
-=======
-	flex-grow:1;
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
 	bottom: 0;
 	left: 0;
 	top:0;
 	min-height: 100%;
 	background: linear-gradient(to bottom,var(--primaryGradient),var(--secondaryGradient));
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 	min-width: 50px;
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-	min-width: 50px;
-=======
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
 	}
 
 #nav-col.collapsed{
 	max-width: 64px;
 <<<<<<< HEAD
-<<<<<<< HEAD
 	min-width: 45px;
 =======
 	min-width: 65px;
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-	min-width: 65px;
-=======
-	min-width: 45px;
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
 	height: 100%;
 	max-width: 64px;
 }

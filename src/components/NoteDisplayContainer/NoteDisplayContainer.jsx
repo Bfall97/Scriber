@@ -4,17 +4,10 @@ import { Save } from 'styled-icons/boxicons-regular/Save'
 import { Trash } from 'styled-icons/boxicons-regular/Trash'
 import { Checkmark } from 'styled-icons/icomoon/Checkmark'
 <<<<<<< HEAD
-<<<<<<< HEAD
 import { SpinLoader } from 'react-css-loaders'
 =======
 import { SpinLoader } from 'react-css-loaders2'
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-import { SpinLoader } from 'react-css-loaders2'
-=======
-import { SpinLoader } from 'react-css-loaders'
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
 import SplitPaneContainer from '../../components/SplitPlaneContainer/SplitPaneContainer'
 import { openFile } from '../../LocalFileSystem.js'
 // import { handleDownloadRead, handleRead, downloadFileList } from './Dropbox.js'
@@ -42,10 +35,7 @@ export default class NoteDisplayContainer extends Component {
   }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
   //  Set the content of given file to state
   viewFile = () =>{
       if(this.props.document.local_path){ // A local note
@@ -54,12 +44,7 @@ export default class NoteDisplayContainer extends Component {
       }
     }
 
-<<<<<<< HEAD
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-=======
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
   // Update Function for Editor and ViewPane
         onMarkdownChange =(md) => {
           this.setState({
@@ -71,7 +56,6 @@ export default class NoteDisplayContainer extends Component {
 
         // -------Download again when new link is clicked-------//
 <<<<<<< HEAD
-<<<<<<< HEAD
         componentDidUpdate (propsLink, newPropLayout) {
           if (propsLink.link !== this.props.link) {
             this.handleDownload()
@@ -80,33 +64,16 @@ export default class NoteDisplayContainer extends Component {
           if (propsLink.link !== this.props.link) {
             this.viewFile()
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-        componentDidUpdate (propsLink) {
-          if (propsLink.link !== this.props.link) {
-            this.viewFile()
-=======
-        componentDidUpdate (propsLink, newPropLayout) {
-          if (propsLink.link !== this.props.link) {
-            this.handleDownload()
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
           } else {
             return false
           }
         }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
         /// ---- Trigger download function on Display-------////
 =======
         /// ---- Trigger View function on Display-------////
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-        /// ---- Trigger View function on Display-------////
-=======
-        /// ---- Trigger download function on Display-------////
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
         componentDidMount () {
           if (this.props.link === '') {
             console.log('new note detected')
@@ -116,14 +83,6 @@ export default class NoteDisplayContainer extends Component {
             })
           }
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-          // If not new file, view it.
-          this.viewFile()
-        }
-
-=======
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
           this.handleDownload()
         }
 
@@ -153,16 +112,12 @@ export default class NoteDisplayContainer extends Component {
         }
       }
 
-<<<<<<< HEAD
 =======
           // If not new file, view it.
           this.viewFile()
         }
 
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
       /// ------ Start file read for Markdown Parsing------//
       handleRead = (blob) => {
         var reader = new FileReader()
@@ -178,17 +133,10 @@ export default class NoteDisplayContainer extends Component {
       }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
       // TODO: Handle exit with unsaved changes here done? BUG HERE
 =======
       //BUG HERE
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-      //BUG HERE
-=======
-      // TODO: Handle exit with unsaved changes here done? BUG HERE
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
       componentWillUnmount () {
         if (this.state.toBeSaved) {
           const savePrompt = window.confirm('You have unsaved changes. Would you like to save now?')
@@ -199,14 +147,6 @@ export default class NoteDisplayContainer extends Component {
       }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      // --Handle Create and Update of CRUD---- //
-      onSave = () => {
-        // Detect if content has changed
-        if (this.state.toBeSaved) this.props.savedNote()
-=======
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
       // TODO: Update List to show changes
       // TODO: Ideally I would want the savedNote function only on success. (.then) and fail in .catch
       // --Handle Create and Update of CRUD---- //
@@ -245,28 +185,17 @@ export default class NoteDisplayContainer extends Component {
 
         // Detect if content has changed
         if (this.state.toBeSaved) this.props.savedNote(true)
-<<<<<<< HEAD
 =======
       // --Handle Create and Update of CRUD---- //
       onSave = () => {
         // Detect if content has changed
         if (this.state.toBeSaved) this.props.savedNote()
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
         this.setState({
           toBeSaved: false
         })
       }
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      // --Handle Delete of CRUD-- //
-      onDelete = () => {
-          this.props.onDelete()
-=======
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
 
       // TODO: Update list to handle changes
       // --Handle Delete of CRUD-- //
@@ -284,15 +213,11 @@ export default class NoteDisplayContainer extends Component {
             })
           this.props.deletedNote(false)
         }
-<<<<<<< HEAD
 =======
       // --Handle Delete of CRUD-- //
       onDelete = () => {
           this.props.onDelete()
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
       }
 
     getTitle=(newTitle) => {
@@ -313,19 +238,11 @@ export default class NoteDisplayContainer extends Component {
       // Loader
         this.state.isLoading ? <SpinLoader color={primaryAccent} background={primaryBack} size={7} /> // Loader goes here
 <<<<<<< HEAD
-<<<<<<< HEAD
           : <div className='split-pane-container'>
 =======
           : 
           <div className='split-pane-container'>
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-          : 
-          <div className='split-pane-container'>
-=======
-          : <div className='split-pane-container'>
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
             <SplitPaneContainer
               getTitle={this.getTitle}
               onSave={() => this.onSave()}

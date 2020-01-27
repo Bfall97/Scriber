@@ -26,17 +26,10 @@ export default class SideExplorer extends Component {
   }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
   // TODO DRY
 =======
 // TODO DRY
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-// TODO DRY
-=======
-  // TODO DRY
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
   handleDropbox= () => {
     smalltalk
       .prompt('Dropbox Token', 'Please enter your dropbox token, if you do not know where to find it, click here (link)', '')
@@ -71,17 +64,10 @@ export default class SideExplorer extends Component {
   }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
   // TODO: DRY
 =======
 // TODO: DRY
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-// TODO: DRY
-=======
-  // TODO: DRY
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
   getContent = () => {
     if (this.state.activeMenu === 'local') {
       this.setState({ content:
@@ -111,19 +97,11 @@ export default class SideExplorer extends Component {
             label= 'Dropbox Notes'
           >
 <<<<<<< HEAD
-<<<<<<< HEAD
             {this.state.isLoading ? <SpinLoader color={getComputedStyle(document.documentElement).getPropertyValue('--primaryAccent')} background={ getComputedStyle(document.documentElement).getPropertyValue('--primaryBackground')} size={5} />
               : <NoteList
 =======
              <NoteList
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-             <NoteList
-=======
-            {this.state.isLoading ? <SpinLoader color={getComputedStyle(document.documentElement).getPropertyValue('--primaryAccent')} background={ getComputedStyle(document.documentElement).getPropertyValue('--primaryBackground')} size={5} />
-              : <NoteList
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
                 className = 'note-list-menu'
                 className = 'expanded'
                 data={setting.get('tokens.dropbox') === '' ? null : this.props.dropboxData}
@@ -139,17 +117,10 @@ export default class SideExplorer extends Component {
         </Accordion>
       })
 <<<<<<< HEAD
-<<<<<<< HEAD
     } else if (this.state.activeMenu === '') { // TODO Fix this or delete it. (leaning towards delete)
 =======
   } else if (this.state.activeMenu === '') { // TODO Fix this or delete it. (leaning towards delete)
 >>>>>>> 815dd7e... Massive Revision for the project
-=======
-  } else if (this.state.activeMenu === '') { // TODO Fix this or delete it. (leaning towards delete)
-=======
-    } else if (this.state.activeMenu === '') { // TODO Fix this or delete it. (leaning towards delete)
->>>>>>> c1923cc73491294e0ad84a68eba40b0fe37a0097
->>>>>>> 72b801b768fc8c43b00521d7103a0d253d50f15b
       this.setState({ content:
          <>
          <Accordion margin={{ left: '50px' }}
