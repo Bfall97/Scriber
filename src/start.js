@@ -57,7 +57,6 @@ function createWindow () {
     }),
     settings.set('tokens',{
       dropbox : '',
-      // HqkVb2MBXGAAAAAAAAAAV0Lj4ZNMkt8jY9WnDMHbCOZjvzgpAG12Xy1WVzcWPHIK
     }),
     settings.set('currentTheme',{
       theme: settings.get('currentTheme.theme')
