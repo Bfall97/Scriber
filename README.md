@@ -1,13 +1,14 @@
-# Noted
+# Scriber
 
-![Imgur](https://i.imgur.com/YpUunAP.png)
+![Imgur](https://i.imgur.com/iDev0QL.png)
+
 
 This is a simple note-taking application for markdown and .txt notes based on modern web technologies like React, Electron, and Node.js. It provides file editing and a live Markdown previews for local files. 
 
 
-I used this project to learn React and Electron with minimal knowledge of both before I started. As a result of this,this project could use some major work. 
+I used this project to learn React and Electron with minimal knowledge of both before I started. As a result of this, the project is a mess and could use some major work. 
 
-Feel free to contribute.
+If you're brave enough, feel free to contribute.
 
 
 ### Prerequisites
