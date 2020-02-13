@@ -1,9 +1,12 @@
 /* Default Theme (dark) */
 html {
 
+	--explorerMenuIcon: white;
+
 	--titlebarBG: #272626;
 	--titlebarBorder: #222224;
 	--titlebarForeground: #d4d6da;
+	--titlebarHover: #717275;
 	--titlebarButtonBG: #37383a;
 	--titlebarButtonBorder: black;
 	--titlebarDropDownBG:#3d3e41;
@@ -106,88 +109,341 @@ html {
 
 /* Light Theme */
 html[data-theme="light"] {
-	/* main background */
-	--primaryBackground: #ffffff;
-	/* Background of text */
-	--textDisplay: #f0e8e8;
-	/* Other large coloured elements */
-	--secondaryBackground: #dd3030;
-	--primaryAccent: #cf5743;
-	--secondaryAccent: rgb(219, 93, 93);
-	/* Text */
-	--primaryTextColor: #000000;
-	/* Other styles related to text, (selection, hover, etc.) */
-	--secondaryTextColor: #67735c;
+	/* Main Colours */
+	--primaryGradient:#e4eaee;
+	--secondaryGradient:var(--primaryGradient);
+	--titlebarBG: var(--primaryGradient);
+	--primaryBackground: #e4eaee;
+	--textDisplay: #27292e;
+	--primaryTextColor: #0e0d0d;
+	--primaryAccent: #20547d;
+	--sideNavIcon: var(--primaryAccent);
+	--explorerMenuIcon: var(--primaryAccent);
 
-	--editorBackground: #ece8e8;
-	--editorForground: #000000;
-	--editorSelection: #d8dc4bc2;
-	--editorComment: #3f4fe6;
-	--editorKeyword: #df2e2e;
-	--editorNumber: #df2e2e;
-	--editorString: #5bd1e6;
-	--editorVariable1: #2961c0;
-	--editorVariable2: #c74040;
-	--editorHeader: #8b223b;
+	/* Title Bar */
+	--titlebarBorder: #0f1e2c;
+	--titlebarForeground: #1b1b1d;
+	--titlebarHover: #89abee;
+	--titlebarButtonBG: #07457e;
+	--titlebarButtonBorder: #1c1d1f;
+	--titlebarDropDownBG:#e7e8ec;
+	--titlebarDropDownBorder: #07345d; 
+	--titlebarDropDownSelection: #0f7272;
+	--titlebarDropDownSelectionForeground: #1a1a1b;
+	--titlebarDropDownSeperator:#3e6e9b;
+	
+	/* Secondary Colours */
+	--secondaryBackground: #0e0d0d;
+	--secondaryAccent: #ca3542;
+	--secondaryTextColor: #288644;
 
-	--buttonHover: #0e0d0d83;
-	--secondaryContrast: #ee8787a1;
+	/* Side Nav Styling */
+	--sideNavMainText:#121312;
+	--sideNavSecondaryText:#252c2e;	
+	--sideNavHover: #000000;
+	--sideNavSearchBoxText:#000000;
+	--sideNavSearchBorder:#252527;
+	--sideNavSubMenuTextAccent:#ddb866;
+	--sideNavSubMenuBG: #dbe1e7;
+	--sideNavBorder: var(--primaryAccent);
+	--sideNavLinkHover: var(--primaryAccent);
+	
 
-	--mobileStep: #b37c7c70;
+	/* Accents */
+	--welcomePgRecentDocContainer: var(--primaryAccent);
+	--settingPgAccent: var(--primaryAccent);
+	--accordionColor: var(--primaryAccent);
+
+	/* Editor Styling */
+	--editorBackground: #f2f3f6;
+	--editorForeground: #161515;
+	--editorSelection: #4181b677;
+	--editorComment: #228b22;
+	--editorKeyword: #cfc423;
+	--editorNumber: #a89ddd;
+	--editorString: #cf6c1b;
+	--editorVariable1: #268a1f;
+	--editorVariable2: #1f7e79;
+	--editorHeader: #3c85d8;
+	--editorCursor: #df9f59;
+	--editorLineNumber: #13182e;
+	--editorGutter:var(--primaryBackground);
+	--editorAttributeProperty:#59ccc2;
+	--editorBracket:#358a7c;
+	--editorTag:#69b9bd;
+	--editorLink:#64ad80;
+	--editorMatchBracketColor: #3f8b7b;
+	--editorMatchBracketBG:#467b9b;
+	--editorGutterBorder: #252424;
+	
+	/* Buttons + Links */
+	--linkColour: var(--primaryAccent);
+	--linkHover: #352f86;
+	--buttonFGColor: #fdfbfb;
+	--buttonBGColor: var(--primaryAccent);
+	--buttonHover: #1f47b4da;
+	--secondaryContrast: #e2a23b;
+
+	/* ScrollBars */
+	--scrollbarTrack : #252627;
+	--scrollbarThumb : var(--primaryAccent);
+	--scrollbarThumbHover :#5a718f;
+	
+	--bottomBarBorder: var(--primaryAccent);;
+
+	/* Split Screen Resizers */
+	--resizerBackground: #3e6e9b;
+	--resizerAccent:var(--primaryAccent);
+	--resizerBorder: #2e3033;
+
+	/* Markdown Preview Styling  */
+	--previewAnchor: #3dadb8;
+	/* --previewAnchorHover:; */
+	--previewH2Underline: #6a81be;
+	--previewHeader1: #2384d3;
+	--previewHeader2:#447cb1;
+	--previewHeader3:#10a1c5;
+	--previewHeader4:#72aab8;
+	--previewHeader5:#5b94ca;
+	--previewHeader6:#3996e2;
+	--previewHorizontalRule: #c22e42;
+	--previewHorizontalRuleInner:#c82347;
+	--previewBlockQoute: #16cc8f;
+	--previewBlockQouteBG: #5f5f62;
+	--previewTableBorder: #494646;
+	--previewTableRowBG: #858585;
+	--previewTableRow2BG: #777676;
+	--previewTableHeaderBorder: #c7bdbd;
+	--previewTableTDBorder: #a09d9d;
+	--previewCodeBlockBorder: #aaa6a6;
+	
 }
+
 
 /* Some other themes here */
 html[data-theme="femme"] {
-	--primaryBackground: #f4e0f6;
-	--secondaryBackground: rgb(138, 15, 155);
-	--textDisplay: #fbfbfb;
-	--primaryAccent: rgb(153, 63, 165);
-	--secondaryAccent: rgb(117, 45, 224);
-	--primaryTextColor: #000000;
-	--secondaryTextColor: rgb(143, 108, 158);
+/* Main Colours */
+--primaryGradient:#310947;
+--secondaryGradient: #27043a;
+--titlebarBG: #310947;
+--primaryBackground: #5c4077;
+--textDisplay: #eaecf1;
+--primaryTextColor: #f6f2f2;
+--primaryAccent: #922759;
+--sideNavIcon: var(--textDisplay);
+--explorerMenuIcon: var(--textDisplay);
+--explorerRightBorder:var(--titlebarBG);
 
-	--editorBackground: #f8f8f8;
-	--editorForground: #5b0881;
-	--editorSelection: #d8dc4bc2;
-	--editorComment: #2f99d6;
-	--editorKeyword: #a61cbe;
-	--editorNumber: #e78989;
-	--editorString: #af169a;
-	--editorVariable1: #9c6db3;
-	--editorVariable2: #4ca0a5;
-	--editorHeader: #538fd4;
+/* Title Bar */
+--titlebarBorder: #0f1e2c;
+--titlebarForeground: #e6e0e0;
+--titlebarHover: #1d1a19;
+--titlebarButtonBG: #6d2260;
+--titlebarButtonBorder: #1c1d1f;
+--titlebarDropDownBG:#e7e8ec;
+--titlebarDropDownBorder: #07345d; 
+--titlebarDropDownSelection: #0f7272;
+--titlebarDropDownSelectionForeground: #1a1a1b;
+--titlebarDropDownSeperator:#3e6e9b;
 
-	--buttonHover: #ece3e37a;
-	--secondaryContrast: #4abfcabe;
+/* Secondary Colours */
+--secondaryBackground: #0e0d0d;
+--secondaryAccent: #ca3542;
+--secondaryTextColor: #3d96b9;
 
-	--mobileStep: #b37ca770;
+/* Side Nav Styling */
+--sideNavMainText:#121312;
+--sideNavSecondaryText:#252c2e;	
+--sideNavHover: #000000;
+/* --sideNavSearchBoxText:#000000; */
+/* --sideNavSearchBorder:#252527; */
+--sideNavSubMenuTextAccent:#66ddc3;
+--sideNavSubMenuBG: var(--primaryBackground);
+--sideNavBorder: #95053c;
+--sideNavLinkHover: #1a17176a;
+
+
+/* Accents */
+--welcomePgRecentDocContainer: var(--primaryAccent);
+--settingPgAccent: var(--primaryAccent);
+--accordionColor: var(--primaryAccent);
+
+/* Editor Styling */
+--editorBackground: #94768f;
+--editorForeground: #161515;
+--editorSelection: #4181b677;
+--editorComment: #228b22;
+--editorKeyword: #cfc423;
+--editorNumber: #a89ddd;
+--editorString: #cf6c1b;
+--editorVariable1: #268a1f;
+--editorVariable2: #1f7e79;
+--editorHeader: #3c85d8;
+--editorCursor: #df9f59;
+--editorLineNumber: #13182e;
+--editorGutter:#94768f;
+--editorAttributeProperty:#59ccc2;
+--editorBracket:#358a7c;
+--editorTag:#69b9bd;
+--editorLink:#64ad80;
+--editorMatchBracketColor: #3f8b7b;
+--editorMatchBracketBG:#467b9b;
+--editorGutterBorder: #252424;
+
+/* Buttons + Links */
+--linkColour: var(--secondaryTextColor);
+--linkHover: #b41f44da;
+--buttonFGColor: #fdfbfb;
+--buttonBGColor: var(--primaryAccent);
+--buttonHover: #b41f44da;
+--secondaryContrast: #486497f1;
+
+/* ScrollBars */
+--scrollbarTrack : #eaecf1;
+--scrollbarThumb : var(--primaryAccent);
+--scrollbarThumbHover: var(--primaryAccent);
+
+--bottomBarBorder: var(--explorerRightBorder);
+
+/* Split Screen Resizers */
+--resizerBackground: var(--explorerRightBorder);
+--resizerAccent:var(--primaryAccent);
+--resizerBorder: var(--explorerRightBorder);
+
+/* Markdown Preview Styling  */
+--previewAnchor: #e48073;
+/* --previewAnchorHover:; */
+--previewH2Underline: #6a81be;
+--previewHeader1: #4e4f90;
+--previewHeader2:#247a59;
+--previewHeader3:#b94d4d;
+--previewHeader4:#72aab8;
+--previewHeader5:#5b94ca;
+--previewHeader6:#3996e2;
+--previewHorizontalRule: #2ec2b5;
+--previewHorizontalRuleInner:#2394c8;
+--previewBlockQoute: #16cc8f;
+--previewBlockQouteBG: #5f5f62;
+--previewTableBorder: #494646;
+--previewTableRowBG: #858585;
+--previewTableRow2BG: #777676;
+--previewTableHeaderBorder: #c7bdbd;
+--previewTableTDBorder: #a09d9d;
+--previewCodeBlockBorder: #aaa6a6;
+
 }
 
 
 
 
 html[data-theme="office"] {
-	--primaryBackground: #ffffff;
-	--secondaryBackground: rgb(22, 62, 194);
-	--textDisplay: #f0eaea;
-	--primaryAccent: rgb(31, 77, 184);
-	--secondaryAccent: rgb(19, 126, 24);
-	--primaryTextColor: #000000;
-	--secondaryTextColor: rgb(48, 70, 195);
+	/* Main Colours */
+	--primaryGradient:#e2e0be;
+	--secondaryGradient:var(--primaryGradient);
+	--titlebarBG: #504232;
+	--primaryBackground: #e2e0be;
+	--textDisplay: #2d313a;
+	--primaryTextColor: #161616;
+	--primaryAccent: #0a71b6;
+	--sideNavIcon: var(--textDisplay);
+	--explorerMenuIcon: var(--textDisplay);
+	--explorerRightBorder:rgb(192, 50, 85);
 
-	--editorBackground: #f8f8f8;
-	--editorForground: #000000;
-	--editorSelection: #d8dc4bc2;
-	--editorComment: #2f99d6;
-	--editorKeyword: #31d855;
-	--editorNumber: #0e78aa;
-	--editorString: #1b7a0a;
-	--editorVariable1: #9c6db3;
-	--editorVariable2: #4ca0a5;
-	--editorHeader: #538fd4;
+	/* Title Bar */
+	--titlebarBorder: #0f1e2c;
+	--titlebarForeground: #e6e0e0;
+	--titlebarHover: #1d1a19;
+	--titlebarButtonBG: #07457e;
+	--titlebarButtonBorder: #1c1d1f;
+	--titlebarDropDownBG:#e7e8ec;
+	--titlebarDropDownBorder: #07345d; 
+	--titlebarDropDownSelection: #0f7272;
+	--titlebarDropDownSelectionForeground: #1a1a1b;
+	--titlebarDropDownSeperator:#3e6e9b;
+	
+	/* Secondary Colours */
+	--secondaryBackground: #0e0d0d;
+	--secondaryAccent: #ca3542;
+	--secondaryTextColor: #3d96b9;
 
-	--buttonHover: #ece3e37a;
-	--secondaryContrast: #3b3b3bf3;
+	/* Side Nav Styling */
+	--sideNavMainText:#121312;
+	--sideNavSecondaryText:#252c2e;	
+	--sideNavHover: #000000;
+	/* --sideNavSearchBoxText:#000000; */
+	/* --sideNavSearchBorder:#252527; */
+	--sideNavSubMenuTextAccent:#ddb866;
+	--sideNavSubMenuBG: var(--primaryBackground);
+	--sideNavBorder: #053c95;
+	--sideNavLinkHover: #1a17176a;
+	
 
-	--mobileStep: #807cb370;
+	/* Accents */
+	--welcomePgRecentDocContainer: var(--primaryAccent);
+	--settingPgAccent: var(--primaryAccent);
+	--accordionColor: var(--primaryAccent);
+
+	/* Editor Styling */
+	--editorBackground: #f2f3f6;
+	--editorForeground: #161515;
+	--editorSelection: #4181b677;
+	--editorComment: #228b22;
+	--editorKeyword: #cfc423;
+	--editorNumber: #a89ddd;
+	--editorString: #cf6c1b;
+	--editorVariable1: #268a1f;
+	--editorVariable2: #1f7e79;
+	--editorHeader: #3c85d8;
+	--editorCursor: #df9f59;
+	--editorLineNumber: #4e5da1;
+	--editorGutter:var(--primaryBackground);
+	--editorAttributeProperty:#59ccc2;
+	--editorBracket:#358a7c;
+	--editorTag:#69b9bd;
+	--editorLink:#64ad80;
+	--editorMatchBracketColor: #3f8b7b;
+	--editorMatchBracketBG:#467b9b;
+	--editorGutterBorder: #252424;
+	
+	/* Buttons + Links */
+	--linkColour: var(--secondaryTextColor);
+	--linkHover: var(--primaryAccent);
+	--buttonFGColor: #fdfbfb;
+	--buttonBGColor: var(--primaryAccent);
+	--buttonHover: #1f47b4da;
+	--secondaryContrast: #486497f1;
+
+	/* ScrollBars */
+	--scrollbarTrack : var(--primaryGradient);
+	--scrollbarThumb : var(--textDisplay);
+	--scrollbarThumbHover :var(--primaryAccent);
+	
+	--bottomBarBorder: var(--titlebarBG);
+
+	/* Split Screen Resizers */
+	--resizerBackground: var(--titlebarBG);
+	--resizerAccent:var(--primaryAccent);
+	--resizerBorder: var(--titlebarBG);
+
+	/* Markdown Preview Styling  */
+	--previewAnchor: #3dadb8;
+	/* --previewAnchorHover:; */
+	--previewH2Underline: #6a81be;
+	--previewHeader1: #20263a;
+	--previewHeader2:#313a53;
+	--previewHeader3:#465681;
+	--previewHeader4:#4d9eb3;
+	--previewHeader5:#406f9b;
+	--previewHeader6:#186baf;
+	--previewHorizontalRule: #2ec2b5;
+	--previewHorizontalRuleInner:#2394c8;
+	--previewBlockQoute: #16cc8f;
+	--previewBlockQouteBG: #5f5f62;
+	--previewTableBorder: #494646;
+	--previewTableRowBG: #858585;
+	--previewTableRow2BG: #777676;
+	--previewTableHeaderBorder: #c7bdbd;
+	--previewTableTDBorder: #a09d9d;
+	--previewCodeBlockBorder: #aaa6a6;
+	
 }

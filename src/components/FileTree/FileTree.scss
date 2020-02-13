@@ -1,13 +1,22 @@
+@import "../../vendor/ColVars.css";
+
 .tree{
     text-align:left;
+    
     
     & ul[class^=css-]{
         font-size: 13px;
         padding-left:5px;
+        background: var(--sideNavSubMenuBG);
+        color: var(--sideNavSubMenuForeground);
     }
 
     & li div[class^=css-]:hover{
         opacity:80%;
+    }
+
+    & li div[class^=css-]{
+        color: var(--sideNavSubMenuForeground)
     }
 
 }
