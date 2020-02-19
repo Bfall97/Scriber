@@ -12,6 +12,7 @@ import './Settings.scss'
 
 
 // TODO: Finish Settings Page
+//  TODO: Remove custom theming.
 
 const setting = require('electron').remote.require('electron-settings')
 const smalltalk = require('smalltalk');
@@ -24,19 +25,24 @@ export default class Settings extends Component {
       themeSettingsView: false,
       activeTheme : setting.get('currentTheme.theme'),
       createdThemeName: '',
+      customThemes: []
     }
     this.toggleTheme = this.toggleTheme.bind(this)
-    this.toggleTheme(setting.get('currentTheme.theme'))
     // setting.get('customThemes.savedThemes')
   }
 
     // Handle Theme Change
     toggleTheme=(theme) => {
+
+      Object.keys(this.state.activeTheme).forEach((key)=>{
+        document.documentElement.style.removeProperty('--'+key,this.state.activeTheme[key])
+      })
+
       setting.set('currentTheme',{
         theme:theme,
       })
       setting.get('customThemes.savedThemes').map((i)=>{
-        if(i === theme){
+        // if(i === theme){
           //Set theme as active
           this.setState({
             activeTheme : i
@@ -44,61 +50,72 @@ export default class Settings extends Component {
           
           var varTrig = document.querySelectorAll(".js-update-variable");
           for(var i = 0; i < varTrig.length; i++){
+            console.log(varTrig[i])
             varTrig[i].addEventListener("change", function(){
             document.documentElement.style.setProperty("--" + this.dataset.variable, this.value);
           });
           }
 
-        }
+        // }
       })
+      
+
+
       document.documentElement.setAttribute('data-theme', theme)
       console.log('switching themes...')
       document.documentElement.classList.add('theme-transition')
       document.documentElement.setAttribute('data-theme', theme)
       window.setTimeout(function () {
         document.documentElement.classList.remove('theme-transition')
-      }, 800)
+      }, 600)
   }
 
-      customThemeList=()=>{
-          // let themeList = setting.get('customThemes.savedThemes');
-          return setting.get('customThemes.savedThemes').map((i,index) => (
-            i == this.state.activeTheme ? 
-            <li       // Conditionally render and 'active' class on the list item
-              className='custom-theme-list-item-active'
-              onClick = {()=>this.toggleTheme(i)}
-              key={index}>
-              {i}
-            </li>
-            :
-            <li       
-              className='custom-theme-list-item'
-              onClick = {()=>this.toggleTheme(i)}
-              key={index}>
-              {i}
-            </li>
-          ))
-        }
+  toggleCustomTheme = themeObj => {
 
-      newTheme=()=>{
-        this.setState({themeSettingsView:true})
-        smalltalk
-          .prompt('Theme Name', 'Lets start with a name for your theme:', '')
-          .then((value) => {
-          // setting.set('customThemes',{ savedThemes: savedThemes.append(value)})
-          this.setState({createdThemeName: value})
-        })
-          .catch(() => {
-          console.log('cancel');
-        });
+    setting.set('currentTheme',{
+      theme:themeObj,
+    })
+    // Setting new variable values with transition
+    document.documentElement.setAttribute('data-theme', themeObj.name)
+    document.documentElement.classList.add('theme-transition')
+    Object.keys(themeObj).forEach(key=>{
+      let cssVariable = '--'+key
+      let cssVal = themeObj[key]
+      document.documentElement.style.setProperty(cssVariable,cssVal)
+    })
+    window.setTimeout(function () {
+      document.documentElement.classList.remove('theme-transition')
+    }, 600)
+   
+    this.setState({
+      activeTheme:themeObj
+    })
+  }
+
+    customThemeList=()=>{
+      setting.get('customThemes.savedThemes').map((themeObj, index)=>{
+          this.setState(state => ({
+            customThemes: state.customThemes.concat(themeObj)
+          }))
+          
+      })
       }
+
+    newTheme=()=>{
+      this.setState({themeSettingsView:true})
+      smalltalk
+        .prompt('Theme Name', 'Lets start with a name for your theme:', '')
+        .then((value) => {
+        this.setState({createdThemeName: value})
+      })
+        .catch(() => {
+        console.log('cancel');
+      });
+    }
 
 //TODO: Add Scrollbar, your CSS sucks!
   
   render() {
-      
-    
-    // Which icon to display
     const ThemeIcons =
     <React.Fragment>
           <Moon dark onClick={() => this.toggleTheme('dark')} size='22' className='dark-theme'/>
@@ -117,7 +134,15 @@ export default class Settings extends Component {
           { ThemeIcons }
           <div className='custom-theme-form'>
              <h4>Custom Themes</h4>
-              {this.customThemeList()}
+              {setting.get('customThemes.savedThemes').map((themeObj,index)=>{
+                 return (
+                    <button
+                     className='custom-theme-list-item-active'
+                     onClick = {()=>this.toggleCustomTheme(themeObj)}
+                     key={index}>
+                     {themeObj.name}
+                   </button>)
+              })}
               <button onClick={this.newTheme}>New</button>
              
              {this.state.themeSettingsView ?
@@ -128,9 +153,6 @@ export default class Settings extends Component {
         </div>
       </div>
     </div> 
-      {/* <Tooltip title="Settings" aria-label="settings">
-        <SettingsIcon size='22' className='settings-button' onClick={()=>{this.setState({settingsView: !this.state.settingsView})}} />
-      </Tooltip> */}
      </React.Fragment>   
     )
   }

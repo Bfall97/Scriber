@@ -59,7 +59,7 @@ function createWindow () {
       dropbox : '',
     }),
     settings.set('currentTheme',{
-      theme: settings.get('currentTheme.theme')
+      theme: ''
     }),
     settings.set('lastScreenDimensions',{
       width: settings.get('lastScreenDimensions.width'),

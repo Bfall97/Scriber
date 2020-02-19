@@ -25,7 +25,9 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      // theme: 'dark',
+      // Default to dark theme
+      theme: setting.get('currentTheme.theme') !== '' ? setting.get('currentTheme.theme') 
+                                                      : setting.set('currentTheme.theme','dark'),
       dropboxData: [],
       localData:[],
       recentDocuments: [],
@@ -48,23 +50,39 @@ class App extends Component {
   }
 
   componentDidMount=()=>{
+    this.toggleTheme(setting.get('currentTheme.theme'))
+
     if (setting.get('recentDocs.recentDocs') && setting.get('recentDocs.recentDocs').length) {
       let docs = setting.get('recentDocs.recentDocs')
-      this.setState({recentDocuments:docs})
-    } // Load Recent Docs if available
+      this.setState({recentDocuments:docs}) 
+    }
   }
 
-  // Toggle Theme Change
+  // Toggle Theme Change on Mount
   toggleTheme=(theme) => {
     this.setState({ theme })
+    console.log(theme)
+    if (typeof(theme) === 'string'){
+      document.documentElement.setAttribute('data-theme', theme)
+      console.log('switching themes...')
+      document.documentElement.classList.add('theme-transition')
+      document.documentElement.setAttribute('data-theme', theme)
+      window.setTimeout(function () {
+        document.documentElement.classList.remove('theme-transition')
+      }, 800)
 
-    document.documentElement.setAttribute('data-theme', theme)
-    console.log('switching themes...')
-    document.documentElement.classList.add('theme-transition')
-    document.documentElement.setAttribute('data-theme', theme)
-    window.setTimeout(function () {
-      document.documentElement.classList.remove('theme-transition')
-    }, 800)
+    }else if (typeof(theme) === 'object'){
+      document.documentElement.setAttribute('data-theme', theme.name)
+      document.documentElement.classList.add('theme-transition')
+      Object.keys(theme).forEach(key=>{
+        let cssVariable = '--'+key
+        let cssVal = theme[key]
+        document.documentElement.style.setProperty(cssVariable,cssVal)
+      })
+      window.setTimeout(function () {
+        document.documentElement.classList.remove('theme-transition')
+      }, 600)
+    }
   }
 
   // Set SideNav Expansion 
