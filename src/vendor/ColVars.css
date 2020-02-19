@@ -1,5 +1,5 @@
 /* Default Theme (dark) */
-html {
+html[data-theme="dark"] {
 
 	--explorerMenuIcon: white;
 
