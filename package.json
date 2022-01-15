@@ -43,7 +43,7 @@
     "jest-watch-typeahead": "0.3.0",
     "jquery": "^3.4.1",
     "json-dir-tree-react": "^1.0.3",
-    "marked": "^0.8.0",
+    "marked": "^4.0.10",
     "mini-css-extract-plugin": "0.5.0",
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "5.0.1",
